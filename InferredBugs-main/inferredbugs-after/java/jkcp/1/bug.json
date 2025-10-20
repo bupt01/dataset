@@ -1,0 +1,247 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.beykery.jkcp.KcpThread.run` reads without synchronization from `this.org.beykery.jkcp.KcpThread.timeout`. Potentially races with write in method `KcpThread.setTimeout(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 145,
+    "column": -1,
+    "procedure": "void KcpThread.run()",
+    "procedure_id": "org.beykery.jkcp.KcpThread.run():void.bed5863ed90560ead425a16199a3e750",
+    "procedure_start_line": 132,
+    "file": "src/main/java/org/beykery/jkcp/KcpThread.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 145,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 145,
+        "column_number": -1,
+        "description": "access to `this.org.beykery.jkcp.KcpThread.timeout`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 203,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 203,
+        "column_number": -1,
+        "description": "access to `this.org.beykery.jkcp.KcpThread.timeout`"
+      }
+    ],
+    "key": "KcpThread.java|run|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "9268b3860fab8d82d442ac98a05ac19b",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.beykery.jkcp.KcpThread.run` reads without synchronization from `this.org.beykery.jkcp.KcpThread.mtu`. Potentially races with write in method `KcpThread.setMtu(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 144,
+    "column": -1,
+    "procedure": "void KcpThread.run()",
+    "procedure_id": "org.beykery.jkcp.KcpThread.run():void.bed5863ed90560ead425a16199a3e750",
+    "procedure_start_line": 132,
+    "file": "src/main/java/org/beykery/jkcp/KcpThread.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 144,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 144,
+        "column_number": -1,
+        "description": "access to `this.org.beykery.jkcp.KcpThread.mtu`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 90,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 90,
+        "column_number": -1,
+        "description": "access to `this.org.beykery.jkcp.KcpThread.mtu`"
+      }
+    ],
+    "key": "KcpThread.java|run|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "efb6d9c4170304819da6aca5d659a70e",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.beykery.jkcp.KcpThread.run` reads without synchronization from `this.org.beykery.jkcp.KcpThread.rcvwnd`. Potentially races with write in method `KcpThread.wndSize(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 143,
+    "column": -1,
+    "procedure": "void KcpThread.run()",
+    "procedure_id": "org.beykery.jkcp.KcpThread.run():void.bed5863ed90560ead425a16199a3e750",
+    "procedure_start_line": 132,
+    "file": "src/main/java/org/beykery/jkcp/KcpThread.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 143,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 143,
+        "column_number": -1,
+        "description": "access to `this.org.beykery.jkcp.KcpThread.rcvwnd`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 80,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 80,
+        "column_number": -1,
+        "description": "access to `this.org.beykery.jkcp.KcpThread.rcvwnd`"
+      }
+    ],
+    "key": "KcpThread.java|run|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "f0c7efcf9ffe5842d1204d03ce579085",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.beykery.jkcp.KcpThread.run` reads without synchronization from `this.org.beykery.jkcp.KcpThread.interval`. Potentially races with write in method `KcpThread.noDelay(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 142,
+    "column": -1,
+    "procedure": "void KcpThread.run()",
+    "procedure_id": "org.beykery.jkcp.KcpThread.run():void.bed5863ed90560ead425a16199a3e750",
+    "procedure_start_line": 132,
+    "file": "src/main/java/org/beykery/jkcp/KcpThread.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 142,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 142,
+        "column_number": -1,
+        "description": "access to `this.org.beykery.jkcp.KcpThread.interval`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 66,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 66,
+        "column_number": -1,
+        "description": "access to `this.org.beykery.jkcp.KcpThread.interval`"
+      }
+    ],
+    "key": "KcpThread.java|run|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "aa76283207b735de5b9b5e993949a387",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.beykery.jkcp.KcpThread.run` reads without synchronization from `this.org.beykery.jkcp.KcpThread.running`. Potentially races with write in method `KcpThread.start()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 132,
+    "column": -1,
+    "procedure": "void KcpThread.run()",
+    "procedure_id": "org.beykery.jkcp.KcpThread.run():void.bed5863ed90560ead425a16199a3e750",
+    "procedure_start_line": 132,
+    "file": "src/main/java/org/beykery/jkcp/KcpThread.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 132,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 132,
+        "column_number": -1,
+        "description": "access to `this.org.beykery.jkcp.KcpThread.running`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 116,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/beykery/jkcp/KcpThread.java",
+        "line_number": 116,
+        "column_number": -1,
+        "description": "access to `this.org.beykery.jkcp.KcpThread.running`"
+      }
+    ],
+    "key": "KcpThread.java|run|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "40722b31821730d2b91e6b195b100ef4",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

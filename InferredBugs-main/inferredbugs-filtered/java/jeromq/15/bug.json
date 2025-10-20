@@ -1,0 +1,247 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.zeromq.ZContext.destroySocket` indirectly writes to field `$T1_1237.zmq.Options.mechanism` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 121,
+    "column": -1,
+    "procedure": "void ZContext.destroySocket(ZMQ$Socket)",
+    "procedure_id": "org.zeromq.ZContext.destroySocket(org.zeromq.ZMQ$Socket):void.d040f9f21d883acb870f8a504264f6c0",
+    "procedure_start_line": 114,
+    "file": "src/main/java/org/zeromq/ZContext.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/zeromq/ZContext.java",
+        "line_number": 121,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/zeromq/ZContext.java",
+        "line_number": 121,
+        "column_number": -1,
+        "description": "call to boolean ZMQ$Socket.setLinger(int)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/org/zeromq/ZMQ.java",
+        "line_number": 570,
+        "column_number": -1,
+        "description": "call to boolean SocketBase.setSocketOpt(int,Object)"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/zmq/SocketBase.java",
+        "line_number": 232,
+        "column_number": -1,
+        "description": "call to boolean Options.setSocketOpt(int,Object)"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/zmq/Options.java",
+        "line_number": 386,
+        "column_number": -1,
+        "description": "call to byte[] Options.setCurveKey(int,Object,ValueReference)"
+      },
+      {
+        "level": 4,
+        "filename": "src/main/java/zmq/Options.java",
+        "line_number": 541,
+        "column_number": -1,
+        "description": "access to `this.zmq.Options.mechanism`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/zeromq/ZContext.java",
+        "line_number": 77,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/zeromq/ZContext.java",
+        "line_number": 77,
+        "column_number": -1,
+        "description": "call to boolean ZMQ$Socket.setLinger(int)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/org/zeromq/ZMQ.java",
+        "line_number": 570,
+        "column_number": -1,
+        "description": "call to boolean SocketBase.setSocketOpt(int,Object)"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/zmq/SocketBase.java",
+        "line_number": 232,
+        "column_number": -1,
+        "description": "call to boolean Options.setSocketOpt(int,Object)"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/zmq/Options.java",
+        "line_number": 386,
+        "column_number": -1,
+        "description": "call to byte[] Options.setCurveKey(int,Object,ValueReference)"
+      },
+      {
+        "level": 4,
+        "filename": "src/main/java/zmq/Options.java",
+        "line_number": 541,
+        "column_number": -1,
+        "description": "access to `this.zmq.Options.mechanism`"
+      }
+    ],
+    "key": "ZContext.java|destroySocket|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "9b8baf5ba94b73860addad5c9fe0dcdd",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.zeromq.ZContext.destroy` indirectly writes to field `socket.org.zeromq.ZMQ$Socket.base.zmq.SocketBase.tag` outside of synchronization.\n Reporting because this access may occur on a background thread.\n\nNote that the prefix path socket has been contaminated during the execution, so the reported race on socket.org.zeromq.ZMQ$Socket.base.zmq.SocketBase.tag might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 78,
+    "column": -1,
+    "procedure": "void ZContext.destroy()",
+    "procedure_id": "org.zeromq.ZContext.destroy():void.4999bab718cfade53cdd45c591a6a11e",
+    "procedure_start_line": 74,
+    "file": "src/main/java/org/zeromq/ZContext.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/zeromq/ZContext.java",
+        "line_number": 78,
+        "column_number": -1,
+        "description": "call to void ZMQ$Socket.close()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/org/zeromq/ZMQ.java",
+        "line_number": 479,
+        "column_number": -1,
+        "description": "call to void SocketBase.close()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/zmq/SocketBase.java",
+        "line_number": 860,
+        "column_number": -1,
+        "description": "access to `this.zmq.SocketBase.tag`"
+      }
+    ],
+    "key": "ZContext.java|destroy|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "3b6b6e8769d4a8717f30be9ca8c2e25e",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.zeromq.ZContext.destroy` indirectly writes to field `socket.org.zeromq.ZMQ$Socket.base.zmq.Own.options.zmq.Options.asServer` outside of synchronization.\n Reporting because this access may occur on a background thread.\n\nNote that the prefix path socket has been contaminated during the execution, so the reported race on socket.org.zeromq.ZMQ$Socket.base.zmq.Own.options.zmq.Options.asServer might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 77,
+    "column": -1,
+    "procedure": "void ZContext.destroy()",
+    "procedure_id": "org.zeromq.ZContext.destroy():void.4999bab718cfade53cdd45c591a6a11e",
+    "procedure_start_line": 74,
+    "file": "src/main/java/org/zeromq/ZContext.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/zeromq/ZContext.java",
+        "line_number": 77,
+        "column_number": -1,
+        "description": "call to boolean ZMQ$Socket.setLinger(int)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/org/zeromq/ZMQ.java",
+        "line_number": 570,
+        "column_number": -1,
+        "description": "call to boolean SocketBase.setSocketOpt(int,Object)"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/zmq/SocketBase.java",
+        "line_number": 232,
+        "column_number": -1,
+        "description": "call to boolean Options.setSocketOpt(int,Object)"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/zmq/Options.java",
+        "line_number": 346,
+        "column_number": -1,
+        "description": "access to `this.zmq.Options.asServer`"
+      }
+    ],
+    "key": "ZContext.java|destroy|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "1871dfc4ff753fb6812bd54d3639c90a",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.zeromq.ZContext.destroy` reads without synchronization from `this.org.zeromq.ZContext.linger`. Potentially races with write in method `ZContext.setLinger(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 77,
+    "column": -1,
+    "procedure": "void ZContext.destroy()",
+    "procedure_id": "org.zeromq.ZContext.destroy():void.4999bab718cfade53cdd45c591a6a11e",
+    "procedure_start_line": 74,
+    "file": "src/main/java/org/zeromq/ZContext.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/zeromq/ZContext.java",
+        "line_number": 77,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/zeromq/ZContext.java",
+        "line_number": 77,
+        "column_number": -1,
+        "description": "access to `this.org.zeromq.ZContext.linger`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/zeromq/ZContext.java",
+        "line_number": 179,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/zeromq/ZContext.java",
+        "line_number": 179,
+        "column_number": -1,
+        "description": "access to `this.org.zeromq.ZContext.linger`"
+      }
+    ],
+    "key": "ZContext.java|destroy|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "ee3dc2c433f7fad30ab9160606427eb1",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

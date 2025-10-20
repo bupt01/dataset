@@ -1,0 +1,338 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.apache.phoenix.end2end.BackwardCompatibilityIT.testUpsertDeleteWithNewClient` indirectly reads without synchronization from `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`. Potentially races with write in method `BackwardCompatibilityIT.doSetup()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 268,
+    "column": -1,
+    "procedure": "void BackwardCompatibilityIT.testUpsertDeleteWithNewClient()",
+    "procedure_id": "org.apache.phoenix.end2end.BackwardCompatibilityIT.testUpsertDeleteWithNewClient():void.f33c4e8d55728d5ee83a97de68df0ae1",
+    "procedure_start_line": 267,
+    "file": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 268,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 268,
+        "column_number": -1,
+        "description": "call to void BackwardCompatibilityIT.checkForPreConditions()"
+      },
+      {
+        "level": 1,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 287,
+        "column_number": -1,
+        "description": "access to `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 114,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 114,
+        "column_number": -1,
+        "description": "access to `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`"
+      }
+    ],
+    "key": "BackwardCompatibilityIT.java|testUpsertDeleteWithNewClient|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "e3b2790837bebaa752d3e0cb2e890faa",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.apache.phoenix.end2end.BackwardCompatibilityIT.testUpsertDeleteWithOldClient` indirectly reads without synchronization from `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`. Potentially races with write in method `BackwardCompatibilityIT.doSetup()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 245,
+    "column": -1,
+    "procedure": "void BackwardCompatibilityIT.testUpsertDeleteWithOldClient()",
+    "procedure_id": "org.apache.phoenix.end2end.BackwardCompatibilityIT.testUpsertDeleteWithOldClient():void.380f063065e0d0f38a11e635e329fe8e",
+    "procedure_start_line": 244,
+    "file": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 245,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 245,
+        "column_number": -1,
+        "description": "call to void BackwardCompatibilityIT.checkForPreConditions()"
+      },
+      {
+        "level": 1,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 287,
+        "column_number": -1,
+        "description": "access to `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 114,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 114,
+        "column_number": -1,
+        "description": "access to `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`"
+      }
+    ],
+    "key": "BackwardCompatibilityIT.java|testUpsertDeleteWithOldClient|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "6c902b35e863d3d8ae30fea12373cdf3",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.apache.phoenix.end2end.BackwardCompatibilityIT.testSelectUpsertWithOldClient` indirectly reads without synchronization from `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`. Potentially races with write in method `BackwardCompatibilityIT.doSetup()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 222,
+    "column": -1,
+    "procedure": "void BackwardCompatibilityIT.testSelectUpsertWithOldClient()",
+    "procedure_id": "org.apache.phoenix.end2end.BackwardCompatibilityIT.testSelectUpsertWithOldClient():void.1a529c7b05d93b182414b323575e3911",
+    "procedure_start_line": 221,
+    "file": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 222,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 222,
+        "column_number": -1,
+        "description": "call to void BackwardCompatibilityIT.checkForPreConditions()"
+      },
+      {
+        "level": 1,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 287,
+        "column_number": -1,
+        "description": "access to `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 114,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 114,
+        "column_number": -1,
+        "description": "access to `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`"
+      }
+    ],
+    "key": "BackwardCompatibilityIT.java|testSelectUpsertWithOldClient|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "a0840f6946b47a398b00d644545c2c01",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.apache.phoenix.end2end.BackwardCompatibilityIT.testSelectUpsertWithNewClient` indirectly reads without synchronization from `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`. Potentially races with write in method `BackwardCompatibilityIT.doSetup()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 198,
+    "column": -1,
+    "procedure": "void BackwardCompatibilityIT.testSelectUpsertWithNewClient()",
+    "procedure_id": "org.apache.phoenix.end2end.BackwardCompatibilityIT.testSelectUpsertWithNewClient():void.4c3ba3ef355fc05624ac49fd42c5cb6c",
+    "procedure_start_line": 197,
+    "file": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "call to void BackwardCompatibilityIT.checkForPreConditions()"
+      },
+      {
+        "level": 1,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 287,
+        "column_number": -1,
+        "description": "access to `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 114,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 114,
+        "column_number": -1,
+        "description": "access to `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`"
+      }
+    ],
+    "key": "BackwardCompatibilityIT.java|testSelectUpsertWithNewClient|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "c216dd6546a24e5b5957c1c99706aba7",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.apache.phoenix.end2end.BackwardCompatibilityIT.testSelectWithOldClient` indirectly reads without synchronization from `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`. Potentially races with write in method `BackwardCompatibilityIT.doSetup()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 179,
+    "column": -1,
+    "procedure": "void BackwardCompatibilityIT.testSelectWithOldClient()",
+    "procedure_id": "org.apache.phoenix.end2end.BackwardCompatibilityIT.testSelectWithOldClient():void.f6308622daefcd5429debfc605686119",
+    "procedure_start_line": 178,
+    "file": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 179,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 179,
+        "column_number": -1,
+        "description": "call to void BackwardCompatibilityIT.checkForPreConditions()"
+      },
+      {
+        "level": 1,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 287,
+        "column_number": -1,
+        "description": "access to `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 114,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 114,
+        "column_number": -1,
+        "description": "access to `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`"
+      }
+    ],
+    "key": "BackwardCompatibilityIT.java|testSelectWithOldClient|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "64d9138e8de8a33aea420fb3b14bda39",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.apache.phoenix.end2end.BackwardCompatibilityIT.testUpsertWithOldClient` indirectly reads without synchronization from `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`. Potentially races with write in method `BackwardCompatibilityIT.doSetup()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 162,
+    "column": -1,
+    "procedure": "void BackwardCompatibilityIT.testUpsertWithOldClient()",
+    "procedure_id": "org.apache.phoenix.end2end.BackwardCompatibilityIT.testUpsertWithOldClient():void.2361734ec62f66a2b4f7282db60ae8f8",
+    "procedure_start_line": 161,
+    "file": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 162,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 162,
+        "column_number": -1,
+        "description": "call to void BackwardCompatibilityIT.checkForPreConditions()"
+      },
+      {
+        "level": 1,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 287,
+        "column_number": -1,
+        "description": "access to `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 114,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "phoenix-core/src/it/java/org/apache/phoenix/end2end/BackwardCompatibilityIT.java",
+        "line_number": 114,
+        "column_number": -1,
+        "description": "access to `end2end.BackwardCompatibilityIT.org.apache.phoenix.end2end.BackwardCompatibilityIT.conf`"
+      }
+    ],
+    "key": "BackwardCompatibilityIT.java|testUpsertWithOldClient|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "bc3b6eab6096895e2323a11eb24c7346",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

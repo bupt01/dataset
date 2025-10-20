@@ -1,0 +1,296 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.github.wenweihu86.raft.RaftNode.takeSnapshot` reads without synchronization from `this.com.github.wenweihu86.raft.RaftNode.lastSnapshotIndex`. Potentially races with write in method `RaftNode.takeSnapshot()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 494,
+    "column": -1,
+    "procedure": "void RaftNode.takeSnapshot()",
+    "procedure_id": "com.github.wenweihu86.raft.RaftNode.takeSnapshot():void.f24c9e59662d1f14a53d6a64e7d42dda",
+    "procedure_start_line": 490,
+    "file": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 494,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 494,
+        "column_number": -1,
+        "description": "access to `this.com.github.wenweihu86.raft.RaftNode.lastSnapshotIndex`"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 511,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 511,
+        "column_number": -1,
+        "description": "access to `this.com.github.wenweihu86.raft.RaftNode.lastSnapshotIndex`"
+      }
+    ],
+    "key": "RaftNode.java|takeSnapshot|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "1f4764ee37fdce422d5684b339c359de",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.github.wenweihu86.raft.RaftNode.installSnapshot` reads without synchronization from `this.com.github.wenweihu86.raft.RaftNode.currentTerm`. Potentially races with write in method `RaftNode.stepDown(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 311,
+    "column": -1,
+    "procedure": "void RaftNode.installSnapshot(Peer)",
+    "procedure_id": "com.github.wenweihu86.raft.RaftNode.installSnapshot(com.github.wenweihu86.raft.Peer):void.259a658f0cd631041109cdf19df614a7",
+    "procedure_start_line": 308,
+    "file": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 311,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 311,
+        "column_number": -1,
+        "description": "access to `this.com.github.wenweihu86.raft.RaftNode.currentTerm`"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 437,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 437,
+        "column_number": -1,
+        "description": "access to `this.com.github.wenweihu86.raft.RaftNode.currentTerm`"
+      }
+    ],
+    "key": "RaftNode.java|installSnapshot|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "713b0af483701aeb2e4000e192937365",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.github.wenweihu86.raft.RaftNode.installSnapshot` reads without synchronization from `this.com.github.wenweihu86.raft.RaftNode.localServer`. Potentially races with write in method `RaftNode.setLocalServer(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 310,
+    "column": -1,
+    "procedure": "void RaftNode.installSnapshot(Peer)",
+    "procedure_id": "com.github.wenweihu86.raft.RaftNode.installSnapshot(com.github.wenweihu86.raft.Peer):void.259a658f0cd631041109cdf19df614a7",
+    "procedure_start_line": 308,
+    "file": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 310,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 310,
+        "column_number": -1,
+        "description": "access to `this.com.github.wenweihu86.raft.RaftNode.localServer`"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 581,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 581,
+        "column_number": -1,
+        "description": "access to `this.com.github.wenweihu86.raft.RaftNode.localServer`"
+      }
+    ],
+    "key": "RaftNode.java|installSnapshot|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "1e1eb91256c92ba2749c8ca235acac07",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.github.wenweihu86.raft.RaftNode.advanceCommitIndex` reads without synchronization from `this.com.github.wenweihu86.raft.RaftNode.lock`. Potentially races with write in method `RaftNode.setLock(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 282,
+    "column": -1,
+    "procedure": "void RaftNode.advanceCommitIndex()",
+    "procedure_id": "com.github.wenweihu86.raft.RaftNode.advanceCommitIndex():void.83654a00b21b552965de4c8eb2c477b2",
+    "procedure_start_line": 268,
+    "file": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 282,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 282,
+        "column_number": -1,
+        "description": "access to `this.com.github.wenweihu86.raft.RaftNode.lock`"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 524,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 524,
+        "column_number": -1,
+        "description": "access to `this.com.github.wenweihu86.raft.RaftNode.lock`"
+      }
+    ],
+    "key": "RaftNode.java|advanceCommitIndex|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "396d50aa7442cb1ffee74ffc40962c1b",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.github.wenweihu86.raft.RaftNode.appendEntries` reads without synchronization from `this.com.github.wenweihu86.raft.RaftNode.lastSnapshotTerm`. Potentially races with write in method `RaftNode.takeSnapshot()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 223,
+    "column": -1,
+    "procedure": "void RaftNode.appendEntries(Peer)",
+    "procedure_id": "com.github.wenweihu86.raft.RaftNode.appendEntries(com.github.wenweihu86.raft.Peer):void.1b7cf2b68edde0c5e478a2090efef511",
+    "procedure_start_line": 208,
+    "file": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 223,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 223,
+        "column_number": -1,
+        "description": "access to `this.com.github.wenweihu86.raft.RaftNode.lastSnapshotTerm`"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 512,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 512,
+        "column_number": -1,
+        "description": "access to `this.com.github.wenweihu86.raft.RaftNode.lastSnapshotTerm`"
+      }
+    ],
+    "key": "RaftNode.java|appendEntries|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "7ffbafba4a84032ebb45957b99f33040",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.github.wenweihu86.raft.RaftNode.appendEntries` reads without synchronization from `this.com.github.wenweihu86.raft.RaftNode.lastSnapshotIndex`. Potentially races with write in method `RaftNode.takeSnapshot()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 222,
+    "column": -1,
+    "procedure": "void RaftNode.appendEntries(Peer)",
+    "procedure_id": "com.github.wenweihu86.raft.RaftNode.appendEntries(com.github.wenweihu86.raft.Peer):void.1b7cf2b68edde0c5e478a2090efef511",
+    "procedure_start_line": 208,
+    "file": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 222,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 222,
+        "column_number": -1,
+        "description": "access to `this.com.github.wenweihu86.raft.RaftNode.lastSnapshotIndex`"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 511,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "raft-java-core/src/main/java/com/github/wenweihu86/raft/RaftNode.java",
+        "line_number": 511,
+        "column_number": -1,
+        "description": "access to `this.com.github.wenweihu86.raft.RaftNode.lastSnapshotIndex`"
+      }
+    ],
+    "key": "RaftNode.java|appendEntries|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "1b668314067fec38e60a85f777ddc8b6",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

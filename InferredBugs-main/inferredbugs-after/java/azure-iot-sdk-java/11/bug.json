@@ -1,0 +1,114 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.microsoft.azure.sdk.iot.device.transport.amqps.AmqpsIotHubConnection.onLinkRemoteOpen` writes to field `this.com.microsoft.azure.sdk.iot.device.transport.amqps.AmqpsIotHubConnection.state` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 636,
+    "column": -1,
+    "procedure": "void AmqpsIotHubConnection.onLinkRemoteOpen(Event)",
+    "procedure_id": "com.microsoft.azure.sdk.iot.device.transport.amqps.AmqpsIotHubConnection.onLinkRemoteOpen(org.apache.507545cecb609e04df096dfbcfc0392d",
+    "procedure_start_line": 629,
+    "file": "device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/amqps/AmqpsIotHubConnection.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/amqps/AmqpsIotHubConnection.java",
+        "line_number": 636,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/amqps/AmqpsIotHubConnection.java",
+        "line_number": 636,
+        "column_number": -1,
+        "description": "access to `this.com.microsoft.azure.sdk.iot.device.transport.amqps.AmqpsIotHubConnection.state`"
+      },
+      {
+        "level": 0,
+        "filename": "device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/amqps/AmqpsIotHubConnection.java",
+        "line_number": 230,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/amqps/AmqpsIotHubConnection.java",
+        "line_number": 230,
+        "column_number": -1,
+        "description": "call to void AmqpsIotHubConnection.closeAsync()"
+      },
+      {
+        "level": 1,
+        "filename": "device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/amqps/AmqpsIotHubConnection.java",
+        "line_number": 294,
+        "column_number": -1,
+        "description": "access to `this.com.microsoft.azure.sdk.iot.device.transport.amqps.AmqpsIotHubConnection.state`"
+      }
+    ],
+    "key": "AmqpsIotHubConnection.java|onLinkRemoteOpen|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "8275fcc2732a8040bda68223b19eba83",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.microsoft.azure.sdk.iot.device.transport.amqps.AmqpsIotHubConnection.onConnectionBound` reads without synchronization from `this.com.microsoft.azure.sdk.iot.device.transport.amqps.AmqpsIotHubConnection.sasToken`. Potentially races with write in method `AmqpsIotHubConnection.open()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 482,
+    "column": -1,
+    "procedure": "void AmqpsIotHubConnection.onConnectionBound(Event)",
+    "procedure_id": "com.microsoft.azure.sdk.iot.device.transport.amqps.AmqpsIotHubConnection.onConnectionBound(org.apach.ac163a88a24ede287395887ff856a3f5",
+    "procedure_start_line": 466,
+    "file": "device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/amqps/AmqpsIotHubConnection.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/amqps/AmqpsIotHubConnection.java",
+        "line_number": 482,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/amqps/AmqpsIotHubConnection.java",
+        "line_number": 482,
+        "column_number": -1,
+        "description": "access to `this.com.microsoft.azure.sdk.iot.device.transport.amqps.AmqpsIotHubConnection.sasToken`"
+      },
+      {
+        "level": 0,
+        "filename": "device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/amqps/AmqpsIotHubConnection.java",
+        "line_number": 191,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/amqps/AmqpsIotHubConnection.java",
+        "line_number": 191,
+        "column_number": -1,
+        "description": "call to void AmqpsIotHubConnection.openAsync()"
+      },
+      {
+        "level": 1,
+        "filename": "device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/amqps/AmqpsIotHubConnection.java",
+        "line_number": 270,
+        "column_number": -1,
+        "description": "access to `this.com.microsoft.azure.sdk.iot.device.transport.amqps.AmqpsIotHubConnection.sasToken`"
+      }
+    ],
+    "key": "AmqpsIotHubConnection.java|onConnectionBound|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "4670884fa44480bec5503ea1e7a2fdfd",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

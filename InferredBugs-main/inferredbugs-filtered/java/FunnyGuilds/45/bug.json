@@ -1,0 +1,345 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `net.dzikoysk.funnyguilds.basic.rank.RankManager.remove` indirectly writes to field `guild.net.dzikoysk.funnyguilds.basic.guild.Guild.rank` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 92,
+    "column": -1,
+    "procedure": "void RankManager.remove(Guild)",
+    "procedure_id": "net.dzikoysk.funnyguilds.basic.rank.RankManager.remove(net.dzikoysk.funnyguilds.basic.guild.Guild):v.f3cc8c882bd1db8531341e9db67d80fa",
+    "procedure_start_line": 92,
+    "file": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 92,
+        "column_number": -1,
+        "description": "call to Rank Guild.getRank()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/guild/Guild.java",
+        "line_number": 388,
+        "column_number": -1,
+        "description": "access to `this.net.dzikoysk.funnyguilds.basic.guild.Guild.rank`"
+      }
+    ],
+    "key": "RankManager.java|remove|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "ae4a6731a05a8c0265f29df68edf8c4e",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `net.dzikoysk.funnyguilds.basic.rank.RankManager.remove` indirectly writes to field `rank.RankManager.net.dzikoysk.funnyguilds.basic.rank.RankManager.instance` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 84,
+    "column": -1,
+    "procedure": "void RankManager.remove(User)",
+    "procedure_id": "net.dzikoysk.funnyguilds.basic.rank.RankManager.remove(net.dzikoysk.funnyguilds.basic.user.User):voi.0dc0e07c40ac8da8fc8bcd9d72ef548a",
+    "procedure_start_line": 84,
+    "file": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 84,
+        "column_number": -1,
+        "description": "call to Rank User.getRank()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/user/User.java",
+        "line_number": 127,
+        "column_number": -1,
+        "description": "call to RankManager RankManager.getInstance()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 22,
+        "column_number": -1,
+        "description": "call to RankManager.<init>()"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 17,
+        "column_number": -1,
+        "description": "access to `rank.RankManager.net.dzikoysk.funnyguilds.basic.rank.RankManager.instance`"
+      }
+    ],
+    "key": "RankManager.java|remove|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "7fecf18e87e4e1091f0b926b126132bb",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `net.dzikoysk.funnyguilds.basic.rank.RankManager.update` indirectly writes to field `rank.net.dzikoysk.funnyguilds.basic.rank.Rank.position` outside of synchronization.\n Reporting because this access may occur on a background thread.\n\nNote that the prefix path rank has been contaminated during the execution, so the reported race on rank.net.dzikoysk.funnyguilds.basic.rank.Rank.position might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 56,
+    "column": -1,
+    "procedure": "void RankManager.update(Guild)",
+    "procedure_id": "net.dzikoysk.funnyguilds.basic.rank.RankManager.update(net.dzikoysk.funnyguilds.basic.guild.Guild):v.b1f31671fe17c71caf0fdda1138a09a4",
+    "procedure_start_line": 46,
+    "file": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 56,
+        "column_number": -1,
+        "description": "call to void Rank.setPosition(int)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/Rank.java",
+        "line_number": 107,
+        "column_number": -1,
+        "description": "access to `this.net.dzikoysk.funnyguilds.basic.rank.Rank.position`"
+      }
+    ],
+    "key": "RankManager.java|update|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "0914153f1702363a24e62f82cccb53a7",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `net.dzikoysk.funnyguilds.basic.rank.RankManager.update` indirectly writes to field `rank.net.dzikoysk.funnyguilds.basic.rank.Rank.position` outside of synchronization.\n Reporting because this access may occur on a background thread.\n\nNote that the prefix path rank has been contaminated during the execution, so the reported race on rank.net.dzikoysk.funnyguilds.basic.rank.Rank.position might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 42,
+    "column": -1,
+    "procedure": "void RankManager.update(User)",
+    "procedure_id": "net.dzikoysk.funnyguilds.basic.rank.RankManager.update(net.dzikoysk.funnyguilds.basic.user.User):voi.d4b99f57392c7ebc667e6f976a7cda29",
+    "procedure_start_line": 27,
+    "file": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "call to void Rank.setPosition(int)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/Rank.java",
+        "line_number": 107,
+        "column_number": -1,
+        "description": "access to `this.net.dzikoysk.funnyguilds.basic.rank.Rank.position`"
+      }
+    ],
+    "key": "RankManager.java|update|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "0914153f1702363a24e62f82cccb53a7",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `net.dzikoysk.funnyguilds.basic.rank.RankManager.update` indirectly writes to field `rank.net.dzikoysk.funnyguilds.basic.rank.Rank.position` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 37,
+    "column": -1,
+    "procedure": "void RankManager.update(User)",
+    "procedure_id": "net.dzikoysk.funnyguilds.basic.rank.RankManager.update(net.dzikoysk.funnyguilds.basic.user.User):voi.d4b99f57392c7ebc667e6f976a7cda29",
+    "procedure_start_line": 27,
+    "file": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 37,
+        "column_number": -1,
+        "description": "call to void RankManager.update(Guild)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 56,
+        "column_number": -1,
+        "description": "call to void Rank.setPosition(int)"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/Rank.java",
+        "line_number": 107,
+        "column_number": -1,
+        "description": "access to `this.net.dzikoysk.funnyguilds.basic.rank.Rank.position`"
+      }
+    ],
+    "key": "RankManager.java|update|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "e69fa664803d293b48dda8dc9ce702e0",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `net.dzikoysk.funnyguilds.basic.rank.RankManager.getInstance` reads without synchronization from `rank.RankManager.net.dzikoysk.funnyguilds.basic.rank.RankManager.instance`. Potentially races with write in method `RankManager.remove(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 24,
+    "column": -1,
+    "procedure": "RankManager RankManager.getInstance()",
+    "procedure_id": "net.dzikoysk.funnyguilds.basic.rank.RankManager.getInstance():net.dzikoysk.funnyguilds.basic.rank.Ra.316efd58fed690431da64d48608de793",
+    "procedure_start_line": 20,
+    "file": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 24,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 24,
+        "column_number": -1,
+        "description": "access to `rank.RankManager.net.dzikoysk.funnyguilds.basic.rank.RankManager.instance`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 92,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 92,
+        "column_number": -1,
+        "description": "call to Rank Guild.getRank()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/guild/Guild.java",
+        "line_number": 389,
+        "column_number": -1,
+        "description": "call to RankManager RankManager.getInstance()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 22,
+        "column_number": -1,
+        "description": "call to RankManager.<init>()"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 17,
+        "column_number": -1,
+        "description": "access to `rank.RankManager.net.dzikoysk.funnyguilds.basic.rank.RankManager.instance`"
+      }
+    ],
+    "key": "RankManager.java|getInstance|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "6eacc752b8eac197ec5d789e67010165",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `net.dzikoysk.funnyguilds.basic.rank.RankManager.getInstance` indirectly writes to field `rank.RankManager.net.dzikoysk.funnyguilds.basic.rank.RankManager.instance` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 22,
+    "column": -1,
+    "procedure": "RankManager RankManager.getInstance()",
+    "procedure_id": "net.dzikoysk.funnyguilds.basic.rank.RankManager.getInstance():net.dzikoysk.funnyguilds.basic.rank.Ra.316efd58fed690431da64d48608de793",
+    "procedure_start_line": 20,
+    "file": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 22,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 22,
+        "column_number": -1,
+        "description": "call to RankManager.<init>()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 17,
+        "column_number": -1,
+        "description": "access to `rank.RankManager.net.dzikoysk.funnyguilds.basic.rank.RankManager.instance`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 92,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 92,
+        "column_number": -1,
+        "description": "call to Rank Guild.getRank()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/guild/Guild.java",
+        "line_number": 389,
+        "column_number": -1,
+        "description": "call to RankManager RankManager.getInstance()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 22,
+        "column_number": -1,
+        "description": "call to RankManager.<init>()"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/net/dzikoysk/funnyguilds/basic/rank/RankManager.java",
+        "line_number": 17,
+        "column_number": -1,
+        "description": "access to `rank.RankManager.net.dzikoysk.funnyguilds.basic.rank.RankManager.instance`"
+      }
+    ],
+    "key": "RankManager.java|getInstance|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "962d3f477da8673e04b1fd92eac6e1a9",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

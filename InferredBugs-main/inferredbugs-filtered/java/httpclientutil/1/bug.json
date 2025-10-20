@@ -1,0 +1,198 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.arronlong.httpclientutil.common.HttpConfig.map` reads without synchronization from `this.com.arronlong.httpclientutil.common.HttpConfig.map`. Potentially races with write in method `HttpConfig.map(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 293,
+    "column": -1,
+    "procedure": "Map HttpConfig.map()",
+    "procedure_id": "com.arronlong.httpclientutil.common.HttpConfig.map():java.util.Map.ace92e5fe4e681fdc2169849ebea9799",
+    "procedure_start_line": 293,
+    "file": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+        "line_number": 293,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+        "line_number": 293,
+        "column_number": -1,
+        "description": "access to `this.com.arronlong.httpclientutil.common.HttpConfig.map`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+        "line_number": 172,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+        "line_number": 172,
+        "column_number": -1,
+        "description": "access to `this.com.arronlong.httpclientutil.common.HttpConfig.map`"
+      }
+    ],
+    "key": "HttpConfig.java|map|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "1d3d51dc46f38b25cda28123fda96b0b",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.arronlong.httpclientutil.common.HttpConfig.files` reads without synchronization from `this.com.arronlong.httpclientutil.common.HttpConfig.map`. Potentially races with write in method `HttpConfig.map(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 222,
+    "column": -1,
+    "procedure": "HttpConfig HttpConfig.files(java.lang.String[],String,boolean)",
+    "procedure_id": "com.arronlong.httpclientutil.common.HttpConfig.files(java.lang.String[],java.lang.String,boolean):co.653b14c004aafad8a6024ae21198e63a",
+    "procedure_start_line": 214,
+    "file": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+        "line_number": 222,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+        "line_number": 222,
+        "column_number": -1,
+        "description": "access to `this.com.arronlong.httpclientutil.common.HttpConfig.map`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+        "line_number": 172,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+        "line_number": 172,
+        "column_number": -1,
+        "description": "access to `this.com.arronlong.httpclientutil.common.HttpConfig.map`"
+      }
+    ],
+    "key": "HttpConfig.java|files|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "3a3f720d4c92f8cb34d9e0a4636165a1",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.arronlong.httpclientutil.common.HttpConfig.json` reads without synchronization from `this.com.arronlong.httpclientutil.common.HttpConfig.map`. Potentially races with write in method `HttpConfig.map(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 187,
+    "column": -1,
+    "procedure": "HttpConfig HttpConfig.json(String)",
+    "procedure_id": "com.arronlong.httpclientutil.common.HttpConfig.json(java.lang.String):com.arronlong.httpclientutil.c.c99daed4787da13b2a96a4910cf0a4e4",
+    "procedure_start_line": 185,
+    "file": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+        "line_number": 187,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+        "line_number": 187,
+        "column_number": -1,
+        "description": "access to `this.com.arronlong.httpclientutil.common.HttpConfig.map`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+        "line_number": 172,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+        "line_number": 172,
+        "column_number": -1,
+        "description": "access to `this.com.arronlong.httpclientutil.common.HttpConfig.map`"
+      }
+    ],
+    "key": "HttpConfig.java|json|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "21597b7503880fb8a470b5c1f47faef2",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.arronlong.httpclientutil.common.HttpConfig.json` writes to field `this.com.arronlong.httpclientutil.common.HttpConfig.map` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 186,
+    "column": -1,
+    "procedure": "HttpConfig HttpConfig.json(String)",
+    "procedure_id": "com.arronlong.httpclientutil.common.HttpConfig.json(java.lang.String):com.arronlong.httpclientutil.c.c99daed4787da13b2a96a4910cf0a4e4",
+    "procedure_start_line": 185,
+    "file": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+        "line_number": 186,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+        "line_number": 186,
+        "column_number": -1,
+        "description": "access to `this.com.arronlong.httpclientutil.common.HttpConfig.map`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+        "line_number": 172,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/arronlong/httpclientutil/common/HttpConfig.java",
+        "line_number": 172,
+        "column_number": -1,
+        "description": "access to `this.com.arronlong.httpclientutil.common.HttpConfig.map`"
+      }
+    ],
+    "key": "HttpConfig.java|json|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "528f7d33eed031887493cb6a05a2fec8",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

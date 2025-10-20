@@ -1,0 +1,226 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.init` reads without synchronization from `this.tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.segmentCount`. Potentially races with write in method `DefaultStringOffHeapPool.init(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 103,
+    "column": -1,
+    "procedure": "void DefaultStringOffHeapPool.init(int,int)",
+    "procedure_id": "tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.init(int,int):void.d0af3669e4a1c5c4e1e91c92b70ed510",
+    "procedure_start_line": 77,
+    "file": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 103,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 103,
+        "column_number": -1,
+        "description": "access to `this.tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.segmentCount`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 419,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 419,
+        "column_number": -1,
+        "description": "call to void DefaultStringOffHeapPool.init(int,int)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 97,
+        "column_number": -1,
+        "description": "access to `this.tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.segmentCount`"
+      }
+    ],
+    "key": "DefaultStringOffHeapPool.java|init|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "8868086339bf0afa8580bdf8d4b93ed2",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.init` writes to field `this.tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.segmentCount` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 100,
+    "column": -1,
+    "procedure": "void DefaultStringOffHeapPool.init(int,int)",
+    "procedure_id": "tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.init(int,int):void.d0af3669e4a1c5c4e1e91c92b70ed510",
+    "procedure_start_line": 77,
+    "file": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 100,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 100,
+        "column_number": -1,
+        "description": "access to `this.tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.segmentCount`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 419,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 419,
+        "column_number": -1,
+        "description": "call to void DefaultStringOffHeapPool.init(int,int)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 97,
+        "column_number": -1,
+        "description": "access to `this.tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.segmentCount`"
+      }
+    ],
+    "key": "DefaultStringOffHeapPool.java|init|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "70252907ab3ac3167676b84ba6bd57b9",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.init` writes to field `this.tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.currentBlockIndex` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 72,
+    "column": -1,
+    "procedure": "void DefaultStringOffHeapPool.init()",
+    "procedure_id": "tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.init():void.44c415381b8e750f023251db98d356f8",
+    "procedure_start_line": 68,
+    "file": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 72,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 72,
+        "column_number": -1,
+        "description": "access to `this.tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.currentBlockIndex`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 424,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 424,
+        "column_number": -1,
+        "description": "call to void DefaultStringOffHeapPool.init()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 72,
+        "column_number": -1,
+        "description": "access to `this.tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.currentBlockIndex`"
+      }
+    ],
+    "key": "DefaultStringOffHeapPool.java|init|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "814f4de7ebbcc1af0903101be54cf62e",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.init` writes to field `this.tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.currentIndex` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 71,
+    "column": -1,
+    "procedure": "void DefaultStringOffHeapPool.init()",
+    "procedure_id": "tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.init():void.44c415381b8e750f023251db98d356f8",
+    "procedure_start_line": 68,
+    "file": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 71,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 71,
+        "column_number": -1,
+        "description": "access to `this.tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.currentIndex`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 424,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 424,
+        "column_number": -1,
+        "description": "call to void DefaultStringOffHeapPool.init()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/DefaultStringOffHeapPool.java",
+        "line_number": 71,
+        "column_number": -1,
+        "description": "access to `this.tr.com.serkanozal.jillegal.offheap.pool.impl.DefaultStringOffHeapPool.currentIndex`"
+      }
+    ],
+    "key": "DefaultStringOffHeapPool.java|init|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "b1567c667c1e72035a6f7a566a2784fb",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

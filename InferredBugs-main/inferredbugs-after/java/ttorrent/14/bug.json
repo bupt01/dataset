@@ -1,0 +1,345 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.turn.ttorrent.client.storage.FileStorage.write` reads without synchronization from `this.com.turn.ttorrent.client.storage.FileStorage.channel`. Potentially races with write in method `FileStorage.finish()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 131,
+    "column": -1,
+    "procedure": "int FileStorage.write(ByteBuffer,long)",
+    "procedure_id": "com.turn.ttorrent.client.storage.FileStorage.write(java.nio.ByteBuffer,long):int.9c4302516a4c2a1046e5807e8ddc2037",
+    "procedure_start_line": 124,
+    "file": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 131,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 131,
+        "column_number": -1,
+        "description": "access to `this.com.turn.ttorrent.client.storage.FileStorage.channel`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "access to `this.com.turn.ttorrent.client.storage.FileStorage.channel`"
+      }
+    ],
+    "key": "FileStorage.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "da5c707005e461bada8189acfdf74e40",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.turn.ttorrent.client.storage.FileStorage.read` reads without synchronization from `this.com.turn.ttorrent.client.storage.FileStorage.channel`. Potentially races with write in method `FileStorage.finish()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 115,
+    "column": -1,
+    "procedure": "int FileStorage.read(ByteBuffer,long)",
+    "procedure_id": "com.turn.ttorrent.client.storage.FileStorage.read(java.nio.ByteBuffer,long):int.95c7ae177227de637bd5bf9f12e0e486",
+    "procedure_start_line": 108,
+    "file": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 115,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 115,
+        "column_number": -1,
+        "description": "access to `this.com.turn.ttorrent.client.storage.FileStorage.channel`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "access to `this.com.turn.ttorrent.client.storage.FileStorage.channel`"
+      }
+    ],
+    "key": "FileStorage.java|read|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "fd2ae64fb39545aaeaf6b3219aec41f1",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.turn.ttorrent.client.storage.FileStorage.open` reads without synchronization from `this.com.turn.ttorrent.client.storage.FileStorage.current`. Potentially races with write in method `FileStorage.finish()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 92,
+    "column": -1,
+    "procedure": "void FileStorage.open()",
+    "procedure_id": "com.turn.ttorrent.client.storage.FileStorage.open():void.667c698f5c0ea9886878304fa0a379f5",
+    "procedure_start_line": 63,
+    "file": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 92,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 92,
+        "column_number": -1,
+        "description": "access to `this.com.turn.ttorrent.client.storage.FileStorage.current`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 168,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 168,
+        "column_number": -1,
+        "description": "access to `this.com.turn.ttorrent.client.storage.FileStorage.current`"
+      }
+    ],
+    "key": "FileStorage.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "a83d0acf1e5f656aca67219922f77e64",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.turn.ttorrent.client.storage.FileStorage.open` writes to field `this.com.turn.ttorrent.client.storage.FileStorage.channel` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 87,
+    "column": -1,
+    "procedure": "void FileStorage.open()",
+    "procedure_id": "com.turn.ttorrent.client.storage.FileStorage.open():void.667c698f5c0ea9886878304fa0a379f5",
+    "procedure_start_line": 63,
+    "file": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 87,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 87,
+        "column_number": -1,
+        "description": "access to `this.com.turn.ttorrent.client.storage.FileStorage.channel`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "access to `this.com.turn.ttorrent.client.storage.FileStorage.channel`"
+      }
+    ],
+    "key": "FileStorage.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "7d662d95d66275570e5340f80f80c6e9",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.turn.ttorrent.client.storage.FileStorage.open` reads without synchronization from `this.com.turn.ttorrent.client.storage.FileStorage.raf`. Potentially races with write in method `FileStorage.finish()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 85,
+    "column": -1,
+    "procedure": "void FileStorage.open()",
+    "procedure_id": "com.turn.ttorrent.client.storage.FileStorage.open():void.667c698f5c0ea9886878304fa0a379f5",
+    "procedure_start_line": 63,
+    "file": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 85,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 85,
+        "column_number": -1,
+        "description": "access to `this.com.turn.ttorrent.client.storage.FileStorage.raf`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 165,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 165,
+        "column_number": -1,
+        "description": "access to `this.com.turn.ttorrent.client.storage.FileStorage.raf`"
+      }
+    ],
+    "key": "FileStorage.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "c5587d32305ad755b6b478f049530987",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.turn.ttorrent.client.storage.FileStorage.open` writes to field `this.com.turn.ttorrent.client.storage.FileStorage.raf` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 81,
+    "column": -1,
+    "procedure": "void FileStorage.open()",
+    "procedure_id": "com.turn.ttorrent.client.storage.FileStorage.open():void.667c698f5c0ea9886878304fa0a379f5",
+    "procedure_start_line": 63,
+    "file": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 81,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 81,
+        "column_number": -1,
+        "description": "access to `this.com.turn.ttorrent.client.storage.FileStorage.raf`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 165,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 165,
+        "column_number": -1,
+        "description": "access to `this.com.turn.ttorrent.client.storage.FileStorage.raf`"
+      }
+    ],
+    "key": "FileStorage.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "206ababf200ca17528e405b1b321270e",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.turn.ttorrent.client.storage.FileStorage.open` writes to field `this.com.turn.ttorrent.client.storage.FileStorage.current` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 78,
+    "column": -1,
+    "procedure": "void FileStorage.open()",
+    "procedure_id": "com.turn.ttorrent.client.storage.FileStorage.open():void.667c698f5c0ea9886878304fa0a379f5",
+    "procedure_start_line": 63,
+    "file": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 78,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 78,
+        "column_number": -1,
+        "description": "access to `this.com.turn.ttorrent.client.storage.FileStorage.current`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 168,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/turn/ttorrent/client/storage/FileStorage.java",
+        "line_number": 168,
+        "column_number": -1,
+        "description": "access to `this.com.turn.ttorrent.client.storage.FileStorage.current`"
+      }
+    ],
+    "key": "FileStorage.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "219171942b22b068d4cea5e2128e916d",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

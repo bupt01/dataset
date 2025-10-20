@@ -1,0 +1,1010 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.replaceEntry` indirectly reads without synchronization from `derefList.org.caffinitas.ohc.linked.LongArrayList.array.[_]`. Potentially races with write in method `OffHeapMap.replaceEntry(...)`.\n Reporting because this access may occur on a background thread.\n\nNote that the prefix path derefList has been contaminated during the execution, so the reported race on derefList.org.caffinitas.ohc.linked.LongArrayList.array.[_] might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 702,
+    "column": -1,
+    "procedure": "boolean OffHeapMap.replaceEntry(long,long,long,long)",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.replaceEntry(long,long,long,long):boolean.c1d085add7d7d2b28487b89fd712152e",
+    "procedure_start_line": 660,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 702,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 702,
+        "column_number": -1,
+        "description": "call to long LongArrayList.getLong(int)"
+      },
+      {
+        "level": 1,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/LongArrayList.java",
+        "line_number": 34,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.LongArrayList.array.[_]`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 688,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 688,
+        "column_number": -1,
+        "description": "call to void LongArrayList.add(long)"
+      },
+      {
+        "level": 1,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/LongArrayList.java",
+        "line_number": 46,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.LongArrayList.array.[_]`"
+      }
+    ],
+    "key": "OffHeapMap.java|replaceEntry|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "b2c443cbe9f10f1aae687955ad531920",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.hashTableSize` reads without synchronization from `this.org.caffinitas.ohc.linked.OffHeapMap.table`. Potentially races with write in method `OffHeapMap.release()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 466,
+    "column": -1,
+    "procedure": "int OffHeapMap.hashTableSize()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.hashTableSize():int.4fec8707ebcf53d11fa324c854739ca8",
+    "procedure_start_line": 464,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 466,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 466,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.table`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 81,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 81,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.table`"
+      }
+    ],
+    "key": "OffHeapMap.java|hashTableSize|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "26a6f084f2dc57a235e896ba4441c19c",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.putEntry` indirectly reads without synchronization from `derefList.org.caffinitas.ohc.linked.LongArrayList.array.[_]`. Potentially races with write in method `OffHeapMap.putEntry(...)`.\n Reporting because this access may occur on a background thread.\n\nNote that the prefix path derefList has been contaminated during the execution, so the reported race on derefList.org.caffinitas.ohc.linked.LongArrayList.array.[_] might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 270,
+    "column": -1,
+    "procedure": "boolean OffHeapMap.putEntry(long,long,long,long,boolean,long,long,long)",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.putEntry(long,long,long,long,boolean,long,long,long):boolean.58db9c41141d4775ddee9174ef714b34",
+    "procedure_start_line": 192,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 270,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 270,
+        "column_number": -1,
+        "description": "call to long LongArrayList.getLong(int)"
+      },
+      {
+        "level": 1,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/LongArrayList.java",
+        "line_number": 34,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.LongArrayList.array.[_]`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 241,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 241,
+        "column_number": -1,
+        "description": "call to void LongArrayList.add(long)"
+      },
+      {
+        "level": 1,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/LongArrayList.java",
+        "line_number": 46,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.LongArrayList.array.[_]`"
+      }
+    ],
+    "key": "OffHeapMap.java|putEntry|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "56bde78af4cbd3fa51b5c326af16cffc",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.evictedEntries` reads without synchronization from `this.org.caffinitas.ohc.linked.OffHeapMap.evictedEntries`. Potentially races with write in method `OffHeapMap.replaceEntry(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 155,
+    "column": -1,
+    "procedure": "long OffHeapMap.evictedEntries()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.evictedEntries():long.bcb05ab7197e27012d54913ed735d280",
+    "procedure_start_line": 155,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 155,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 155,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.evictedEntries`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 681,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 681,
+        "column_number": -1,
+        "description": "call to long OffHeapMap.removeEldest()"
+      },
+      {
+        "level": 1,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 283,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.evictedEntries`"
+      }
+    ],
+    "key": "OffHeapMap.java|evictedEntries|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "fc49a88467aaf959d3ee40190e54c574",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.freeCapacity` reads without synchronization from `this.org.caffinitas.ohc.linked.OffHeapMap.freeCapacity`. Potentially races with write in method `OffHeapMap.updateFreeCapacity(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 137,
+    "column": -1,
+    "procedure": "long OffHeapMap.freeCapacity()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.freeCapacity():long.87dd1d377a3d115da5658a049d61db8e",
+    "procedure_start_line": 137,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 137,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 137,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.freeCapacity`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 145,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 145,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.freeCapacity`"
+      }
+    ],
+    "key": "OffHeapMap.java|freeCapacity|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "51fdbe25ae54492a4a5b9721784b4543",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.rehashes` reads without synchronization from `this.org.caffinitas.ohc.linked.OffHeapMap.rehashes`. Potentially races with write in method `OffHeapMap.putEntry(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 132,
+    "column": -1,
+    "procedure": "long OffHeapMap.rehashes()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.rehashes():long.d9ade362c2521a54698c8ccf20ff6e2c",
+    "procedure_start_line": 132,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 132,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 132,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.rehashes`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 247,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 247,
+        "column_number": -1,
+        "description": "call to void OffHeapMap.rehash()"
+      },
+      {
+        "level": 1,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 434,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.rehashes`"
+      }
+    ],
+    "key": "OffHeapMap.java|rehashes|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "78f4306b4b497358c1a0d655c3acc27b",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.resetStatistics` writes to field `this.org.caffinitas.ohc.linked.OffHeapMap.removeCount` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 127,
+    "column": -1,
+    "procedure": "void OffHeapMap.resetStatistics()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.resetStatistics():void.bb83b207741e8cda9bd029f13437cfd3",
+    "procedure_start_line": 119,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 127,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 127,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.removeCount`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 365,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 365,
+        "column_number": -1,
+        "description": "call to void OffHeapMap.removeIt(long,long)"
+      },
+      {
+        "level": 1,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 383,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.removeCount`"
+      }
+    ],
+    "key": "OffHeapMap.java|resetStatistics|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "55e845cf6835478557527754fd2b4f96",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.resetStatistics` writes to field `this.org.caffinitas.ohc.linked.OffHeapMap.putReplaceCount` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 126,
+    "column": -1,
+    "procedure": "void OffHeapMap.resetStatistics()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.resetStatistics():void.bb83b207741e8cda9bd029f13437cfd3",
+    "procedure_start_line": 119,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 126,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 126,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.putReplaceCount`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 259,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 259,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.putReplaceCount`"
+      }
+    ],
+    "key": "OffHeapMap.java|resetStatistics|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "6c3f037834eb8d13df614738e025c2a7",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.resetStatistics` writes to field `this.org.caffinitas.ohc.linked.OffHeapMap.putAddCount` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 125,
+    "column": -1,
+    "procedure": "void OffHeapMap.resetStatistics()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.resetStatistics():void.bb83b207741e8cda9bd029f13437cfd3",
+    "procedure_start_line": 119,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 125,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 125,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.putAddCount`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 257,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 257,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.putAddCount`"
+      }
+    ],
+    "key": "OffHeapMap.java|resetStatistics|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "937bdae1508e55814a8ec192356963ac",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.resetStatistics` writes to field `this.org.caffinitas.ohc.linked.OffHeapMap.missCount` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 124,
+    "column": -1,
+    "procedure": "void OffHeapMap.resetStatistics()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.resetStatistics():void.bb83b207741e8cda9bd029f13437cfd3",
+    "procedure_start_line": 119,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 124,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 124,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.missCount`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 183,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 183,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.missCount`"
+      }
+    ],
+    "key": "OffHeapMap.java|resetStatistics|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "56e9281d2b028f7d5d2e0a7d7820e29c",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.resetStatistics` writes to field `this.org.caffinitas.ohc.linked.OffHeapMap.hitCount` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 123,
+    "column": -1,
+    "procedure": "void OffHeapMap.resetStatistics()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.resetStatistics():void.bb83b207741e8cda9bd029f13437cfd3",
+    "procedure_start_line": 119,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 123,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 123,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.hitCount`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 178,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 178,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.hitCount`"
+      }
+    ],
+    "key": "OffHeapMap.java|resetStatistics|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "6ef2d0c2fba2e4f66a629c2b2fd400d3",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.resetStatistics` writes to field `this.org.caffinitas.ohc.linked.OffHeapMap.evictedEntries` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 122,
+    "column": -1,
+    "procedure": "void OffHeapMap.resetStatistics()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.resetStatistics():void.bb83b207741e8cda9bd029f13437cfd3",
+    "procedure_start_line": 119,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 122,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 122,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.evictedEntries`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 681,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 681,
+        "column_number": -1,
+        "description": "call to long OffHeapMap.removeEldest()"
+      },
+      {
+        "level": 1,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 283,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.evictedEntries`"
+      }
+    ],
+    "key": "OffHeapMap.java|resetStatistics|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "207d59919bdfa188e8786a3f0b4949f2",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.resetStatistics` writes to field `this.org.caffinitas.ohc.linked.OffHeapMap.rehashes` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 121,
+    "column": -1,
+    "procedure": "void OffHeapMap.resetStatistics()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.resetStatistics():void.bb83b207741e8cda9bd029f13437cfd3",
+    "procedure_start_line": 119,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 121,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 121,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.rehashes`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 247,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 247,
+        "column_number": -1,
+        "description": "call to void OffHeapMap.rehash()"
+      },
+      {
+        "level": 1,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 434,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.rehashes`"
+      }
+    ],
+    "key": "OffHeapMap.java|resetStatistics|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "48d9b725611b8c2b043906b853f10eb8",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.removeCount` reads without synchronization from `this.org.caffinitas.ohc.linked.OffHeapMap.removeCount`. Potentially races with write in method `OffHeapMap.removeEntry(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 116,
+    "column": -1,
+    "procedure": "long OffHeapMap.removeCount()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.removeCount():long.8a10d999f7d60dbd2230504642746c33",
+    "procedure_start_line": 116,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 116,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 116,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.removeCount`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 365,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 365,
+        "column_number": -1,
+        "description": "call to void OffHeapMap.removeIt(long,long)"
+      },
+      {
+        "level": 1,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 383,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.removeCount`"
+      }
+    ],
+    "key": "OffHeapMap.java|removeCount|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "a1ebfc59428353f91ae350dfc7959be4",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.putReplaceCount` reads without synchronization from `this.org.caffinitas.ohc.linked.OffHeapMap.putReplaceCount`. Potentially races with write in method `OffHeapMap.putEntry(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 111,
+    "column": -1,
+    "procedure": "long OffHeapMap.putReplaceCount()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.putReplaceCount():long.58677ac294e49659f9851829e5f64c76",
+    "procedure_start_line": 111,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 111,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 111,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.putReplaceCount`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 259,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 259,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.putReplaceCount`"
+      }
+    ],
+    "key": "OffHeapMap.java|putReplaceCount|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "0ce3d874937ec2bdec4981eabb749e0c",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.putAddCount` reads without synchronization from `this.org.caffinitas.ohc.linked.OffHeapMap.putAddCount`. Potentially races with write in method `OffHeapMap.putEntry(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 106,
+    "column": -1,
+    "procedure": "long OffHeapMap.putAddCount()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.putAddCount():long.a543d65dadd260933cd305fee9cb5b5c",
+    "procedure_start_line": 106,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 106,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 106,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.putAddCount`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 257,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 257,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.putAddCount`"
+      }
+    ],
+    "key": "OffHeapMap.java|putAddCount|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "0a35f3fae7f459540511e92ff6d91cf6",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.missCount` reads without synchronization from `this.org.caffinitas.ohc.linked.OffHeapMap.missCount`. Potentially races with write in method `OffHeapMap.getEntry(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 101,
+    "column": -1,
+    "procedure": "long OffHeapMap.missCount()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.missCount():long.bd584648deb6e3be63d9f1144dfac5c5",
+    "procedure_start_line": 101,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 101,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 101,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.missCount`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 183,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 183,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.missCount`"
+      }
+    ],
+    "key": "OffHeapMap.java|missCount|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "b7f38eb08861279e8df827ea1f069033",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.hitCount` reads without synchronization from `this.org.caffinitas.ohc.linked.OffHeapMap.hitCount`. Potentially races with write in method `OffHeapMap.getEntry(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 96,
+    "column": -1,
+    "procedure": "long OffHeapMap.hitCount()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.hitCount():long.03650282848fb51959eda6547612d685",
+    "procedure_start_line": 96,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 96,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 96,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.hitCount`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 178,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 178,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.hitCount`"
+      }
+    ],
+    "key": "OffHeapMap.java|hitCount|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "90dafc9a7f9e9fe638c7bd47a1732f30",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.caffinitas.ohc.linked.OffHeapMap.size` reads without synchronization from `this.org.caffinitas.ohc.linked.OffHeapMap.size`. Potentially races with write in method `OffHeapMap.replaceEntry(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 91,
+    "column": -1,
+    "procedure": "long OffHeapMap.size()",
+    "procedure_id": "org.caffinitas.ohc.linked.OffHeapMap.size():long.f9606f82d1faa6d246df65f12567ca75",
+    "procedure_start_line": 91,
+    "file": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 91,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 91,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.size`"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 681,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 681,
+        "column_number": -1,
+        "description": "call to long OffHeapMap.removeEldest()"
+      },
+      {
+        "level": 1,
+        "filename": "ohc-core/src/main/java/org/caffinitas/ohc/linked/OffHeapMap.java",
+        "line_number": 282,
+        "column_number": -1,
+        "description": "access to `this.org.caffinitas.ohc.linked.OffHeapMap.size`"
+      }
+    ],
+    "key": "OffHeapMap.java|size|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "36dd5d5bd99008f24e2327505c751b89",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

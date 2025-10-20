@@ -1,0 +1,604 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `redis.clients.johm.collections.RedisMap.size` indirectly writes to field `this.redis.clients.johm.collections.RedisMap.nest.redis.clients.johm.Nest.sb` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 113,
+    "column": -1,
+    "procedure": "int RedisMap.size()",
+    "procedure_id": "redis.clients.johm.collections.RedisMap.size():int.87070f65269990a3cf190198145636a7",
+    "procedure_start_line": 112,
+    "file": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 113,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 113,
+        "column_number": -1,
+        "description": "call to Integer Nest.hlen()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 136,
+        "column_number": -1,
+        "description": "call to String Nest.key()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "call to void Nest.prefix()"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 51,
+        "column_number": -1,
+        "description": "access to `this.redis.clients.johm.Nest.sb`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 139,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 139,
+        "column_number": -1,
+        "description": "call to Map RedisMap.scrollElements()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 145,
+        "column_number": -1,
+        "description": "call to Map Nest.hgetAll()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 115,
+        "column_number": -1,
+        "description": "call to String Nest.key()"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "call to void Nest.prefix()"
+      },
+      {
+        "level": 4,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 51,
+        "column_number": -1,
+        "description": "access to `this.redis.clients.johm.Nest.sb`"
+      }
+    ],
+    "key": "RedisMap.java|size|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "43135f9a0dc88240f859feabda79486a",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `redis.clients.johm.collections.RedisMap.remove` indirectly writes to field `this.redis.clients.johm.collections.RedisMap.nest.redis.clients.johm.Nest.sb` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 107,
+    "column": -1,
+    "procedure": "Model RedisMap.remove(Object)",
+    "procedure_id": "redis.clients.johm.collections.RedisMap.remove(java.lang.Object):redis.clients.johm.Model.30953cebc7b6549301a364015d1147e1",
+    "procedure_start_line": 104,
+    "file": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 107,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 107,
+        "column_number": -1,
+        "description": "call to Integer Nest.hdel(String)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 129,
+        "column_number": -1,
+        "description": "call to String Nest.key()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "call to void Nest.prefix()"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 51,
+        "column_number": -1,
+        "description": "access to `this.redis.clients.johm.Nest.sb`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 139,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 139,
+        "column_number": -1,
+        "description": "call to Map RedisMap.scrollElements()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 145,
+        "column_number": -1,
+        "description": "call to Map Nest.hgetAll()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 115,
+        "column_number": -1,
+        "description": "call to String Nest.key()"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "call to void Nest.prefix()"
+      },
+      {
+        "level": 4,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 51,
+        "column_number": -1,
+        "description": "access to `this.redis.clients.johm.Nest.sb`"
+      }
+    ],
+    "key": "RedisMap.java|remove|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "82b61d545f0b03239a11b2688820d1a2",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `redis.clients.johm.collections.RedisMap.putAll` indirectly writes to field `this.redis.clients.johm.collections.RedisMap.nest.redis.clients.johm.Nest.sb` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 98,
+    "column": -1,
+    "procedure": "void RedisMap.putAll(Map)",
+    "procedure_id": "redis.clients.johm.collections.RedisMap.putAll(java.util.Map):void.93a102b3277cae59eec4fdf55d660ef6",
+    "procedure_start_line": 96,
+    "file": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 98,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 98,
+        "column_number": -1,
+        "description": "call to Model RedisMap.internalPut(Object,Model,boolean)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 129,
+        "column_number": -1,
+        "description": "call to String Nest.hmset(Map)"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 94,
+        "column_number": -1,
+        "description": "call to String Nest.key()"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "call to void Nest.prefix()"
+      },
+      {
+        "level": 4,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 51,
+        "column_number": -1,
+        "description": "access to `this.redis.clients.johm.Nest.sb`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 139,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 139,
+        "column_number": -1,
+        "description": "call to Map RedisMap.scrollElements()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 145,
+        "column_number": -1,
+        "description": "call to Map Nest.hgetAll()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 115,
+        "column_number": -1,
+        "description": "call to String Nest.key()"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "call to void Nest.prefix()"
+      },
+      {
+        "level": 4,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 51,
+        "column_number": -1,
+        "description": "access to `this.redis.clients.johm.Nest.sb`"
+      }
+    ],
+    "key": "RedisMap.java|putAll|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "97e9e6301a8835fef84a2fd76075391b",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `redis.clients.johm.collections.RedisMap.put` indirectly writes to field `this.redis.clients.johm.collections.RedisMap.nest.redis.clients.johm.Nest.sb` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 91,
+    "column": -1,
+    "procedure": "Model RedisMap.put(Object,Model)",
+    "procedure_id": "redis.clients.johm.collections.RedisMap.put(java.lang.Object,redis.clients.johm.Model):redis.clients.ad8f8c27700fcc52bff8b9c394674c7d",
+    "procedure_start_line": 89,
+    "file": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 91,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 91,
+        "column_number": -1,
+        "description": "call to Model RedisMap.internalPut(Object,Model,boolean)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 129,
+        "column_number": -1,
+        "description": "call to String Nest.hmset(Map)"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 94,
+        "column_number": -1,
+        "description": "call to String Nest.key()"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "call to void Nest.prefix()"
+      },
+      {
+        "level": 4,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 51,
+        "column_number": -1,
+        "description": "access to `this.redis.clients.johm.Nest.sb`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 139,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 139,
+        "column_number": -1,
+        "description": "call to Map RedisMap.scrollElements()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 145,
+        "column_number": -1,
+        "description": "call to Map Nest.hgetAll()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 115,
+        "column_number": -1,
+        "description": "call to String Nest.key()"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "call to void Nest.prefix()"
+      },
+      {
+        "level": 4,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 51,
+        "column_number": -1,
+        "description": "access to `this.redis.clients.johm.Nest.sb`"
+      }
+    ],
+    "key": "RedisMap.java|put|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "70dbc7de21f2ff977833a3224ba20fb9",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `redis.clients.johm.collections.RedisMap.clear` indirectly reads without synchronization from `this.redis.clients.johm.collections.RedisMap.nest.redis.clients.johm.Nest.sb`. Potentially races with write in method `RedisMap.purgeScrollStorage()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 42,
+    "column": -1,
+    "procedure": "void RedisMap.clear()",
+    "procedure_id": "redis.clients.johm.collections.RedisMap.clear():void.8b6cacc6f959135a3e377dabb35c1d69",
+    "procedure_start_line": 37,
+    "file": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "call to Integer Nest.hdel(String)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 129,
+        "column_number": -1,
+        "description": "call to String Nest.key()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "call to void Nest.prefix()"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 50,
+        "column_number": -1,
+        "description": "access to `this.redis.clients.johm.Nest.sb`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 139,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 139,
+        "column_number": -1,
+        "description": "call to Map RedisMap.scrollElements()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 145,
+        "column_number": -1,
+        "description": "call to Map Nest.hgetAll()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 115,
+        "column_number": -1,
+        "description": "call to String Nest.key()"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "call to void Nest.prefix()"
+      },
+      {
+        "level": 4,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 51,
+        "column_number": -1,
+        "description": "access to `this.redis.clients.johm.Nest.sb`"
+      }
+    ],
+    "key": "RedisMap.java|clear|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "f7e91070314ded721a77edb9868008bf",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `redis.clients.johm.collections.RedisMap.clear` indirectly writes to field `this.redis.clients.johm.collections.RedisMap.nest.redis.clients.johm.Nest.sb` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 38,
+    "column": -1,
+    "procedure": "void RedisMap.clear()",
+    "procedure_id": "redis.clients.johm.collections.RedisMap.clear():void.8b6cacc6f959135a3e377dabb35c1d69",
+    "procedure_start_line": 37,
+    "file": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 38,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 38,
+        "column_number": -1,
+        "description": "call to Map Nest.hgetAll()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 115,
+        "column_number": -1,
+        "description": "call to String Nest.key()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "call to void Nest.prefix()"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 51,
+        "column_number": -1,
+        "description": "access to `this.redis.clients.johm.Nest.sb`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 139,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 139,
+        "column_number": -1,
+        "description": "call to Map RedisMap.scrollElements()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/redis/clients/johm/collections/RedisMap.java",
+        "line_number": 145,
+        "column_number": -1,
+        "description": "call to Map Nest.hgetAll()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 115,
+        "column_number": -1,
+        "description": "call to String Nest.key()"
+      },
+      {
+        "level": 3,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "call to void Nest.prefix()"
+      },
+      {
+        "level": 4,
+        "filename": "src/main/java/redis/clients/johm/Nest.java",
+        "line_number": 51,
+        "column_number": -1,
+        "description": "access to `this.redis.clients.johm.Nest.sb`"
+      }
+    ],
+    "key": "RedisMap.java|clear|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "b88c02118e8a8fc1bb7edd345358764e",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

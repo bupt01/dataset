@@ -1,0 +1,422 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `zemberek.embedding.fasttext.Model.binaryLogistic` indirectly reads without synchronization from `fasttext.Model.zemberek.embedding.fasttext.Model.t_log`. Potentially races with write in method `Model.initLog()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 97,
+    "column": -1,
+    "procedure": "float Model.binaryLogistic(int,boolean,float)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.binaryLogistic(int,boolean,float):float.692e211b4649cfe78f82841bc3e3c33c",
+    "procedure_start_line": 87,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 97,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 97,
+        "column_number": -1,
+        "description": "call to float Model.log(float)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 354,
+        "column_number": -1,
+        "description": "access to `fasttext.Model.zemberek.embedding.fasttext.Model.t_log`"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 342,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 342,
+        "column_number": -1,
+        "description": "access to `fasttext.Model.zemberek.embedding.fasttext.Model.t_log`"
+      }
+    ],
+    "key": "Model.java|binaryLogistic|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "e388f1a8a75874ae025364e84b30cb45",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `zemberek.embedding.fasttext.Model.binaryLogistic` indirectly reads without synchronization from `fasttext.Model.zemberek.embedding.fasttext.Model.t_log.[_]`. Potentially races with write in method `Model.initLog()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 95,
+    "column": -1,
+    "procedure": "float Model.binaryLogistic(int,boolean,float)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.binaryLogistic(int,boolean,float):float.692e211b4649cfe78f82841bc3e3c33c",
+    "procedure_start_line": 87,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 95,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 95,
+        "column_number": -1,
+        "description": "call to float Model.log(float)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 354,
+        "column_number": -1,
+        "description": "access to `fasttext.Model.zemberek.embedding.fasttext.Model.t_log.[_]`"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 345,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 345,
+        "column_number": -1,
+        "description": "access to `fasttext.Model.zemberek.embedding.fasttext.Model.t_log.[_]`"
+      }
+    ],
+    "key": "Model.java|binaryLogistic|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "924326efbfd19c7c4a2ffbb378808f5e",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `zemberek.embedding.fasttext.Model.binaryLogistic` indirectly reads without synchronization from `fasttext.Model.zemberek.embedding.fasttext.Model.t_sigmoid`. Potentially races with write in method `Model.initSigmoid()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 88,
+    "column": -1,
+    "procedure": "float Model.binaryLogistic(int,boolean,float)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.binaryLogistic(int,boolean,float):float.692e211b4649cfe78f82841bc3e3c33c",
+    "procedure_start_line": 87,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 88,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 88,
+        "column_number": -1,
+        "description": "call to float Model.sigmoid(float)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 364,
+        "column_number": -1,
+        "description": "access to `fasttext.Model.zemberek.embedding.fasttext.Model.t_sigmoid`"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 334,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 334,
+        "column_number": -1,
+        "description": "access to `fasttext.Model.zemberek.embedding.fasttext.Model.t_sigmoid`"
+      }
+    ],
+    "key": "Model.java|binaryLogistic|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "639e3a6bd3b36106fe1b7cd18a8b92b1",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `zemberek.embedding.fasttext.Model.getNegative` writes to field `this.zemberek.embedding.fasttext.Model.negpos` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 280,
+    "column": -1,
+    "procedure": "int Model.getNegative(int)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.getNegative(int):int.9aef9a82cda559992c17673aaf8b0bff",
+    "procedure_start_line": 276,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 280,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 280,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Model.negpos`"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 231,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 231,
+        "column_number": -1,
+        "description": "call to float Model.negativeSampling(int,float)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 108,
+        "column_number": -1,
+        "description": "call to int Model.getNegative(int)"
+      },
+      {
+        "level": 2,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 280,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Model.negpos`"
+      }
+    ],
+    "key": "Model.java|getNegative|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "bc9744c965a319b7048fa38706ce5b74",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `zemberek.embedding.fasttext.Model.update` indirectly reads without synchronization from `fasttext.Model.zemberek.embedding.fasttext.Model.t_log`. Potentially races with write in method `Model.initLog()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 235,
+    "column": -1,
+    "procedure": "void Model.update(int[],int,float)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.update(int[],int,float):void.49e2c20141a9f555936abeccf294c2e6",
+    "procedure_start_line": 225,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 235,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 235,
+        "column_number": -1,
+        "description": "call to float Model.softmax(int,float)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 156,
+        "column_number": -1,
+        "description": "call to float Model.log(float)"
+      },
+      {
+        "level": 2,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 354,
+        "column_number": -1,
+        "description": "access to `fasttext.Model.zemberek.embedding.fasttext.Model.t_log`"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 342,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 342,
+        "column_number": -1,
+        "description": "access to `fasttext.Model.zemberek.embedding.fasttext.Model.t_log`"
+      }
+    ],
+    "key": "Model.java|update|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "7b0be068988382b57948ed688faeafb4",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `zemberek.embedding.fasttext.Model.softmax` indirectly reads without synchronization from `fasttext.Model.zemberek.embedding.fasttext.Model.t_log`. Potentially races with write in method `Model.initLog()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 156,
+    "column": -1,
+    "procedure": "float Model.softmax(int,float)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.softmax(int,float):float.9b5d27486e0baa33be6326b35ed6f8ec",
+    "procedure_start_line": 145,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 156,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 156,
+        "column_number": -1,
+        "description": "call to float Model.log(float)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 354,
+        "column_number": -1,
+        "description": "access to `fasttext.Model.zemberek.embedding.fasttext.Model.t_log`"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 342,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 342,
+        "column_number": -1,
+        "description": "access to `fasttext.Model.zemberek.embedding.fasttext.Model.t_log`"
+      }
+    ],
+    "key": "Model.java|softmax|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "c4ffa303aea73f01546c54b39eccd3ea",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `zemberek.embedding.fasttext.Model.negativeSampling` indirectly writes to field `this.zemberek.embedding.fasttext.Model.negpos` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 108,
+    "column": -1,
+    "procedure": "float Model.negativeSampling(int,float)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.negativeSampling(int,float):float.04864267f49892ecff95455a09d41be9",
+    "procedure_start_line": 101,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 108,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 108,
+        "column_number": -1,
+        "description": "call to int Model.getNegative(int)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 280,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Model.negpos`"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 231,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 231,
+        "column_number": -1,
+        "description": "call to float Model.negativeSampling(int,float)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 108,
+        "column_number": -1,
+        "description": "call to int Model.getNegative(int)"
+      },
+      {
+        "level": 2,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 280,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Model.negpos`"
+      }
+    ],
+    "key": "Model.java|negativeSampling|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "6eea3e8bfa3ba5d0373aa566385ad2dc",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

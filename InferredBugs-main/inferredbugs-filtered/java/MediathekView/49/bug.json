@@ -1,0 +1,737 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `mediathek.controller.filmeLaden.suchen.sender.MediathekKika.ladenHttp` indirectly reads without synchronization from `n$102.mediathek.daten.DatenFilm.arr.[_]`. Potentially races with write in method `MediathekKika.meldungThreadUndFertig()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.\n\nNote that the prefix path n$102 has been contaminated during the execution, so the reported race on n$102.mediathek.daten.DatenFilm.arr.[_] might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 275,
+    "column": -1,
+    "procedure": "void MediathekKika.ladenHttp(String,String,String)",
+    "procedure_id": "mediathek.controller.filmeLaden.suchen.sender.MediathekKika.ladenHttp(java.lang.String,java.lang.Str.baacf86a2519544ecd111ab867b66324",
+    "procedure_start_line": 244,
+    "file": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 275,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 275,
+        "column_number": -1,
+        "description": "call to boolean MediathekReader.addFilm(DatenFilm)"
+      },
+      {
+        "level": 1,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekReader.java",
+        "line_number": 109,
+        "column_number": -1,
+        "description": "call to boolean ListeFilme.addFilmVomSender(DatenFilm)"
+      },
+      {
+        "level": 2,
+        "filename": "src/mediathek/daten/ListeFilme.java",
+        "line_number": 148,
+        "column_number": -1,
+        "description": "call to boolean ListeFilme.addInit(DatenFilm)"
+      },
+      {
+        "level": 3,
+        "filename": "src/mediathek/daten/ListeFilme.java",
+        "line_number": 216,
+        "column_number": -1,
+        "description": "call to void DatenFilm.init()"
+      },
+      {
+        "level": 4,
+        "filename": "src/mediathek/daten/DatenFilm.java",
+        "line_number": 416,
+        "column_number": -1,
+        "description": "call to Datum DatumZeit.getDatumForObject(DatenFilm)"
+      },
+      {
+        "level": 5,
+        "filename": "src/mediathek/tool/DatumZeit.java",
+        "line_number": 183,
+        "column_number": -1,
+        "description": "access to `film.mediathek.daten.DatenFilm.arr.[_]`"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 44,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 44,
+        "column_number": -1,
+        "description": "call to void MediathekKika.addToListHttp()"
+      },
+      {
+        "level": 1,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 210,
+        "column_number": -1,
+        "description": "call to MVStringBuilder GetUrl.getUri(String,String,String,int,MVStringBuilder,String)"
+      },
+      {
+        "level": 2,
+        "filename": "src/mediathek/controller/io/GetUrl.java",
+        "line_number": 128,
+        "column_number": -1,
+        "description": "call to MVStringBuilder GetUrl.getUri(String,String,MVStringBuilder,String,int,String,int,boolean)"
+      },
+      {
+        "level": 3,
+        "filename": "src/mediathek/controller/io/GetUrl.java",
+        "line_number": 303,
+        "column_number": -1,
+        "description": "call to String Daten.getUserAgent()"
+      },
+      {
+        "level": 4,
+        "filename": "src/mediathek/daten/Daten.java",
+        "line_number": 105,
+        "column_number": -1,
+        "description": "call to boolean Daten.isUserAgentAuto()"
+      },
+      {
+        "level": 5,
+        "filename": "src/mediathek/daten/Daten.java",
+        "line_number": 97,
+        "column_number": -1,
+        "description": "access to `daten.Daten.mediathek.daten.Daten.system.[_]`"
+      }
+    ],
+    "key": "MediathekKika.java|ladenHttp|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "afeef2ec010d8589073d398c5b8a9305",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `mediathek.controller.filmeLaden.suchen.sender.MediathekKika.ladenHttp` reads without synchronization from `this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp`. Potentially races with write in method `MediathekKika.meldungThreadUndFertig()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 264,
+    "column": -1,
+    "procedure": "void MediathekKika.ladenHttp(String,String,String)",
+    "procedure_id": "mediathek.controller.filmeLaden.suchen.sender.MediathekKika.ladenHttp(java.lang.String,java.lang.Str.baacf86a2519544ecd111ab867b66324",
+    "procedure_start_line": 244,
+    "file": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "access to `this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp`"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 44,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 44,
+        "column_number": -1,
+        "description": "call to void MediathekKika.addToListHttp()"
+      },
+      {
+        "level": 1,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 236,
+        "column_number": -1,
+        "description": "call to void MediathekKika.ladenHttp(String,String,String)"
+      },
+      {
+        "level": 2,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 249,
+        "column_number": -1,
+        "description": "access to `this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp`"
+      }
+    ],
+    "key": "MediathekKika.java|ladenHttp|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "934c6a963fb7e05266ee2383d588684a",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `mediathek.controller.filmeLaden.suchen.sender.MediathekKika.ladenHttp` indirectly writes to field `this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp.mediathek.tool.MVStringBuilder.pos1` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.\n\nNote that the prefix path this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp has been contaminated during the execution, so the reported race on this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp.mediathek.tool.MVStringBuilder.pos1 might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 264,
+    "column": -1,
+    "procedure": "void MediathekKika.ladenHttp(String,String,String)",
+    "procedure_id": "mediathek.controller.filmeLaden.suchen.sender.MediathekKika.ladenHttp(java.lang.String,java.lang.Str.baacf86a2519544ecd111ab867b66324",
+    "procedure_start_line": 244,
+    "file": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "call to String MVStringBuilder.extract(String,String)"
+      },
+      {
+        "level": 1,
+        "filename": "src/mediathek/tool/MVStringBuilder.java",
+        "line_number": 68,
+        "column_number": -1,
+        "description": "call to String MVStringBuilder.extract(String,String,int)"
+      },
+      {
+        "level": 2,
+        "filename": "src/mediathek/tool/MVStringBuilder.java",
+        "line_number": 72,
+        "column_number": -1,
+        "description": "access to `this.mediathek.tool.MVStringBuilder.pos1`"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 44,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 44,
+        "column_number": -1,
+        "description": "call to void MediathekKika.addToListHttp()"
+      },
+      {
+        "level": 1,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 236,
+        "column_number": -1,
+        "description": "call to void MediathekKika.ladenHttp(String,String,String)"
+      },
+      {
+        "level": 2,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 251,
+        "column_number": -1,
+        "description": "call to String MVStringBuilder.extract(String,String)"
+      },
+      {
+        "level": 3,
+        "filename": "src/mediathek/tool/MVStringBuilder.java",
+        "line_number": 68,
+        "column_number": -1,
+        "description": "call to String MVStringBuilder.extract(String,String,int)"
+      },
+      {
+        "level": 4,
+        "filename": "src/mediathek/tool/MVStringBuilder.java",
+        "line_number": 72,
+        "column_number": -1,
+        "description": "access to `this.mediathek.tool.MVStringBuilder.pos1`"
+      }
+    ],
+    "key": "MediathekKika.java|ladenHttp|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "d99b85f6a9ccce50903441450b2f8e23",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `mediathek.controller.filmeLaden.suchen.sender.MediathekKika.ladenHttp` indirectly reads without synchronization from `this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp.mediathek.tool.MVStringBuilder.pos1`. Potentially races with write in method `MediathekKika.meldungThreadUndFertig()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.\n\nNote that the prefix path this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp has been contaminated during the execution, so the reported race on this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp.mediathek.tool.MVStringBuilder.pos1 might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 263,
+    "column": -1,
+    "procedure": "void MediathekKika.ladenHttp(String,String,String)",
+    "procedure_id": "mediathek.controller.filmeLaden.suchen.sender.MediathekKika.ladenHttp(java.lang.String,java.lang.Str.baacf86a2519544ecd111ab867b66324",
+    "procedure_start_line": 244,
+    "file": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 263,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 263,
+        "column_number": -1,
+        "description": "call to String MVStringBuilder.extract(String,String)"
+      },
+      {
+        "level": 1,
+        "filename": "src/mediathek/tool/MVStringBuilder.java",
+        "line_number": 68,
+        "column_number": -1,
+        "description": "call to String MVStringBuilder.extract(String,String,int)"
+      },
+      {
+        "level": 2,
+        "filename": "src/mediathek/tool/MVStringBuilder.java",
+        "line_number": 73,
+        "column_number": -1,
+        "description": "access to `this.mediathek.tool.MVStringBuilder.pos1`"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 44,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 44,
+        "column_number": -1,
+        "description": "call to void MediathekKika.addToListHttp()"
+      },
+      {
+        "level": 1,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 236,
+        "column_number": -1,
+        "description": "call to void MediathekKika.ladenHttp(String,String,String)"
+      },
+      {
+        "level": 2,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 251,
+        "column_number": -1,
+        "description": "call to String MVStringBuilder.extract(String,String)"
+      },
+      {
+        "level": 3,
+        "filename": "src/mediathek/tool/MVStringBuilder.java",
+        "line_number": 68,
+        "column_number": -1,
+        "description": "call to String MVStringBuilder.extract(String,String,int)"
+      },
+      {
+        "level": 4,
+        "filename": "src/mediathek/tool/MVStringBuilder.java",
+        "line_number": 72,
+        "column_number": -1,
+        "description": "access to `this.mediathek.tool.MVStringBuilder.pos1`"
+      }
+    ],
+    "key": "MediathekKika.java|ladenHttp|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "c187f1647c18c7fadb201c66ffd28fcf",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `mediathek.controller.filmeLaden.suchen.sender.MediathekKika.ladenHttp` writes to field `this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 260,
+    "column": -1,
+    "procedure": "void MediathekKika.ladenHttp(String,String,String)",
+    "procedure_id": "mediathek.controller.filmeLaden.suchen.sender.MediathekKika.ladenHttp(java.lang.String,java.lang.Str.baacf86a2519544ecd111ab867b66324",
+    "procedure_start_line": 244,
+    "file": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 260,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 260,
+        "column_number": -1,
+        "description": "access to `this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp`"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 44,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 44,
+        "column_number": -1,
+        "description": "call to void MediathekKika.addToListHttp()"
+      },
+      {
+        "level": 1,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 236,
+        "column_number": -1,
+        "description": "call to void MediathekKika.ladenHttp(String,String,String)"
+      },
+      {
+        "level": 2,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 249,
+        "column_number": -1,
+        "description": "access to `this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp`"
+      }
+    ],
+    "key": "MediathekKika.java|ladenHttp|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "194500732d131bec18d5d4faddb58503",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `mediathek.controller.filmeLaden.suchen.sender.MediathekKika.ladenHttp` indirectly writes to field `this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp.mediathek.tool.MVStringBuilder.pos2` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.\n\nNote that the prefix path this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp has been contaminated during the execution, so the reported race on this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp.mediathek.tool.MVStringBuilder.pos2 might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 252,
+    "column": -1,
+    "procedure": "void MediathekKika.ladenHttp(String,String,String)",
+    "procedure_id": "mediathek.controller.filmeLaden.suchen.sender.MediathekKika.ladenHttp(java.lang.String,java.lang.Str.baacf86a2519544ecd111ab867b66324",
+    "procedure_start_line": 244,
+    "file": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 252,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 252,
+        "column_number": -1,
+        "description": "call to String MVStringBuilder.extract(String,String)"
+      },
+      {
+        "level": 1,
+        "filename": "src/mediathek/tool/MVStringBuilder.java",
+        "line_number": 68,
+        "column_number": -1,
+        "description": "call to String MVStringBuilder.extract(String,String,int)"
+      },
+      {
+        "level": 2,
+        "filename": "src/mediathek/tool/MVStringBuilder.java",
+        "line_number": 74,
+        "column_number": -1,
+        "description": "access to `this.mediathek.tool.MVStringBuilder.pos2`"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 44,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 44,
+        "column_number": -1,
+        "description": "call to void MediathekKika.addToListHttp()"
+      },
+      {
+        "level": 1,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 236,
+        "column_number": -1,
+        "description": "call to void MediathekKika.ladenHttp(String,String,String)"
+      },
+      {
+        "level": 2,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 251,
+        "column_number": -1,
+        "description": "call to String MVStringBuilder.extract(String,String)"
+      },
+      {
+        "level": 3,
+        "filename": "src/mediathek/tool/MVStringBuilder.java",
+        "line_number": 68,
+        "column_number": -1,
+        "description": "call to String MVStringBuilder.extract(String,String,int)"
+      },
+      {
+        "level": 4,
+        "filename": "src/mediathek/tool/MVStringBuilder.java",
+        "line_number": 74,
+        "column_number": -1,
+        "description": "access to `this.mediathek.tool.MVStringBuilder.pos2`"
+      }
+    ],
+    "key": "MediathekKika.java|ladenHttp|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "5518232d01e5f81741b40ba09b017d0f",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `mediathek.controller.filmeLaden.suchen.sender.MediathekKika.ladenHttp` indirectly reads without synchronization from `this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp.mediathek.tool.MVStringBuilder.pos2`. Potentially races with write in method `MediathekKika.meldungThreadUndFertig()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.\n\nNote that the prefix path this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp has been contaminated during the execution, so the reported race on this.mediathek.controller.filmeLaden.suchen.sender.MediathekKika.seiteHttp.mediathek.tool.MVStringBuilder.pos2 might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 251,
+    "column": -1,
+    "procedure": "void MediathekKika.ladenHttp(String,String,String)",
+    "procedure_id": "mediathek.controller.filmeLaden.suchen.sender.MediathekKika.ladenHttp(java.lang.String,java.lang.Str.baacf86a2519544ecd111ab867b66324",
+    "procedure_start_line": 244,
+    "file": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 251,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 251,
+        "column_number": -1,
+        "description": "call to String MVStringBuilder.extract(String,String)"
+      },
+      {
+        "level": 1,
+        "filename": "src/mediathek/tool/MVStringBuilder.java",
+        "line_number": 68,
+        "column_number": -1,
+        "description": "call to String MVStringBuilder.extract(String,String,int)"
+      },
+      {
+        "level": 2,
+        "filename": "src/mediathek/tool/MVStringBuilder.java",
+        "line_number": 75,
+        "column_number": -1,
+        "description": "access to `this.mediathek.tool.MVStringBuilder.pos2`"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 44,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 44,
+        "column_number": -1,
+        "description": "call to void MediathekKika.addToListHttp()"
+      },
+      {
+        "level": 1,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 236,
+        "column_number": -1,
+        "description": "call to void MediathekKika.ladenHttp(String,String,String)"
+      },
+      {
+        "level": 2,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 251,
+        "column_number": -1,
+        "description": "call to String MVStringBuilder.extract(String,String)"
+      },
+      {
+        "level": 3,
+        "filename": "src/mediathek/tool/MVStringBuilder.java",
+        "line_number": 68,
+        "column_number": -1,
+        "description": "call to String MVStringBuilder.extract(String,String,int)"
+      },
+      {
+        "level": 4,
+        "filename": "src/mediathek/tool/MVStringBuilder.java",
+        "line_number": 74,
+        "column_number": -1,
+        "description": "access to `this.mediathek.tool.MVStringBuilder.pos2`"
+      }
+    ],
+    "key": "MediathekKika.java|ladenHttp|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "563320034677c09156174d52e5629c2d",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `mediathek.controller.filmeLaden.suchen.sender.MediathekKika.addToListHttp` indirectly reads without synchronization from `n$102.mediathek.daten.DatenFilm.arr.[_]`. Potentially races with write in method `MediathekKika.meldungThreadUndFertig()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.\n\nNote that the prefix path n$102 has been contaminated during the execution, so the reported race on n$102.mediathek.daten.DatenFilm.arr.[_] might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 236,
+    "column": -1,
+    "procedure": "void MediathekKika.addToListHttp()",
+    "procedure_id": "mediathek.controller.filmeLaden.suchen.sender.MediathekKika.addToListHttp():void.2c4a0a126446542c870c46f00a0cfa8c",
+    "procedure_start_line": 195,
+    "file": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 236,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 236,
+        "column_number": -1,
+        "description": "call to void MediathekKika.ladenHttp(String,String,String)"
+      },
+      {
+        "level": 1,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 275,
+        "column_number": -1,
+        "description": "call to boolean MediathekReader.addFilm(DatenFilm)"
+      },
+      {
+        "level": 2,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekReader.java",
+        "line_number": 109,
+        "column_number": -1,
+        "description": "call to boolean ListeFilme.addFilmVomSender(DatenFilm)"
+      },
+      {
+        "level": 3,
+        "filename": "src/mediathek/daten/ListeFilme.java",
+        "line_number": 148,
+        "column_number": -1,
+        "description": "call to boolean ListeFilme.addInit(DatenFilm)"
+      },
+      {
+        "level": 4,
+        "filename": "src/mediathek/daten/ListeFilme.java",
+        "line_number": 216,
+        "column_number": -1,
+        "description": "call to void DatenFilm.init()"
+      },
+      {
+        "level": 5,
+        "filename": "src/mediathek/daten/DatenFilm.java",
+        "line_number": 416,
+        "column_number": -1,
+        "description": "call to Datum DatumZeit.getDatumForObject(DatenFilm)"
+      },
+      {
+        "level": 6,
+        "filename": "src/mediathek/tool/DatumZeit.java",
+        "line_number": 183,
+        "column_number": -1,
+        "description": "access to `film.mediathek.daten.DatenFilm.arr.[_]`"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 44,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 44,
+        "column_number": -1,
+        "description": "call to void MediathekKika.addToListHttp()"
+      },
+      {
+        "level": 1,
+        "filename": "src/mediathek/controller/filmeLaden/suchen/sender/MediathekKika.java",
+        "line_number": 210,
+        "column_number": -1,
+        "description": "call to MVStringBuilder GetUrl.getUri(String,String,String,int,MVStringBuilder,String)"
+      },
+      {
+        "level": 2,
+        "filename": "src/mediathek/controller/io/GetUrl.java",
+        "line_number": 128,
+        "column_number": -1,
+        "description": "call to MVStringBuilder GetUrl.getUri(String,String,MVStringBuilder,String,int,String,int,boolean)"
+      },
+      {
+        "level": 3,
+        "filename": "src/mediathek/controller/io/GetUrl.java",
+        "line_number": 303,
+        "column_number": -1,
+        "description": "call to String Daten.getUserAgent()"
+      },
+      {
+        "level": 4,
+        "filename": "src/mediathek/daten/Daten.java",
+        "line_number": 105,
+        "column_number": -1,
+        "description": "call to boolean Daten.isUserAgentAuto()"
+      },
+      {
+        "level": 5,
+        "filename": "src/mediathek/daten/Daten.java",
+        "line_number": 97,
+        "column_number": -1,
+        "description": "access to `daten.Daten.mediathek.daten.Daten.system.[_]`"
+      }
+    ],
+    "key": "MediathekKika.java|addToListHttp|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "2812e19af46187d1925887aefbcaf2cc",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

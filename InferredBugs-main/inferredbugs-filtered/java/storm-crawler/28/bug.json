@@ -1,0 +1,506 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open` writes to field `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.eventCounter` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 182,
+    "column": -1,
+    "procedure": "void ElasticSearchSpout.open(Map,TopologyContext,SpoutOutputCollector)",
+    "procedure_id": "com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open(java.util.Map,org.a.e41c5d28caf27cdd069fef3c2a39f989",
+    "procedure_start_line": 124,
+    "file": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 182,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.eventCounter`"
+      }
+    ],
+    "key": "ElasticSearchSpout.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "60d571571976e0320b04abf5a016060c",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open` writes to field `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout._collector` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 180,
+    "column": -1,
+    "procedure": "void ElasticSearchSpout.open(Map,TopologyContext,SpoutOutputCollector)",
+    "procedure_id": "com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open(java.util.Map,org.a.e41c5d28caf27cdd069fef3c2a39f989",
+    "procedure_start_line": 124,
+    "file": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 180,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout._collector`"
+      }
+    ],
+    "key": "ElasticSearchSpout.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "851d3d50cd0d57d70cb1fdf6be7320e1",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open` reads without synchronization from `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.partitioner`. Potentially races with write in method `ElasticSearchSpout.open(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 178,
+    "column": -1,
+    "procedure": "void ElasticSearchSpout.open(Map,TopologyContext,SpoutOutputCollector)",
+    "procedure_id": "com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open(java.util.Map,org.a.e41c5d28caf27cdd069fef3c2a39f989",
+    "procedure_start_line": 124,
+    "file": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 178,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 178,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.partitioner`"
+      },
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 177,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 177,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.partitioner`"
+      }
+    ],
+    "key": "ElasticSearchSpout.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "4257c8c7a389beb01afdd8c73babb551",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open` writes to field `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.partitioner` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 177,
+    "column": -1,
+    "procedure": "void ElasticSearchSpout.open(Map,TopologyContext,SpoutOutputCollector)",
+    "procedure_id": "com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open(java.util.Map,org.a.e41c5d28caf27cdd069fef3c2a39f989",
+    "procedure_start_line": 124,
+    "file": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 177,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.partitioner`"
+      }
+    ],
+    "key": "ElasticSearchSpout.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "d26bff11678ef7fc30345ca26ee07b58",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open` reads without synchronization from `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.shardID`. Potentially races with write in method `ElasticSearchSpout.open(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 174,
+    "column": -1,
+    "procedure": "void ElasticSearchSpout.open(Map,TopologyContext,SpoutOutputCollector)",
+    "procedure_id": "com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open(java.util.Map,org.a.e41c5d28caf27cdd069fef3c2a39f989",
+    "procedure_start_line": 124,
+    "file": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 174,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 174,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.shardID`"
+      },
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 173,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 173,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.shardID`"
+      }
+    ],
+    "key": "ElasticSearchSpout.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "80e501625d577a5aa178a36eaf08b945",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open` writes to field `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.shardID` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 173,
+    "column": -1,
+    "procedure": "void ElasticSearchSpout.open(Map,TopologyContext,SpoutOutputCollector)",
+    "procedure_id": "com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open(java.util.Map,org.a.e41c5d28caf27cdd069fef3c2a39f989",
+    "procedure_start_line": 124,
+    "file": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 173,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.shardID`"
+      }
+    ],
+    "key": "ElasticSearchSpout.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "9d7aa437eb516568e91f5eeff4b1c9ed",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open` reads without synchronization from `persistence.ElasticSearchSpout.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.client`. Potentially races with write in method `ElasticSearchSpout.open(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 165,
+    "column": -1,
+    "procedure": "void ElasticSearchSpout.open(Map,TopologyContext,SpoutOutputCollector)",
+    "procedure_id": "com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open(java.util.Map,org.a.e41c5d28caf27cdd069fef3c2a39f989",
+    "procedure_start_line": 124,
+    "file": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 165,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 165,
+        "column_number": -1,
+        "description": "access to `persistence.ElasticSearchSpout.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.client`"
+      },
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 147,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 147,
+        "column_number": -1,
+        "description": "access to `persistence.ElasticSearchSpout.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.client`"
+      }
+    ],
+    "key": "ElasticSearchSpout.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "bd9eb58fa6bbba30d4d2d8d50e2ea826",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open` reads without synchronization from `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.indexName`. Potentially races with write in method `ElasticSearchSpout.open(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 163,
+    "column": -1,
+    "procedure": "void ElasticSearchSpout.open(Map,TopologyContext,SpoutOutputCollector)",
+    "procedure_id": "com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open(java.util.Map,org.a.e41c5d28caf27cdd069fef3c2a39f989",
+    "procedure_start_line": 124,
+    "file": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 163,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 163,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.indexName`"
+      },
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 127,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 127,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.indexName`"
+      }
+    ],
+    "key": "ElasticSearchSpout.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "ee9d549d35b096d7c698f967d9703e11",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open` writes to field `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.sortField` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 140,
+    "column": -1,
+    "procedure": "void ElasticSearchSpout.open(Map,TopologyContext,SpoutOutputCollector)",
+    "procedure_id": "com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open(java.util.Map,org.a.e41c5d28caf27cdd069fef3c2a39f989",
+    "procedure_start_line": 124,
+    "file": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 140,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.sortField`"
+      }
+    ],
+    "key": "ElasticSearchSpout.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "c83434890ee9c330b23123a1504b4e53",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open` writes to field `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.maxSecSinceQueriedDate` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 137,
+    "column": -1,
+    "procedure": "void ElasticSearchSpout.open(Map,TopologyContext,SpoutOutputCollector)",
+    "procedure_id": "com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open(java.util.Map,org.a.e41c5d28caf27cdd069fef3c2a39f989",
+    "procedure_start_line": 124,
+    "file": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 137,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.maxSecSinceQueriedDate`"
+      }
+    ],
+    "key": "ElasticSearchSpout.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "0e1b0ee187c99b5b14382810adeec9ca",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open` writes to field `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.randomSort` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 135,
+    "column": -1,
+    "procedure": "void ElasticSearchSpout.open(Map,TopologyContext,SpoutOutputCollector)",
+    "procedure_id": "com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open(java.util.Map,org.a.e41c5d28caf27cdd069fef3c2a39f989",
+    "procedure_start_line": 124,
+    "file": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 135,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.randomSort`"
+      }
+    ],
+    "key": "ElasticSearchSpout.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "a5ca771af5cb65010f667f614c1dd167",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open` writes to field `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.maxBufferSize` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 133,
+    "column": -1,
+    "procedure": "void ElasticSearchSpout.open(Map,TopologyContext,SpoutOutputCollector)",
+    "procedure_id": "com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open(java.util.Map,org.a.e41c5d28caf27cdd069fef3c2a39f989",
+    "procedure_start_line": 124,
+    "file": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 133,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.maxBufferSize`"
+      }
+    ],
+    "key": "ElasticSearchSpout.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "658da0042a50a2c7917cab401d782440",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open` writes to field `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.maxInFlightURLsPerBucket` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 131,
+    "column": -1,
+    "procedure": "void ElasticSearchSpout.open(Map,TopologyContext,SpoutOutputCollector)",
+    "procedure_id": "com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open(java.util.Map,org.a.e41c5d28caf27cdd069fef3c2a39f989",
+    "procedure_start_line": 124,
+    "file": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 131,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.maxInFlightURLsPerBucket`"
+      }
+    ],
+    "key": "ElasticSearchSpout.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "40180aa42b0a21c82233dd73141b44bd",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open` writes to field `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.docType` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 129,
+    "column": -1,
+    "procedure": "void ElasticSearchSpout.open(Map,TopologyContext,SpoutOutputCollector)",
+    "procedure_id": "com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open(java.util.Map,org.a.e41c5d28caf27cdd069fef3c2a39f989",
+    "procedure_start_line": 124,
+    "file": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 129,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.docType`"
+      }
+    ],
+    "key": "ElasticSearchSpout.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "8023dcbc6a0583bbd1fa4510d036d183",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open` writes to field `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.indexName` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 127,
+    "column": -1,
+    "procedure": "void ElasticSearchSpout.open(Map,TopologyContext,SpoutOutputCollector)",
+    "procedure_id": "com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.open(java.util.Map,org.a.e41c5d28caf27cdd069fef3c2a39f989",
+    "procedure_start_line": 124,
+    "file": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "external/elasticsearch/src/main/java/com/digitalpebble/stormcrawler/elasticsearch/persistence/ElasticSearchSpout.java",
+        "line_number": 127,
+        "column_number": -1,
+        "description": "access to `this.com.digitalpebble.stormcrawler.elasticsearch.persistence.ElasticSearchSpout.indexName`"
+      }
+    ],
+    "key": "ElasticSearchSpout.java|open|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "24df2ebb6965ddb2340f42b479ccb294",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

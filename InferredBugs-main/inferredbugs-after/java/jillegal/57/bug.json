@@ -1,0 +1,226 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.getArray` reads without synchronization from `this.tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.objectArray`. Potentially races with write in method `ComplexTypeArrayOffHeapPool.reset()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 166,
+    "column": -1,
+    "procedure": "Object ComplexTypeArrayOffHeapPool.getArray()",
+    "procedure_id": "tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.getArray():java.lang.Object.bac6317e29c454b216a790428b48959c",
+    "procedure_start_line": 164,
+    "file": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 166,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 166,
+        "column_number": -1,
+        "description": "access to `this.tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.objectArray`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 177,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 177,
+        "column_number": -1,
+        "description": "call to void ComplexTypeArrayOffHeapPool.init()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 92,
+        "column_number": -1,
+        "description": "access to `this.tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.objectArray`"
+      }
+    ],
+    "key": "ComplexTypeArrayOffHeapPool.java|getArray|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "7f1ed5f34b2895960763185d6a6cf616",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.getAt` reads without synchronization from `this.tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.objectArray`. Potentially races with write in method `ComplexTypeArrayOffHeapPool.reset()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 143,
+    "column": -1,
+    "procedure": "Object ComplexTypeArrayOffHeapPool.getAt(int)",
+    "procedure_id": "tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.getAt(int):java.lang.Object.0897c1f0d5ef117290d2ae527d0a9198",
+    "procedure_start_line": 135,
+    "file": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 143,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 143,
+        "column_number": -1,
+        "description": "access to `this.tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.objectArray`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 177,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 177,
+        "column_number": -1,
+        "description": "call to void ComplexTypeArrayOffHeapPool.init()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 92,
+        "column_number": -1,
+        "description": "access to `this.tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.objectArray`"
+      }
+    ],
+    "key": "ComplexTypeArrayOffHeapPool.java|getAt|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "7914f5653955ee4e2d84e1a865e6b121",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.isMe` reads without synchronization from `this.tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.objectArray`. Potentially races with write in method `ComplexTypeArrayOffHeapPool.reset()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 124,
+    "column": -1,
+    "procedure": "boolean ComplexTypeArrayOffHeapPool.isMe(Object)",
+    "procedure_id": "tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.isMe(java.lang.Object):bool.bb2aa30837328cfa78a9e1ff1397c8a3",
+    "procedure_start_line": 122,
+    "file": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 124,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 124,
+        "column_number": -1,
+        "description": "access to `this.tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.objectArray`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 177,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 177,
+        "column_number": -1,
+        "description": "call to void ComplexTypeArrayOffHeapPool.init()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 92,
+        "column_number": -1,
+        "description": "access to `this.tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.objectArray`"
+      }
+    ],
+    "key": "ComplexTypeArrayOffHeapPool.java|isMe|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "efe23d3de5c06a79324bba28deb81f89",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.init` writes to field `this.tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.objectArray` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 92,
+    "column": -1,
+    "procedure": "void ComplexTypeArrayOffHeapPool.init()",
+    "procedure_id": "tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.init():void.210faf44851d643a17b2c97169ecf2ff",
+    "procedure_start_line": 57,
+    "file": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 92,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 92,
+        "column_number": -1,
+        "description": "access to `this.tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.objectArray`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 177,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 177,
+        "column_number": -1,
+        "description": "call to void ComplexTypeArrayOffHeapPool.init()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/tr/com/serkanozal/jillegal/offheap/pool/impl/ComplexTypeArrayOffHeapPool.java",
+        "line_number": 92,
+        "column_number": -1,
+        "description": "access to `this.tr.com.serkanozal.jillegal.offheap.pool.impl.ComplexTypeArrayOffHeapPool.objectArray`"
+      }
+    ],
+    "key": "ComplexTypeArrayOffHeapPool.java|init|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "d18120dccd2a463a41c67281a04651fe",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

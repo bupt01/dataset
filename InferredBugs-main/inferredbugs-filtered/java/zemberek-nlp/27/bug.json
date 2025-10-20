@@ -1,0 +1,681 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `zemberek.embedding.fasttext.Model.getLoss` reads without synchronization from `this.zemberek.embedding.fasttext.Model.loss_`. Potentially races with write in method `Model.update(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 337,
+    "column": -1,
+    "procedure": "float Model.getLoss()",
+    "procedure_id": "zemberek.embedding.fasttext.Model.getLoss():float.c25f70a55380e5fabfc87c374ae7ba21",
+    "procedure_start_line": 336,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 337,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 337,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Model.loss_`"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 243,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 243,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Model.loss_`"
+      }
+    ],
+    "key": "Model.java|getLoss|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "f34dca94abaa23c9b2dd82d01b00ec86",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `zemberek.embedding.fasttext.Model.update` indirectly reads with synchronization from `this.zemberek.embedding.fasttext.Model.grad_.zemberek.embedding.fasttext.Vector.data_.[_]`. Potentially races with unsynchronized write in method `Model.update(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 252,
+    "column": -1,
+    "procedure": "void Model.update(int[],int,float)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.update(int[],int,float):void.49e2c20141a9f555936abeccf294c2e6",
+    "procedure_start_line": 233,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 252,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 252,
+        "column_number": -1,
+        "description": "call to void Matrix.addRow(Vector,int,float)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Matrix.java",
+        "line_number": 50,
+        "column_number": -1,
+        "description": "access to `vec.zemberek.embedding.fasttext.Vector.data_.[_]`"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 243,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 243,
+        "column_number": -1,
+        "description": "call to float Model.softmax(int,float)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 151,
+        "column_number": -1,
+        "description": "call to void Vector.addRow(Matrix,int,float)"
+      },
+      {
+        "level": 2,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Vector.java",
+        "line_number": 47,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Vector.data_.[_]`"
+      }
+    ],
+    "key": "Model.java|update|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "c1c406f534e4f3d88dd346c51aae3e9f",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `zemberek.embedding.fasttext.Model.update` writes to field `this.zemberek.embedding.fasttext.Model.nexamples_` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 245,
+    "column": -1,
+    "procedure": "void Model.update(int[],int,float)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.update(int[],int,float):void.49e2c20141a9f555936abeccf294c2e6",
+    "procedure_start_line": 233,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 245,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Model.nexamples_`"
+      }
+    ],
+    "key": "Model.java|update|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "8e7965ef951e76e7ec59a1bbe86854ef",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `zemberek.embedding.fasttext.Model.update` writes to field `this.zemberek.embedding.fasttext.Model.loss_` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 243,
+    "column": -1,
+    "procedure": "void Model.update(int[],int,float)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.update(int[],int,float):void.49e2c20141a9f555936abeccf294c2e6",
+    "procedure_start_line": 233,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 243,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Model.loss_`"
+      }
+    ],
+    "key": "Model.java|update|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "e31424531b3de3ef8c99f701dd90eb42",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `zemberek.embedding.fasttext.Model.update` indirectly writes to field `this.zemberek.embedding.fasttext.Model.grad_.zemberek.embedding.fasttext.Vector.data_.[_]` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 243,
+    "column": -1,
+    "procedure": "void Model.update(int[],int,float)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.update(int[],int,float):void.49e2c20141a9f555936abeccf294c2e6",
+    "procedure_start_line": 233,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 243,
+        "column_number": -1,
+        "description": "call to float Model.softmax(int,float)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 151,
+        "column_number": -1,
+        "description": "call to void Vector.addRow(Matrix,int,float)"
+      },
+      {
+        "level": 2,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Vector.java",
+        "line_number": 47,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Vector.data_.[_]`"
+      }
+    ],
+    "key": "Model.java|update|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "fac7bcfb8ac1794c3ef91e8c37f057a4",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `zemberek.embedding.fasttext.Model.update` indirectly writes to field `$T2_77.zemberek.embedding.fasttext.Model.grad_.zemberek.embedding.fasttext.Vector.data_.[_]` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 241,
+    "column": -1,
+    "procedure": "void Model.update(int[],int,float)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.update(int[],int,float):void.49e2c20141a9f555936abeccf294c2e6",
+    "procedure_start_line": 233,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 241,
+        "column_number": -1,
+        "description": "call to float Model.hierarchicalSoftmax(int,float)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 121,
+        "column_number": -1,
+        "description": "call to float Model.binaryLogistic(int,boolean,float)"
+      },
+      {
+        "level": 2,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 90,
+        "column_number": -1,
+        "description": "call to void Vector.addRow(Matrix,int,float)"
+      },
+      {
+        "level": 3,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Vector.java",
+        "line_number": 47,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Vector.data_.[_]`"
+      }
+    ],
+    "key": "Model.java|update|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "4ee79219dc8b89862db60ffa66db6bf6",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `zemberek.embedding.fasttext.Model.update` reads without synchronization from `this.zemberek.embedding.fasttext.Model.loss_`. Potentially races with write in method `Model.update(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 241,
+    "column": -1,
+    "procedure": "void Model.update(int[],int,float)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.update(int[],int,float):void.49e2c20141a9f555936abeccf294c2e6",
+    "procedure_start_line": 233,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 241,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 241,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Model.loss_`"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 243,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 243,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Model.loss_`"
+      }
+    ],
+    "key": "Model.java|update|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "8bab92d9cd8ab9494c6ef43d58e7b09e",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `zemberek.embedding.fasttext.Model.update` indirectly reads with synchronization from `this.zemberek.embedding.fasttext.Model.hidden_.zemberek.embedding.fasttext.Vector.data_.[_]`. Potentially races with unsynchronized write in method `Model.update(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 239,
+    "column": -1,
+    "procedure": "void Model.update(int[],int,float)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.update(int[],int,float):void.49e2c20141a9f555936abeccf294c2e6",
+    "procedure_start_line": 233,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 239,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 239,
+        "column_number": -1,
+        "description": "call to float Model.negativeSampling(int,float)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 106,
+        "column_number": -1,
+        "description": "call to float Model.binaryLogistic(int,boolean,float)"
+      },
+      {
+        "level": 2,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 90,
+        "column_number": -1,
+        "description": "call to void Vector.addRow(Matrix,int,float)"
+      },
+      {
+        "level": 3,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Vector.java",
+        "line_number": 47,
+        "column_number": -1,
+        "description": "access to `A.zemberek.embedding.fasttext.Matrix.data_.[_]`"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 237,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 237,
+        "column_number": -1,
+        "description": "call to void Model.computeHidden(int[],Vector)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 163,
+        "column_number": -1,
+        "description": "call to void Vector.addRow(Matrix,int)"
+      },
+      {
+        "level": 2,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Vector.java",
+        "line_number": 38,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Vector.data_.[_]`"
+      }
+    ],
+    "key": "Model.java|update|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "64cbdb3bc8d353cfc3e02810ab05fb56",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `zemberek.embedding.fasttext.Model.update` indirectly writes to field `this.zemberek.embedding.fasttext.Model.hidden_.zemberek.embedding.fasttext.Vector.data_.[_]` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 237,
+    "column": -1,
+    "procedure": "void Model.update(int[],int,float)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.update(int[],int,float):void.49e2c20141a9f555936abeccf294c2e6",
+    "procedure_start_line": 233,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 237,
+        "column_number": -1,
+        "description": "call to void Model.computeHidden(int[],Vector)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 163,
+        "column_number": -1,
+        "description": "call to void Vector.addRow(Matrix,int)"
+      },
+      {
+        "level": 2,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Vector.java",
+        "line_number": 38,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Vector.data_.[_]`"
+      }
+    ],
+    "key": "Model.java|update|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "0eef23683409d0cacccdf5b811a4498e",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `zemberek.embedding.fasttext.Model.predict` indirectly writes to field `this.zemberek.embedding.fasttext.Model.hidden_.zemberek.embedding.fasttext.Vector.data_.[_]` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 190,
+    "column": -1,
+    "procedure": "List Model.predict(int[],int)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.predict(int[],int):java.util.List.f4fce829baee3d573beb2e51ebd01756",
+    "procedure_start_line": 190,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 190,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 190,
+        "column_number": -1,
+        "description": "call to List Model.predict(int[],int,Vector,Vector)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 177,
+        "column_number": -1,
+        "description": "call to void Model.computeHidden(int[],Vector)"
+      },
+      {
+        "level": 2,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 163,
+        "column_number": -1,
+        "description": "call to void Vector.addRow(Matrix,int)"
+      },
+      {
+        "level": 3,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Vector.java",
+        "line_number": 38,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Vector.data_.[_]`"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 237,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 237,
+        "column_number": -1,
+        "description": "call to void Model.computeHidden(int[],Vector)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 163,
+        "column_number": -1,
+        "description": "call to void Vector.addRow(Matrix,int)"
+      },
+      {
+        "level": 2,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Vector.java",
+        "line_number": 38,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Vector.data_.[_]`"
+      }
+    ],
+    "key": "Model.java|predict|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "2ee0bdf1df9eb60498a04de037f3ec61",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `zemberek.embedding.fasttext.Model.predict` indirectly reads without synchronization from `this.zemberek.embedding.fasttext.Model.wo_.zemberek.embedding.fasttext.Matrix.data_.[_]`. Potentially races with write in method `Model.update(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 182,
+    "column": -1,
+    "procedure": "List Model.predict(int[],int,Vector,Vector)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.predict(int[],int,zemberek.embedding.fasttext.Vector,zemberek.embe.daed85040bd1a222589ecb2cdae37283",
+    "procedure_start_line": 172,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 182,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 182,
+        "column_number": -1,
+        "description": "call to void Model.findKBest(int,PriorityQueue,Vector,Vector)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 197,
+        "column_number": -1,
+        "description": "call to void Model.computeOutputSoftmax(Vector,Vector)"
+      },
+      {
+        "level": 2,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 127,
+        "column_number": -1,
+        "description": "call to void Vector.mul(Matrix,Vector)"
+      },
+      {
+        "level": 3,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Vector.java",
+        "line_number": 56,
+        "column_number": -1,
+        "description": "access to `A.zemberek.embedding.fasttext.Matrix.data_.[_]`"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 243,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 243,
+        "column_number": -1,
+        "description": "call to float Model.softmax(int,float)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 151,
+        "column_number": -1,
+        "description": "call to void Vector.addRow(Matrix,int,float)"
+      },
+      {
+        "level": 2,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Vector.java",
+        "line_number": 47,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Vector.data_.[_]`"
+      }
+    ],
+    "key": "Model.java|predict|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "5236fa70dae380f28d0ba41c6efb4bc1",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `zemberek.embedding.fasttext.Model.predict` indirectly reads without synchronization from `this.zemberek.embedding.fasttext.Model.wi_.zemberek.embedding.fasttext.Matrix.data_.[_]`. Potentially races with write in method `Model.update(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 177,
+    "column": -1,
+    "procedure": "List Model.predict(int[],int,Vector,Vector)",
+    "procedure_id": "zemberek.embedding.fasttext.Model.predict(int[],int,zemberek.embedding.fasttext.Vector,zemberek.embe.daed85040bd1a222589ecb2cdae37283",
+    "procedure_start_line": 172,
+    "file": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 177,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 177,
+        "column_number": -1,
+        "description": "call to void Model.computeHidden(int[],Vector)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 163,
+        "column_number": -1,
+        "description": "call to void Vector.addRow(Matrix,int)"
+      },
+      {
+        "level": 2,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Vector.java",
+        "line_number": 38,
+        "column_number": -1,
+        "description": "access to `A.zemberek.embedding.fasttext.Matrix.data_.[_]`"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 252,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Model.java",
+        "line_number": 252,
+        "column_number": -1,
+        "description": "call to void Matrix.addRow(Vector,int,float)"
+      },
+      {
+        "level": 1,
+        "filename": "experiment/src/main/java/zemberek/embedding/fasttext/Matrix.java",
+        "line_number": 50,
+        "column_number": -1,
+        "description": "access to `this.zemberek.embedding.fasttext.Matrix.data_.[_]`"
+      }
+    ],
+    "key": "Model.java|predict|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "6ab8c5d920d50d933f420101a9a935dd",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

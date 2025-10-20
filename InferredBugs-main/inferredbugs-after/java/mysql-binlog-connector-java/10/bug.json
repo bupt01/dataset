@@ -1,0 +1,345 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.github.shyiko.mysql.binlog.BinaryLogClient.connect` writes to field `this.com.github.shyiko.mysql.binlog.BinaryLogClient.channel` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 408,
+    "column": -1,
+    "procedure": "void BinaryLogClient.connect()",
+    "procedure_id": "com.github.shyiko.mysql.binlog.BinaryLogClient.connect():void.b46e0b85918f9e00aabc9fbe7138181c",
+    "procedure_start_line": 400,
+    "file": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 408,
+        "column_number": -1,
+        "description": "access to `this.com.github.shyiko.mysql.binlog.BinaryLogClient.channel`"
+      }
+    ],
+    "key": "BinaryLogClient.java|connect|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "d846720e98eeb917abd26b4888e6eeb9",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.github.shyiko.mysql.binlog.BinaryLogClient.connect` reads without synchronization from `this.com.github.shyiko.mysql.binlog.BinaryLogClient.socketFactory`. Potentially races with write in method `BinaryLogClient.setSocketFactory(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 406,
+    "column": -1,
+    "procedure": "void BinaryLogClient.connect()",
+    "procedure_id": "com.github.shyiko.mysql.binlog.BinaryLogClient.connect():void.b46e0b85918f9e00aabc9fbe7138181c",
+    "procedure_start_line": 400,
+    "file": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 406,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 406,
+        "column_number": -1,
+        "description": "access to `this.com.github.shyiko.mysql.binlog.BinaryLogClient.socketFactory`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 376,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 376,
+        "column_number": -1,
+        "description": "access to `this.com.github.shyiko.mysql.binlog.BinaryLogClient.socketFactory`"
+      }
+    ],
+    "key": "BinaryLogClient.java|connect|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "858870d70f0fcd860565cf3c96db444c",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.github.shyiko.mysql.binlog.BinaryLogClient.disconnect` indirectly reads with synchronization from `this.com.github.shyiko.mysql.binlog.BinaryLogClient.channel`. Potentially races with unsynchronized write in method `BinaryLogClient.connect()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 930,
+    "column": -1,
+    "procedure": "void BinaryLogClient.disconnect()",
+    "procedure_id": "com.github.shyiko.mysql.binlog.BinaryLogClient.disconnect():void.d05ad20ca9f26e1084f5598761bfb742",
+    "procedure_start_line": 924,
+    "file": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 930,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 930,
+        "column_number": -1,
+        "description": "call to void BinaryLogClient.disconnectChannel()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 958,
+        "column_number": -1,
+        "description": "access to `this.com.github.shyiko.mysql.binlog.BinaryLogClient.channel`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 408,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 408,
+        "column_number": -1,
+        "description": "access to `this.com.github.shyiko.mysql.binlog.BinaryLogClient.channel`"
+      }
+    ],
+    "key": "BinaryLogClient.java|disconnect|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "146e5f3d88d92a328876c2729884b407",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.github.shyiko.mysql.binlog.BinaryLogClient.connect` indirectly reads without synchronization from `this.com.github.shyiko.mysql.binlog.BinaryLogClient.eventDeserializer`. Potentially races with write in method `BinaryLogClient.setEventDeserializer(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 462,
+    "column": -1,
+    "procedure": "void BinaryLogClient.connect()",
+    "procedure_id": "com.github.shyiko.mysql.binlog.BinaryLogClient.connect():void.b46e0b85918f9e00aabc9fbe7138181c",
+    "procedure_start_line": 400,
+    "file": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 462,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 462,
+        "column_number": -1,
+        "description": "call to void BinaryLogClient.listenForEventPackets()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 707,
+        "column_number": -1,
+        "description": "access to `this.com.github.shyiko.mysql.binlog.BinaryLogClient.eventDeserializer`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 369,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 369,
+        "column_number": -1,
+        "description": "access to `this.com.github.shyiko.mysql.binlog.BinaryLogClient.eventDeserializer`"
+      }
+    ],
+    "key": "BinaryLogClient.java|connect|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "52b6ad4338804360fb9ca4ecd46b1bec",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.github.shyiko.mysql.binlog.BinaryLogClient.connect` reads without synchronization from `this.com.github.shyiko.mysql.binlog.BinaryLogClient.keepAlive`. Potentially races with write in method `BinaryLogClient.setKeepAlive(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 453,
+    "column": -1,
+    "procedure": "void BinaryLogClient.connect()",
+    "procedure_id": "com.github.shyiko.mysql.binlog.BinaryLogClient.connect():void.b46e0b85918f9e00aabc9fbe7138181c",
+    "procedure_start_line": 400,
+    "file": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 453,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 453,
+        "column_number": -1,
+        "description": "access to `this.com.github.shyiko.mysql.binlog.BinaryLogClient.keepAlive`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 327,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 327,
+        "column_number": -1,
+        "description": "access to `this.com.github.shyiko.mysql.binlog.BinaryLogClient.keepAlive`"
+      }
+    ],
+    "key": "BinaryLogClient.java|connect|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "1a3ab1f15b57fa6b467de31c50e24069",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.github.shyiko.mysql.binlog.BinaryLogClient.connect` reads without synchronization from `this.com.github.shyiko.mysql.binlog.BinaryLogClient.blocking`. Potentially races with write in method `BinaryLogClient.setBlocking(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 445,
+    "column": -1,
+    "procedure": "void BinaryLogClient.connect()",
+    "procedure_id": "com.github.shyiko.mysql.binlog.BinaryLogClient.connect():void.b46e0b85918f9e00aabc9fbe7138181c",
+    "procedure_start_line": 400,
+    "file": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 445,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 445,
+        "column_number": -1,
+        "description": "access to `this.com.github.shyiko.mysql.binlog.BinaryLogClient.blocking`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 205,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 205,
+        "column_number": -1,
+        "description": "access to `this.com.github.shyiko.mysql.binlog.BinaryLogClient.blocking`"
+      }
+    ],
+    "key": "BinaryLogClient.java|connect|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "25ba9698892494bfa52d76ef2968e154",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.github.shyiko.mysql.binlog.BinaryLogClient.connect` indirectly reads without synchronization from `this.com.github.shyiko.mysql.binlog.BinaryLogClient.channel`. Potentially races with write in method `BinaryLogClient.connect()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 431,
+    "column": -1,
+    "procedure": "void BinaryLogClient.connect()",
+    "procedure_id": "com.github.shyiko.mysql.binlog.BinaryLogClient.connect():void.b46e0b85918f9e00aabc9fbe7138181c",
+    "procedure_start_line": 400,
+    "file": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 431,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 431,
+        "column_number": -1,
+        "description": "call to void BinaryLogClient.requestBinaryLogStream()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 486,
+        "column_number": -1,
+        "description": "access to `this.com.github.shyiko.mysql.binlog.BinaryLogClient.channel`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 408,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/github/shyiko/mysql/binlog/BinaryLogClient.java",
+        "line_number": 408,
+        "column_number": -1,
+        "description": "access to `this.com.github.shyiko.mysql.binlog.BinaryLogClient.channel`"
+      }
+    ],
+    "key": "BinaryLogClient.java|connect|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "882528cc5ea7f59aa12b69502c7ebc32",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

@@ -1,0 +1,779 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.jaeksoft.searchlib.crawler.web.database.UrlManager.updateUrlItems` indirectly writes to field `this.com.jaeksoft.searchlib.crawler.web.database.UrlManager.client.com.jaeksoft.searchlib.config.Config.statisticsList` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 574,
+    "column": -1,
+    "procedure": "void UrlManager.updateUrlItems(List)",
+    "procedure_id": "com.jaeksoft.searchlib.crawler.web.database.UrlManager.updateUrlItems(java.util.List):void.e47609fe5d48a705a9550837864708ca",
+    "procedure_start_line": 564,
+    "file": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 574,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 574,
+        "column_number": -1,
+        "description": "call to int Client.updateDocuments(Collection)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 105,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "call to int Client.updateDocuments(Collection)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 105,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      }
+    ],
+    "key": "UrlManager.java|updateUrlItems|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "619095c5243900c3f55529fee0e2bb66",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.jaeksoft.searchlib.crawler.web.database.UrlManager.updateCrawls` indirectly writes to field `this.com.jaeksoft.searchlib.crawler.web.database.UrlManager.client.com.jaeksoft.searchlib.config.Config.statisticsList` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 548,
+    "column": -1,
+    "procedure": "void UrlManager.updateCrawls(List)",
+    "procedure_id": "com.jaeksoft.searchlib.crawler.web.database.UrlManager.updateCrawls(java.util.List):void.678ced351c9ff872f852ce74f1c75289",
+    "procedure_start_line": 539,
+    "file": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 548,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 548,
+        "column_number": -1,
+        "description": "call to int Client.updateDocuments(Collection)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 105,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "call to int Client.updateDocuments(Collection)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 105,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      }
+    ],
+    "key": "UrlManager.java|updateCrawls|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "2491d4ca0b21ab3231ca196209f0c622",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.jaeksoft.searchlib.crawler.web.database.UrlManager.reload` indirectly writes to field `this.com.jaeksoft.searchlib.crawler.web.database.UrlManager.client.com.jaeksoft.searchlib.config.Config.statisticsList` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 516,
+    "column": -1,
+    "procedure": "void UrlManager.reload(boolean)",
+    "procedure_id": "com.jaeksoft.searchlib.crawler.web.database.UrlManager.reload(boolean):void.3c47f25eb0ad36db6e994a87cd612724",
+    "procedure_start_line": 509,
+    "file": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 516,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 516,
+        "column_number": -1,
+        "description": "call to void Client.reload(String)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 275,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "call to int Client.updateDocuments(Collection)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 105,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      }
+    ],
+    "key": "UrlManager.java|reload|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "8bc77fa66b46e06f044f3c0ab0bc75bd",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.jaeksoft.searchlib.crawler.web.database.UrlManager.reload` indirectly reads without synchronization from `this.com.jaeksoft.searchlib.crawler.web.database.UrlManager.client.com.jaeksoft.searchlib.config.Config.statisticsList`. Potentially races with write in method `UrlManager.inject(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 513,
+    "column": -1,
+    "procedure": "void UrlManager.reload(boolean)",
+    "procedure_id": "com.jaeksoft.searchlib.crawler.web.database.UrlManager.reload(boolean):void.3c47f25eb0ad36db6e994a87cd612724",
+    "procedure_start_line": 509,
+    "file": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 513,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 513,
+        "column_number": -1,
+        "description": "call to void Client.reload(String)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 275,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 358,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "call to int Client.updateDocuments(Collection)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 105,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      }
+    ],
+    "key": "UrlManager.java|reload|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "7f81d6ed92f1e65f51a73b30fdbdec5c",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.jaeksoft.searchlib.crawler.web.database.UrlManager.getUrls` indirectly writes to field `this.com.jaeksoft.searchlib.crawler.web.database.UrlManager.client.com.jaeksoft.searchlib.config.Config.statisticsList` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 483,
+    "column": -1,
+    "procedure": "long UrlManager.getUrls(SearchRequest,UrlManager$Field,boolean,long,long,List)",
+    "procedure_id": "com.jaeksoft.searchlib.crawler.web.database.UrlManager.getUrls(com.jaeksoft.searchlib.request.Search.7cae068bbb6417a4fc24c1e1c52212b6",
+    "procedure_start_line": 475,
+    "file": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 483,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 483,
+        "column_number": -1,
+        "description": "call to Result Client.search(SearchRequest)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 295,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "call to int Client.updateDocuments(Collection)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 105,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      }
+    ],
+    "key": "UrlManager.java|getUrls|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "71f28cf78d33901769a7da994f040c7c",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.jaeksoft.searchlib.crawler.web.database.UrlManager.getNewUrlToFetch` indirectly writes to field `this.com.jaeksoft.searchlib.crawler.web.database.UrlManager.client.com.jaeksoft.searchlib.config.Config.statisticsList` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 361,
+    "column": -1,
+    "procedure": "void UrlManager.getNewUrlToFetch(NamedItem,long,List)",
+    "procedure_id": "com.jaeksoft.searchlib.crawler.web.database.UrlManager.getNewUrlToFetch(com.jaeksoft.searchlib.crawl.8f736f97f7cdc0e45f69eefb48f1dbc3",
+    "procedure_start_line": 350,
+    "file": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 361,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 361,
+        "column_number": -1,
+        "description": "call to Result Client.search(SearchRequest)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 295,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "call to int Client.updateDocuments(Collection)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 105,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      }
+    ],
+    "key": "UrlManager.java|getNewUrlToFetch|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "73a56bedd15f8fbe9af9787353ba47f9",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.jaeksoft.searchlib.crawler.web.database.UrlManager.getOldUrlToFetch` indirectly writes to field `this.com.jaeksoft.searchlib.crawler.web.database.UrlManager.client.com.jaeksoft.searchlib.config.Config.statisticsList` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 345,
+    "column": -1,
+    "procedure": "void UrlManager.getOldUrlToFetch(NamedItem,Date,long,List)",
+    "procedure_id": "com.jaeksoft.searchlib.crawler.web.database.UrlManager.getOldUrlToFetch(com.jaeksoft.searchlib.crawl.4456da1d49c7c3edfc7edf78528cecef",
+    "procedure_start_line": 334,
+    "file": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 345,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 345,
+        "column_number": -1,
+        "description": "call to Result Client.search(SearchRequest)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 295,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "call to int Client.updateDocuments(Collection)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 105,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      }
+    ],
+    "key": "UrlManager.java|getOldUrlToFetch|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "69d3d94673455eb37b6496fa22acfa1c",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.jaeksoft.searchlib.crawler.web.database.UrlManager.getStartingWith` indirectly writes to field `this.com.jaeksoft.searchlib.crawler.web.database.UrlManager.client.com.jaeksoft.searchlib.config.Config.statisticsList` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 331,
+    "column": -1,
+    "procedure": "void UrlManager.getStartingWith(String,UrlManager$Field,String,int,List)",
+    "procedure_id": "com.jaeksoft.searchlib.crawler.web.database.UrlManager.getStartingWith(java.lang.String,com.jaeksoft.d803d8c61ae6074e0a554fe8aa9a9eb7",
+    "procedure_start_line": 321,
+    "file": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 331,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 331,
+        "column_number": -1,
+        "description": "call to void UrlManager.getFacetLimit(UrlManager$Field,SearchRequest,int,List)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 251,
+        "column_number": -1,
+        "description": "call to Result Client.search(SearchRequest)"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 295,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 3,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "call to int Client.updateDocuments(Collection)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 105,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      }
+    ],
+    "key": "UrlManager.java|getStartingWith|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "e0516bfb7b8d960e00b83e44b7c64f2f",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.jaeksoft.searchlib.crawler.web.database.UrlManager.deleteUrls` indirectly writes to field `this.com.jaeksoft.searchlib.crawler.web.database.UrlManager.client.com.jaeksoft.searchlib.config.Config.statisticsList` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 162,
+    "column": -1,
+    "procedure": "void UrlManager.deleteUrls(Collection)",
+    "procedure_id": "com.jaeksoft.searchlib.crawler.web.database.UrlManager.deleteUrls(java.util.Collection):void.932a512416bc3e69e7e6a8a6da17f943",
+    "procedure_start_line": 159,
+    "file": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 162,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 162,
+        "column_number": -1,
+        "description": "call to int Client.deleteDocuments(Collection)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 217,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "call to int Client.updateDocuments(Collection)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 105,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      }
+    ],
+    "key": "UrlManager.java|deleteUrls|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "e256e19382316abb999a5b23515ea526",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.jaeksoft.searchlib.crawler.web.database.UrlManager.deleteUrl` indirectly writes to field `this.com.jaeksoft.searchlib.crawler.web.database.UrlManager.client.com.jaeksoft.searchlib.config.Config.statisticsList` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 141,
+    "column": -1,
+    "procedure": "void UrlManager.deleteUrl(String)",
+    "procedure_id": "com.jaeksoft.searchlib.crawler.web.database.UrlManager.deleteUrl(java.lang.String):void.29ccf6e00b3061109ad05fbe436f1b12",
+    "procedure_start_line": 139,
+    "file": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 141,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 141,
+        "column_number": -1,
+        "description": "call to boolean Client.deleteDocument(String)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 168,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/java/com/jaeksoft/searchlib/crawler/web/database/UrlManager.java",
+        "line_number": 198,
+        "column_number": -1,
+        "description": "call to int Client.updateDocuments(Collection)"
+      },
+      {
+        "level": 1,
+        "filename": "src/java/com/jaeksoft/searchlib/Client.java",
+        "line_number": 105,
+        "column_number": -1,
+        "description": "call to StatisticsList Config.getStatisticsList()"
+      },
+      {
+        "level": 2,
+        "filename": "src/java/com/jaeksoft/searchlib/config/Config.java",
+        "line_number": 359,
+        "column_number": -1,
+        "description": "access to `this.com.jaeksoft.searchlib.config.Config.statisticsList`"
+      }
+    ],
+    "key": "UrlManager.java|deleteUrl|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "ed0849df4362c1a005d66ccb0e52f18f",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

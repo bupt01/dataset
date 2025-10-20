@@ -1,0 +1,177 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.apache.bookkeeper.test.BookieFailureTest.readComplete` reads without synchronization from `this.org.apache.bookkeeper.test.BookieFailureTest.sync`. Potentially races with write in method `BookieFailureTest.setUp()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 263,
+    "column": -1,
+    "procedure": "void BookieFailureTest.readComplete(int,LedgerHandle,Enumeration,Object)",
+    "procedure_id": "org.apache.bookkeeper.test.BookieFailureTest.readComplete(int,org.apache.bookkeeper.client.LedgerHan.a4bf6f6e2aba4d766307b6528700cd65",
+    "procedure_start_line": 259,
+    "file": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+        "line_number": 263,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+        "line_number": 263,
+        "column_number": -1,
+        "description": "access to `this.org.apache.bookkeeper.test.BookieFailureTest.sync`"
+      },
+      {
+        "level": 0,
+        "filename": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+        "line_number": 279,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+        "line_number": 279,
+        "column_number": -1,
+        "description": "access to `this.org.apache.bookkeeper.test.BookieFailureTest.sync`"
+      }
+    ],
+    "key": "BookieFailureTest.java|readComplete|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "0cac4b4e7c2968ee03e999db08ef8eb2",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.apache.bookkeeper.test.BookieFailureTest.readComplete` writes to field `this.org.apache.bookkeeper.test.BookieFailureTest.ls` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 262,
+    "column": -1,
+    "procedure": "void BookieFailureTest.readComplete(int,LedgerHandle,Enumeration,Object)",
+    "procedure_id": "org.apache.bookkeeper.test.BookieFailureTest.readComplete(int,org.apache.bookkeeper.client.LedgerHan.a4bf6f6e2aba4d766307b6528700cd65",
+    "procedure_start_line": 259,
+    "file": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+        "line_number": 262,
+        "column_number": -1,
+        "description": "access to `this.org.apache.bookkeeper.test.BookieFailureTest.ls`"
+      }
+    ],
+    "key": "BookieFailureTest.java|readComplete|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "04a66469ab378e62546a58e75c895a83",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.apache.bookkeeper.test.BookieFailureTest.auxTestReadWriteAsyncSingleClient` reads without synchronization from `this.org.apache.bookkeeper.test.BookieFailureTest.ls`. Potentially races with write in method `BookieFailureTest.readComplete(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 220,
+    "column": -1,
+    "procedure": "void BookieFailureTest.auxTestReadWriteAsyncSingleClient(BookieServer)",
+    "procedure_id": "org.apache.bookkeeper.test.BookieFailureTest.auxTestReadWriteAsyncSingleClient(org.apache.bookkeeper.e8338bad14aa84c9fe655c889b20b31c",
+    "procedure_start_line": 158,
+    "file": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+        "line_number": 220,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+        "line_number": 220,
+        "column_number": -1,
+        "description": "access to `this.org.apache.bookkeeper.test.BookieFailureTest.ls`"
+      },
+      {
+        "level": 0,
+        "filename": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+        "line_number": 262,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+        "line_number": 262,
+        "column_number": -1,
+        "description": "access to `this.org.apache.bookkeeper.test.BookieFailureTest.ls`"
+      }
+    ],
+    "key": "BookieFailureTest.java|auxTestReadWriteAsyncSingleClient|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "a34e461ca4cff1e8d7382825dee5ef47",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.apache.bookkeeper.test.BookieFailureTest.auxTestReadWriteAsyncSingleClient` reads without synchronization from `this.org.apache.bookkeeper.test.BookieFailureTest.sync`. Potentially races with write in method `BookieFailureTest.setUp()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 205,
+    "column": -1,
+    "procedure": "void BookieFailureTest.auxTestReadWriteAsyncSingleClient(BookieServer)",
+    "procedure_id": "org.apache.bookkeeper.test.BookieFailureTest.auxTestReadWriteAsyncSingleClient(org.apache.bookkeeper.e8338bad14aa84c9fe655c889b20b31c",
+    "procedure_start_line": 158,
+    "file": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+        "line_number": 205,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+        "line_number": 205,
+        "column_number": -1,
+        "description": "access to `this.org.apache.bookkeeper.test.BookieFailureTest.sync`"
+      },
+      {
+        "level": 0,
+        "filename": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+        "line_number": 279,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java",
+        "line_number": 279,
+        "column_number": -1,
+        "description": "access to `this.org.apache.bookkeeper.test.BookieFailureTest.sync`"
+      }
+    ],
+    "key": "BookieFailureTest.java|auxTestReadWriteAsyncSingleClient|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "57fae579f93cb4f3ddf527908015de03",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

@@ -1,0 +1,646 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `io.github.bonigarcia.wdm.WebDriverManager.storeVersionToDownload` writes to field `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 1325,
+    "column": -1,
+    "procedure": "void WebDriverManager.storeVersionToDownload(String)",
+    "procedure_id": "io.github.bonigarcia.wdm.WebDriverManager.storeVersionToDownload(java.lang.String):void.961c6c8bc6c894cf7da0bb1d75d81f21",
+    "procedure_start_line": 1320,
+    "file": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1325,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1325,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "call to void WebDriverManager.reset()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1249,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      }
+    ],
+    "key": "WebDriverManager.java|storeVersionToDownload|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "5ec47b95413b7bd901329e258d791dc5",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `io.github.bonigarcia.wdm.WebDriverManager.reset` writes to field `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 1249,
+    "column": -1,
+    "procedure": "void WebDriverManager.reset()",
+    "procedure_id": "io.github.bonigarcia.wdm.WebDriverManager.reset():void.3f8c5d989e677b2a50fa23dd2470e5f8",
+    "procedure_start_line": 1247,
+    "file": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1249,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1249,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "call to void WebDriverManager.reset()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1249,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      }
+    ],
+    "key": "WebDriverManager.java|reset|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "078e70588887ddc11f49f4cd88671950",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `io.github.bonigarcia.wdm.WebDriverManager.getDriversFromGitHub` indirectly reads without synchronization from `this.io.github.bonigarcia.wdm.WebDriverManager.httpClient`. Potentially races with write in method `WebDriverManager.setup()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 1097,
+    "column": -1,
+    "procedure": "List WebDriverManager.getDriversFromGitHub()",
+    "procedure_id": "io.github.bonigarcia.wdm.WebDriverManager.getDriversFromGitHub():java.util.List.4c200c36748bf370477ebdbd2d732c89",
+    "procedure_start_line": 1084,
+    "file": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1097,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1097,
+        "column_number": -1,
+        "description": "call to InputStream WebDriverManager.openGitHubConnection(URL)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1069,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.httpClient`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 261,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 261,
+        "column_number": -1,
+        "description": "call to void WebDriverManager.manage(String)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 467,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.httpClient`"
+      }
+    ],
+    "key": "WebDriverManager.java|getDriversFromGitHub|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "9c8ec73e21fa3f65786140d0dae2656d",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `io.github.bonigarcia.wdm.WebDriverManager.getDriversFromGitHub` reads without synchronization from `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`. Potentially races with write in method `WebDriverManager.setup()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 1094,
+    "column": -1,
+    "procedure": "List WebDriverManager.getDriversFromGitHub()",
+    "procedure_id": "io.github.bonigarcia.wdm.WebDriverManager.getDriversFromGitHub():java.util.List.4c200c36748bf370477ebdbd2d732c89",
+    "procedure_start_line": 1084,
+    "file": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1094,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1094,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "call to void WebDriverManager.reset()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1249,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      }
+    ],
+    "key": "WebDriverManager.java|getDriversFromGitHub|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "d19dac3fcb73d4e810446f1ead7b29a9",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `io.github.bonigarcia.wdm.WebDriverManager.getDriversFromGitHub` indirectly writes to field `this.io.github.bonigarcia.wdm.WebDriverManager.mirrorLog` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 1091,
+    "column": -1,
+    "procedure": "List WebDriverManager.getDriversFromGitHub()",
+    "procedure_id": "io.github.bonigarcia.wdm.WebDriverManager.getDriversFromGitHub():java.util.List.4c200c36748bf370477ebdbd2d732c89",
+    "procedure_start_line": 1084,
+    "file": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1091,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1091,
+        "column_number": -1,
+        "description": "call to List WebDriverManager.getDriversFromMirror(URL)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1002,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.mirrorLog`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "call to void WebDriverManager.reset()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1248,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.mirrorLog`"
+      }
+    ],
+    "key": "WebDriverManager.java|getDriversFromGitHub|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "24620dd7edf3abc30c1c53d0eba8ed26",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `io.github.bonigarcia.wdm.WebDriverManager.getCandidateUrls` writes to field `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 800,
+    "column": -1,
+    "procedure": "List WebDriverManager.getCandidateUrls(String)",
+    "procedure_id": "io.github.bonigarcia.wdm.WebDriverManager.getCandidateUrls(java.lang.String):java.util.List.4a0bea7cc8f474ef95778328a672dce5",
+    "procedure_start_line": 752,
+    "file": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 800,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 800,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "call to void WebDriverManager.reset()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1249,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      }
+    ],
+    "key": "WebDriverManager.java|getCandidateUrls|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "e6d08a278a1516c9ac0b0978442c57ad",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `io.github.bonigarcia.wdm.WebDriverManager.getCandidateUrls` reads without synchronization from `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`. Potentially races with write in method `WebDriverManager.setup()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 799,
+    "column": -1,
+    "procedure": "List WebDriverManager.getCandidateUrls(String)",
+    "procedure_id": "io.github.bonigarcia.wdm.WebDriverManager.getCandidateUrls(java.lang.String):java.util.List.4a0bea7cc8f474ef95778328a672dce5",
+    "procedure_start_line": 752,
+    "file": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 799,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 799,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "call to void WebDriverManager.reset()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1249,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      }
+    ],
+    "key": "WebDriverManager.java|getCandidateUrls|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "a0bc33ada1faf8ca15bbac13afe44750",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `io.github.bonigarcia.wdm.WebDriverManager.exportDriver` reads without synchronization from `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`. Potentially races with write in method `WebDriverManager.setup()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 560,
+    "column": -1,
+    "procedure": "void WebDriverManager.exportDriver(String)",
+    "procedure_id": "io.github.bonigarcia.wdm.WebDriverManager.exportDriver(java.lang.String):void.65888dc86be45782e3a36722a2bf5455",
+    "procedure_start_line": 559,
+    "file": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 560,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 560,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "call to void WebDriverManager.reset()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1249,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      }
+    ],
+    "key": "WebDriverManager.java|exportDriver|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "10acaca0f8f7adcc33ba3618aff71379",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `io.github.bonigarcia.wdm.WebDriverManager.download` reads without synchronization from `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`. Potentially races with write in method `WebDriverManager.setup()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 556,
+    "column": -1,
+    "procedure": "String WebDriverManager.download(String)",
+    "procedure_id": "io.github.bonigarcia.wdm.WebDriverManager.download(java.lang.String):java.lang.String.edf23a37d45247ae17d27755ac8347ad",
+    "procedure_start_line": 541,
+    "file": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 556,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 556,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "call to void WebDriverManager.reset()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1249,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      }
+    ],
+    "key": "WebDriverManager.java|download|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "84fe73be902447691941d6a6cc9c57d1",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `io.github.bonigarcia.wdm.WebDriverManager.manage` indirectly reads without synchronization from `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`. Potentially races with write in method `WebDriverManager.setup()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 486,
+    "column": -1,
+    "procedure": "void WebDriverManager.manage(String)",
+    "procedure_id": "io.github.bonigarcia.wdm.WebDriverManager.manage(java.lang.String):void.a9145704f059ce7348de2562b45d5bdd",
+    "procedure_start_line": 466,
+    "file": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 486,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 486,
+        "column_number": -1,
+        "description": "call to void WebDriverManager.exportDriver(String)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 560,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "call to void WebDriverManager.reset()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1249,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      }
+    ],
+    "key": "WebDriverManager.java|manage|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "243fcfb5e45ceccf5c1eacc8fffc7b05",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `io.github.bonigarcia.wdm.WebDriverManager.manage` indirectly writes to field `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 480,
+    "column": -1,
+    "procedure": "void WebDriverManager.manage(String)",
+    "procedure_id": "io.github.bonigarcia.wdm.WebDriverManager.manage(java.lang.String):void.a9145704f059ce7348de2562b45d5bdd",
+    "procedure_start_line": 466,
+    "file": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 480,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 480,
+        "column_number": -1,
+        "description": "call to void WebDriverManager.storeVersionToDownload(String)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1325,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 264,
+        "column_number": -1,
+        "description": "call to void WebDriverManager.reset()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/io/github/bonigarcia/wdm/WebDriverManager.java",
+        "line_number": 1249,
+        "column_number": -1,
+        "description": "access to `this.io.github.bonigarcia.wdm.WebDriverManager.versionToDownload`"
+      }
+    ],
+    "key": "WebDriverManager.java|manage|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "815341c175f11420214e73119623860d",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

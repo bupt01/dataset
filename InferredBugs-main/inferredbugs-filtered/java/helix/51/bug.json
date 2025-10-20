@@ -1,0 +1,450 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.apache.helix.controller.GenericHelixController.shutdown` indirectly writes to field `this.org.apache.helix.controller.GenericHelixController._rebalanceTimer` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 681,
+    "column": -1,
+    "procedure": "void GenericHelixController.shutdown()",
+    "procedure_id": "org.apache.helix.controller.GenericHelixController.shutdown():void.e4e8668fcde9a69b4c4f79ef638f3f37",
+    "procedure_start_line": 680,
+    "file": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 681,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 681,
+        "column_number": -1,
+        "description": "call to void GenericHelixController.stopRebalancingTimer()"
+      },
+      {
+        "level": 1,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 208,
+        "column_number": -1,
+        "description": "access to `this.org.apache.helix.controller.GenericHelixController._rebalanceTimer`"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 309,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 309,
+        "column_number": -1,
+        "description": "call to void GenericHelixController.stopRebalancingTimer()"
+      },
+      {
+        "level": 1,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 208,
+        "column_number": -1,
+        "description": "access to `this.org.apache.helix.controller.GenericHelixController._rebalanceTimer`"
+      }
+    ],
+    "key": "GenericHelixController.java|shutdown|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "97ad3295967d2293896beb248e45b7b1",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.apache.helix.controller.GenericHelixController.onControllerChange` reads without synchronization from `this.org.apache.helix.controller.GenericHelixController._clusterStatusMonitor`. Potentially races with write in method `GenericHelixController.handleEvent(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 592,
+    "column": -1,
+    "procedure": "void GenericHelixController.onControllerChange(NotificationContext)",
+    "procedure_id": "org.apache.helix.controller.GenericHelixController.onControllerChange(org.apache.helix.NotificationC.c5b3fe8b2aea2475a9dd04d70c3fbb3a",
+    "procedure_start_line": 547,
+    "file": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 592,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 592,
+        "column_number": -1,
+        "description": "access to `this.org.apache.helix.controller.GenericHelixController._clusterStatusMonitor`"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 314,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 314,
+        "column_number": -1,
+        "description": "access to `this.org.apache.helix.controller.GenericHelixController._clusterStatusMonitor`"
+      }
+    ],
+    "key": "GenericHelixController.java|onControllerChange|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "a0f2250544a1d786f99f1997a1d22aab",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.apache.helix.controller.GenericHelixController.onControllerChange` writes to field `this.org.apache.helix.controller.GenericHelixController._clusterStatusMonitor` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 590,
+    "column": -1,
+    "procedure": "void GenericHelixController.onControllerChange(NotificationContext)",
+    "procedure_id": "org.apache.helix.controller.GenericHelixController.onControllerChange(org.apache.helix.NotificationC.c5b3fe8b2aea2475a9dd04d70c3fbb3a",
+    "procedure_start_line": 547,
+    "file": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 590,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 590,
+        "column_number": -1,
+        "description": "access to `this.org.apache.helix.controller.GenericHelixController._clusterStatusMonitor`"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 314,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 314,
+        "column_number": -1,
+        "description": "access to `this.org.apache.helix.controller.GenericHelixController._clusterStatusMonitor`"
+      }
+    ],
+    "key": "GenericHelixController.java|onControllerChange|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "2f86d6699e55c09fb0e54e4d8b4578a2",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.apache.helix.controller.GenericHelixController.onIdealStateChange` indirectly writes to field `this.org.apache.helix.controller.GenericHelixController._rebalanceTimer` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 510,
+    "column": -1,
+    "procedure": "void GenericHelixController.onIdealStateChange(List,NotificationContext)",
+    "procedure_id": "org.apache.helix.controller.GenericHelixController.onIdealStateChange(java.util.List,org.apache.heli.70a477fa9d19c62d4ba5f7cb89e15e52",
+    "procedure_start_line": 494,
+    "file": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 510,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 510,
+        "column_number": -1,
+        "description": "call to void GenericHelixController.checkRebalancingTimer(HelixManager,List,ClusterConfig)"
+      },
+      {
+        "level": 1,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 488,
+        "column_number": -1,
+        "description": "call to void GenericHelixController.startRebalancingTimer(long,HelixManager)"
+      },
+      {
+        "level": 2,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 193,
+        "column_number": -1,
+        "description": "access to `this.org.apache.helix.controller.GenericHelixController._rebalanceTimer`"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 309,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 309,
+        "column_number": -1,
+        "description": "call to void GenericHelixController.stopRebalancingTimer()"
+      },
+      {
+        "level": 1,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 208,
+        "column_number": -1,
+        "description": "access to `this.org.apache.helix.controller.GenericHelixController._rebalanceTimer`"
+      }
+    ],
+    "key": "GenericHelixController.java|onIdealStateChange|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "2f804c5d984c745552246def29fa5d60",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.apache.helix.controller.GenericHelixController.onMessage` reads without synchronization from `this.org.apache.helix.controller.GenericHelixController._clusterStatusMonitor`. Potentially races with write in method `GenericHelixController.handleEvent(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 422,
+    "column": -1,
+    "procedure": "void GenericHelixController.onMessage(String,List,NotificationContext)",
+    "procedure_id": "org.apache.helix.controller.GenericHelixController.onMessage(java.lang.String,java.util.List,org.apa.2622c71ff639542b21f94378ed82ef51",
+    "procedure_start_line": 407,
+    "file": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 422,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 422,
+        "column_number": -1,
+        "description": "access to `this.org.apache.helix.controller.GenericHelixController._clusterStatusMonitor`"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 314,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 314,
+        "column_number": -1,
+        "description": "access to `this.org.apache.helix.controller.GenericHelixController._clusterStatusMonitor`"
+      }
+    ],
+    "key": "GenericHelixController.java|onMessage|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "f89bb53a08a46e438957c362ed31187f",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.apache.helix.controller.GenericHelixController.stopRebalancingTimer` writes to field `this.org.apache.helix.controller.GenericHelixController._timerPeriod` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 210,
+    "column": -1,
+    "procedure": "void GenericHelixController.stopRebalancingTimer()",
+    "procedure_id": "org.apache.helix.controller.GenericHelixController.stopRebalancingTimer():void.300691c867b9ec153986206771373244",
+    "procedure_start_line": 205,
+    "file": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 210,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 210,
+        "column_number": -1,
+        "description": "access to `this.org.apache.helix.controller.GenericHelixController._timerPeriod`"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 309,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 309,
+        "column_number": -1,
+        "description": "call to void GenericHelixController.stopRebalancingTimer()"
+      },
+      {
+        "level": 1,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 210,
+        "column_number": -1,
+        "description": "access to `this.org.apache.helix.controller.GenericHelixController._timerPeriod`"
+      }
+    ],
+    "key": "GenericHelixController.java|stopRebalancingTimer|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "21d79b8dd286ece39a578ee849194a74",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.apache.helix.controller.GenericHelixController.stopRebalancingTimer` writes to field `this.org.apache.helix.controller.GenericHelixController._rebalanceTimer` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 208,
+    "column": -1,
+    "procedure": "void GenericHelixController.stopRebalancingTimer()",
+    "procedure_id": "org.apache.helix.controller.GenericHelixController.stopRebalancingTimer():void.300691c867b9ec153986206771373244",
+    "procedure_start_line": 205,
+    "file": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 208,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 208,
+        "column_number": -1,
+        "description": "access to `this.org.apache.helix.controller.GenericHelixController._rebalanceTimer`"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 309,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 309,
+        "column_number": -1,
+        "description": "call to void GenericHelixController.stopRebalancingTimer()"
+      },
+      {
+        "level": 1,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 208,
+        "column_number": -1,
+        "description": "access to `this.org.apache.helix.controller.GenericHelixController._rebalanceTimer`"
+      }
+    ],
+    "key": "GenericHelixController.java|stopRebalancingTimer|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "97024edbb590ae21918f376b0751a262",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.apache.helix.controller.GenericHelixController.stopRebalancingTimer` reads without synchronization from `this.org.apache.helix.controller.GenericHelixController._rebalanceTimer`. Potentially races with write in method `GenericHelixController.handleEvent(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 207,
+    "column": -1,
+    "procedure": "void GenericHelixController.stopRebalancingTimer()",
+    "procedure_id": "org.apache.helix.controller.GenericHelixController.stopRebalancingTimer():void.300691c867b9ec153986206771373244",
+    "procedure_start_line": 205,
+    "file": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 207,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 207,
+        "column_number": -1,
+        "description": "access to `this.org.apache.helix.controller.GenericHelixController._rebalanceTimer`"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 309,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 309,
+        "column_number": -1,
+        "description": "call to void GenericHelixController.stopRebalancingTimer()"
+      },
+      {
+        "level": 1,
+        "filename": "helix-core/src/main/java/org/apache/helix/controller/GenericHelixController.java",
+        "line_number": 208,
+        "column_number": -1,
+        "description": "access to `this.org.apache.helix.controller.GenericHelixController._rebalanceTimer`"
+      }
+    ],
+    "key": "GenericHelixController.java|stopRebalancingTimer|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "d50d4cc7baf2749f939318be970bc340",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

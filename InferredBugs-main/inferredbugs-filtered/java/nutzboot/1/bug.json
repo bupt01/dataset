@@ -1,0 +1,1087 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.nutz.boot.NbApp.prepareBasic` indirectly reads without synchronization from `this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.classLoader`. Potentially races with write in method `NbApp._run()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.\n\nNote that the prefix path this.org.nutz.boot.NbApp.ctx has been contaminated during the execution, so the reported race on this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.classLoader might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 249,
+    "column": -1,
+    "procedure": "void NbApp.prepareBasic()",
+    "procedure_id": "org.nutz.boot.NbApp.prepareBasic():void.dd6da23e2d20c27b6fe908f129d9169b",
+    "procedure_start_line": 232,
+    "file": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 249,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 249,
+        "column_number": -1,
+        "description": "call to ClassLoader AppContext.getClassLoader()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 46,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.classLoader`"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "call to void NbApp.prepare()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 212,
+        "column_number": -1,
+        "description": "call to void NbApp.prepareBasic()"
+      },
+      {
+        "level": 2,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 240,
+        "column_number": -1,
+        "description": "call to void AppContext.setClassLoader(ClassLoader)"
+      },
+      {
+        "level": 3,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.classLoader`"
+      }
+    ],
+    "key": "NbApp.java|prepareBasic|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "98c7e67e2a8c0cd99e6c38dd5c7b3e1c",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.nutz.boot.NbApp.prepareBasic` indirectly reads without synchronization from `this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.envHolder`. Potentially races with write in method `NbApp._run()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.\n\nNote that the prefix path this.org.nutz.boot.NbApp.ctx has been contaminated during the execution, so the reported race on this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.envHolder might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 247,
+    "column": -1,
+    "procedure": "void NbApp.prepareBasic()",
+    "procedure_id": "org.nutz.boot.NbApp.prepareBasic():void.dd6da23e2d20c27b6fe908f129d9169b",
+    "procedure_start_line": 232,
+    "file": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 247,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 247,
+        "column_number": -1,
+        "description": "call to EnvHolder AppContext.getEnvHolder()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 62,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.envHolder`"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "call to void NbApp.prepare()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 212,
+        "column_number": -1,
+        "description": "call to void NbApp.prepareBasic()"
+      },
+      {
+        "level": 2,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 243,
+        "column_number": -1,
+        "description": "call to void AppContext.setEnvHolder(EnvHolder)"
+      },
+      {
+        "level": 3,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 66,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.envHolder`"
+      }
+    ],
+    "key": "NbApp.java|prepareBasic|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "7558ce50f9c4950f637f2806f1828f42",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.nutz.boot.NbApp.prepareBasic` indirectly writes to field `this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.envHolder` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.\n\nNote that the prefix path this.org.nutz.boot.NbApp.ctx has been contaminated during the execution, so the reported race on this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.envHolder might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 243,
+    "column": -1,
+    "procedure": "void NbApp.prepareBasic()",
+    "procedure_id": "org.nutz.boot.NbApp.prepareBasic():void.dd6da23e2d20c27b6fe908f129d9169b",
+    "procedure_start_line": 232,
+    "file": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 243,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 243,
+        "column_number": -1,
+        "description": "call to void AppContext.setEnvHolder(EnvHolder)"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 66,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.envHolder`"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "call to void NbApp.prepare()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 212,
+        "column_number": -1,
+        "description": "call to void NbApp.prepareBasic()"
+      },
+      {
+        "level": 2,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 243,
+        "column_number": -1,
+        "description": "call to void AppContext.setEnvHolder(EnvHolder)"
+      },
+      {
+        "level": 3,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 66,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.envHolder`"
+      }
+    ],
+    "key": "NbApp.java|prepareBasic|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "e76295e5b5c551be18c21a29c287b47e",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.nutz.boot.NbApp.prepareBasic` indirectly writes to field `this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.classLoader` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.\n\nNote that the prefix path this.org.nutz.boot.NbApp.ctx has been contaminated during the execution, so the reported race on this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.classLoader might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 240,
+    "column": -1,
+    "procedure": "void NbApp.prepareBasic()",
+    "procedure_id": "org.nutz.boot.NbApp.prepareBasic():void.dd6da23e2d20c27b6fe908f129d9169b",
+    "procedure_start_line": 232,
+    "file": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 240,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 240,
+        "column_number": -1,
+        "description": "call to void AppContext.setClassLoader(ClassLoader)"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.classLoader`"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "call to void NbApp.prepare()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 212,
+        "column_number": -1,
+        "description": "call to void NbApp.prepareBasic()"
+      },
+      {
+        "level": 2,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 240,
+        "column_number": -1,
+        "description": "call to void AppContext.setClassLoader(ClassLoader)"
+      },
+      {
+        "level": 3,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.classLoader`"
+      }
+    ],
+    "key": "NbApp.java|prepareBasic|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "276ba1e8cf34b1e75c5a1aef27bfaa7f",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.nutz.boot.NbApp.prepareBasic` indirectly writes to field `this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.mainClass` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.\n\nNote that the prefix path this.org.nutz.boot.NbApp.ctx has been contaminated during the execution, so the reported race on this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.mainClass might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 237,
+    "column": -1,
+    "procedure": "void NbApp.prepareBasic()",
+    "procedure_id": "org.nutz.boot.NbApp.prepareBasic():void.dd6da23e2d20c27b6fe908f129d9169b",
+    "procedure_start_line": 232,
+    "file": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 237,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 237,
+        "column_number": -1,
+        "description": "call to void AppContext.setMainClass(Class)"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 106,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.mainClass`"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "call to void NbApp.prepare()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 212,
+        "column_number": -1,
+        "description": "call to void NbApp.prepareBasic()"
+      },
+      {
+        "level": 2,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 237,
+        "column_number": -1,
+        "description": "call to void AppContext.setMainClass(Class)"
+      },
+      {
+        "level": 3,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 106,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.mainClass`"
+      }
+    ],
+    "key": "NbApp.java|prepareBasic|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "23227db03691157ee85c5fcb82ac79ed",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.nutz.boot.NbApp.prepareBasic` indirectly reads without synchronization from `this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.mainClass`. Potentially races with write in method `NbApp._run()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.\n\nNote that the prefix path this.org.nutz.boot.NbApp.ctx has been contaminated during the execution, so the reported race on this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.mainClass might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 236,
+    "column": -1,
+    "procedure": "void NbApp.prepareBasic()",
+    "procedure_id": "org.nutz.boot.NbApp.prepareBasic():void.dd6da23e2d20c27b6fe908f129d9169b",
+    "procedure_start_line": 232,
+    "file": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 236,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 236,
+        "column_number": -1,
+        "description": "call to Class AppContext.getMainClass()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 102,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.mainClass`"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "call to void NbApp.prepare()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 212,
+        "column_number": -1,
+        "description": "call to void NbApp.prepareBasic()"
+      },
+      {
+        "level": 2,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 237,
+        "column_number": -1,
+        "description": "call to void AppContext.setMainClass(Class)"
+      },
+      {
+        "level": 3,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 106,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.mainClass`"
+      }
+    ],
+    "key": "NbApp.java|prepareBasic|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "967d252e377c6da277543e2ef57f0f9f",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.nutz.boot.NbApp.prepareBasic` writes to field `this.org.nutz.boot.NbApp.ctx` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 234,
+    "column": -1,
+    "procedure": "void NbApp.prepareBasic()",
+    "procedure_id": "org.nutz.boot.NbApp.prepareBasic():void.dd6da23e2d20c27b6fe908f129d9169b",
+    "procedure_start_line": 232,
+    "file": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 234,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 234,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.NbApp.ctx`"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "call to void NbApp.prepare()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 212,
+        "column_number": -1,
+        "description": "call to void NbApp.prepareBasic()"
+      },
+      {
+        "level": 2,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 234,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.NbApp.ctx`"
+      }
+    ],
+    "key": "NbApp.java|prepareBasic|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "cdca6551800bfbed6454bbfca24e4b7b",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.nutz.boot.NbApp._run` reads without synchronization from `this.org.nutz.boot.NbApp.ctx`. Potentially races with write in method `NbApp.run()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 195,
+    "column": -1,
+    "procedure": "void NbApp._run()",
+    "procedure_id": "org.nutz.boot.NbApp._run():void.3641f60336c24c77461f31b034e2a838",
+    "procedure_start_line": 163,
+    "file": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 195,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 195,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.NbApp.ctx`"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 154,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 154,
+        "column_number": -1,
+        "description": "call to void NbApp._run()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "call to void NbApp.prepare()"
+      },
+      {
+        "level": 2,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 212,
+        "column_number": -1,
+        "description": "call to void NbApp.prepareBasic()"
+      },
+      {
+        "level": 3,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 234,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.NbApp.ctx`"
+      }
+    ],
+    "key": "NbApp.java|_run|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "90fbd734676ed495409da526ccea6d35",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.nutz.boot.NbApp.prepareIoc` reads without synchronization from `this.org.nutz.boot.NbApp.ctx`. Potentially races with write in method `NbApp._run()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 333,
+    "column": -1,
+    "procedure": "void NbApp.prepareIoc()",
+    "procedure_id": "org.nutz.boot.NbApp.prepareIoc():void.674739fecc4139c35432600c7c9226d8",
+    "procedure_start_line": 277,
+    "file": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 333,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 333,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.NbApp.ctx`"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "call to void NbApp.prepare()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 212,
+        "column_number": -1,
+        "description": "call to void NbApp.prepareBasic()"
+      },
+      {
+        "level": 2,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 234,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.NbApp.ctx`"
+      }
+    ],
+    "key": "NbApp.java|prepareIoc|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "b34df31737c7d07a0f064737ddafb43b",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.nutz.boot.NbApp.prepareIoc` indirectly reads without synchronization from `this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.mainClass`. Potentially races with write in method `NbApp._run()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 287,
+    "column": -1,
+    "procedure": "void NbApp.prepareIoc()",
+    "procedure_id": "org.nutz.boot.NbApp.prepareIoc():void.674739fecc4139c35432600c7c9226d8",
+    "procedure_start_line": 277,
+    "file": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 287,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 287,
+        "column_number": -1,
+        "description": "call to String AppContext.getPackage()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 110,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.mainClass`"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "call to void NbApp.prepare()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 212,
+        "column_number": -1,
+        "description": "call to void NbApp.prepareBasic()"
+      },
+      {
+        "level": 2,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 237,
+        "column_number": -1,
+        "description": "call to void AppContext.setMainClass(Class)"
+      },
+      {
+        "level": 3,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 106,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.mainClass`"
+      }
+    ],
+    "key": "NbApp.java|prepareIoc|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "1b92a28174f0407ca83f6e37e33440ea",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.nutz.boot.NbApp.prepareBasic` reads without synchronization from `this.org.nutz.boot.NbApp.ctx`. Potentially races with write in method `NbApp._run()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 256,
+    "column": -1,
+    "procedure": "void NbApp.prepareBasic()",
+    "procedure_id": "org.nutz.boot.NbApp.prepareBasic():void.dd6da23e2d20c27b6fe908f129d9169b",
+    "procedure_start_line": 232,
+    "file": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 256,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 256,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.NbApp.ctx`"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "call to void NbApp.prepare()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 212,
+        "column_number": -1,
+        "description": "call to void NbApp.prepareBasic()"
+      },
+      {
+        "level": 2,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 234,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.NbApp.ctx`"
+      }
+    ],
+    "key": "NbApp.java|prepareBasic|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "40fec4eeafbe976ce09f0cebf4b88005",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.nutz.boot.NbApp.prepareBasic` indirectly writes to field `this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.resourceLoader` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.\n\nNote that the prefix path this.org.nutz.boot.NbApp.ctx has been contaminated during the execution, so the reported race on this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.resourceLoader might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 256,
+    "column": -1,
+    "procedure": "void NbApp.prepareBasic()",
+    "procedure_id": "org.nutz.boot.NbApp.prepareBasic():void.dd6da23e2d20c27b6fe908f129d9169b",
+    "procedure_start_line": 232,
+    "file": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 256,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 256,
+        "column_number": -1,
+        "description": "call to void AppContext.setResourceLoader(ResourceLoader)"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 70,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.resourceLoader`"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "call to void NbApp.prepare()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 212,
+        "column_number": -1,
+        "description": "call to void NbApp.prepareBasic()"
+      },
+      {
+        "level": 2,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 256,
+        "column_number": -1,
+        "description": "call to void AppContext.setResourceLoader(ResourceLoader)"
+      },
+      {
+        "level": 3,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 70,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.resourceLoader`"
+      }
+    ],
+    "key": "NbApp.java|prepareBasic|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "0988e6f07781404e3e178f0512c5c070",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.nutz.boot.NbApp.prepareBasic` indirectly reads without synchronization from `this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.ioc`. Potentially races with write in method `NbApp._run()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.\n\nNote that the prefix path this.org.nutz.boot.NbApp.ctx has been contaminated during the execution, so the reported race on this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.ioc might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 255,
+    "column": -1,
+    "procedure": "void NbApp.prepareBasic()",
+    "procedure_id": "org.nutz.boot.NbApp.prepareBasic():void.dd6da23e2d20c27b6fe908f129d9169b",
+    "procedure_start_line": 232,
+    "file": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 255,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 255,
+        "column_number": -1,
+        "description": "call to void NbApp.aware(Object)"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 400,
+        "column_number": -1,
+        "description": "call to Ioc AppContext.getIoc()"
+      },
+      {
+        "level": 2,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 34,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.ioc`"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "call to void NbApp.prepare()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 221,
+        "column_number": -1,
+        "description": "call to void NbApp.prepareIoc()"
+      },
+      {
+        "level": 2,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 327,
+        "column_number": -1,
+        "description": "call to void AppContext.setIoc(Ioc)"
+      },
+      {
+        "level": 3,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 38,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.ioc`"
+      }
+    ],
+    "key": "NbApp.java|prepareBasic|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "40c249396173cf94c1a14d3e2411afe0",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.nutz.boot.NbApp.prepareBasic` indirectly reads without synchronization from `this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.resourceLoader`. Potentially races with write in method `NbApp._run()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.\n\nNote that the prefix path this.org.nutz.boot.NbApp.ctx has been contaminated during the execution, so the reported race on this.org.nutz.boot.NbApp.ctx.org.nutz.boot.AppContext.resourceLoader might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 253,
+    "column": -1,
+    "procedure": "void NbApp.prepareBasic()",
+    "procedure_id": "org.nutz.boot.NbApp.prepareBasic():void.dd6da23e2d20c27b6fe908f129d9169b",
+    "procedure_start_line": 232,
+    "file": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 253,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 253,
+        "column_number": -1,
+        "description": "call to ResourceLoader AppContext.getResourceLoader()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 58,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.resourceLoader`"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "call to void NbApp.prepare()"
+      },
+      {
+        "level": 1,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 212,
+        "column_number": -1,
+        "description": "call to void NbApp.prepareBasic()"
+      },
+      {
+        "level": 2,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 256,
+        "column_number": -1,
+        "description": "call to void AppContext.setResourceLoader(ResourceLoader)"
+      },
+      {
+        "level": 3,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/AppContext.java",
+        "line_number": 70,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.AppContext.resourceLoader`"
+      }
+    ],
+    "key": "NbApp.java|prepareBasic|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "f15599c81206ea7da9990fc08ec39f93",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.nutz.boot.NbApp._run` reads without synchronization from `this.org.nutz.boot.NbApp.mainClass`. Potentially races with write in method `NbApp.setMainClass(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 182,
+    "column": -1,
+    "procedure": "void NbApp._run()",
+    "procedure_id": "org.nutz.boot.NbApp._run():void.3641f60336c24c77461f31b034e2a838",
+    "procedure_start_line": 163,
+    "file": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 182,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 182,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.NbApp.mainClass`"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 123,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "nutzboot-starter/src/main/java/org/nutz/boot/NbApp.java",
+        "line_number": 123,
+        "column_number": -1,
+        "description": "access to `this.org.nutz.boot.NbApp.mainClass`"
+      }
+    ],
+    "key": "NbApp.java|_run|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "f677bac063ee086ecd9ac1478ef869e9",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

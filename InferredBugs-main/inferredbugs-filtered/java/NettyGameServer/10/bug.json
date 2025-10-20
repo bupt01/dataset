@@ -1,0 +1,716 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initGameConnectedServer` reads without synchronization from `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.sdGameServers`. Potentially races with write in method `RpcServiceDiscovery.init()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 57,
+    "column": -1,
+    "procedure": "void RpcServiceDiscovery.initGameConnectedServer()",
+    "procedure_id": "com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initGameConnectedServer():void.9e3ac9ef6f65f6d91e370d7297c09ee2",
+    "procedure_start_line": 55,
+    "file": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 57,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 57,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.sdGameServers`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 118,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 118,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.sdGameServers`"
+      }
+    ],
+    "key": "RpcServiceDiscovery.java|initGameConnectedServer|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "36371f5f1e30bde8b75a0de18db44b04",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initGameConnectedServer` indirectly reads with synchronization from `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.gameRpcConnecetMananger.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`. Potentially races with unsynchronized write in method `RpcServiceDiscovery.init()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 57,
+    "column": -1,
+    "procedure": "void RpcServiceDiscovery.initGameConnectedServer()",
+    "procedure_id": "com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initGameConnectedServer():void.9e3ac9ef6f65f6d91e370d7297c09ee2",
+    "procedure_start_line": 55,
+    "file": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 57,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 57,
+        "column_number": -1,
+        "description": "call to void RpcConnectManager.initServers(List)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/client/RpcConnectManager.java",
+        "line_number": 41,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 123,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 123,
+        "column_number": -1,
+        "description": "call to void RpcServiceDiscovery.initGameConnectedServer()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 56,
+        "column_number": -1,
+        "description": "call to void RpcConnectManager.initManager()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/client/RpcConnectManager.java",
+        "line_number": 33,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`"
+      }
+    ],
+    "key": "RpcServiceDiscovery.java|initGameConnectedServer|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "3b81e9780a9076a021f6e784a9a3ff0f",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initGameConnectedServer` indirectly writes to field `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.gameRpcConnecetMananger.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 56,
+    "column": -1,
+    "procedure": "void RpcServiceDiscovery.initGameConnectedServer()",
+    "procedure_id": "com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initGameConnectedServer():void.9e3ac9ef6f65f6d91e370d7297c09ee2",
+    "procedure_start_line": 55,
+    "file": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 56,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 56,
+        "column_number": -1,
+        "description": "call to void RpcConnectManager.initManager()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/client/RpcConnectManager.java",
+        "line_number": 33,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 123,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 123,
+        "column_number": -1,
+        "description": "call to void RpcServiceDiscovery.initGameConnectedServer()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 56,
+        "column_number": -1,
+        "description": "call to void RpcConnectManager.initManager()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/client/RpcConnectManager.java",
+        "line_number": 33,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`"
+      }
+    ],
+    "key": "RpcServiceDiscovery.java|initGameConnectedServer|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "ff1a212c8d37ac917724264cd96cb23c",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initWorldConnectedServer` reads without synchronization from `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.sdWorldServers`. Potentially races with write in method `RpcServiceDiscovery.init()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 52,
+    "column": -1,
+    "procedure": "void RpcServiceDiscovery.initWorldConnectedServer()",
+    "procedure_id": "com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initWorldConnectedServer():void.5f3effb70e131cc8757a3434893e1813",
+    "procedure_start_line": 50,
+    "file": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 52,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 52,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.sdWorldServers`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 117,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 117,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.sdWorldServers`"
+      }
+    ],
+    "key": "RpcServiceDiscovery.java|initWorldConnectedServer|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "cc2d4db5658d32023eb2ca61658abd30",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initWorldConnectedServer` indirectly reads with synchronization from `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.worldRpcConnectManager.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`. Potentially races with unsynchronized write in method `RpcServiceDiscovery.init()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 52,
+    "column": -1,
+    "procedure": "void RpcServiceDiscovery.initWorldConnectedServer()",
+    "procedure_id": "com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initWorldConnectedServer():void.5f3effb70e131cc8757a3434893e1813",
+    "procedure_start_line": 50,
+    "file": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 52,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 52,
+        "column_number": -1,
+        "description": "call to void RpcConnectManager.initServers(List)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/client/RpcConnectManager.java",
+        "line_number": 41,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 122,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 122,
+        "column_number": -1,
+        "description": "call to void RpcServiceDiscovery.initWorldConnectedServer()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 51,
+        "column_number": -1,
+        "description": "call to void RpcConnectManager.initManager()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/client/RpcConnectManager.java",
+        "line_number": 33,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`"
+      }
+    ],
+    "key": "RpcServiceDiscovery.java|initWorldConnectedServer|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "83096b11c4a4293030f6c7de69a87407",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initWorldConnectedServer` indirectly writes to field `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.worldRpcConnectManager.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 51,
+    "column": -1,
+    "procedure": "void RpcServiceDiscovery.initWorldConnectedServer()",
+    "procedure_id": "com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initWorldConnectedServer():void.5f3effb70e131cc8757a3434893e1813",
+    "procedure_start_line": 50,
+    "file": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 51,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 51,
+        "column_number": -1,
+        "description": "call to void RpcConnectManager.initManager()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/client/RpcConnectManager.java",
+        "line_number": 33,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 122,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 122,
+        "column_number": -1,
+        "description": "call to void RpcServiceDiscovery.initWorldConnectedServer()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 51,
+        "column_number": -1,
+        "description": "call to void RpcConnectManager.initManager()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/client/RpcConnectManager.java",
+        "line_number": 33,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`"
+      }
+    ],
+    "key": "RpcServiceDiscovery.java|initWorldConnectedServer|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "e6b9eed17ceae7d945e2baf1ebdf26b8",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.init` indirectly writes to field `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.dbRpcConnnectManngeer.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 124,
+    "column": -1,
+    "procedure": "void RpcServiceDiscovery.init()",
+    "procedure_id": "com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.init():void.3514b78eb6326174c45cc5bca64889f0",
+    "procedure_start_line": 83,
+    "file": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 124,
+        "column_number": -1,
+        "description": "call to void RpcServiceDiscovery.initDbConnectServer()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 61,
+        "column_number": -1,
+        "description": "call to void RpcConnectManager.initManager()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/client/RpcConnectManager.java",
+        "line_number": 33,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`"
+      }
+    ],
+    "key": "RpcServiceDiscovery.java|init|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "521426039bc3cf40e64e15fb522710df",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.init` indirectly writes to field `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.gameRpcConnecetMananger.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 123,
+    "column": -1,
+    "procedure": "void RpcServiceDiscovery.init()",
+    "procedure_id": "com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.init():void.3514b78eb6326174c45cc5bca64889f0",
+    "procedure_start_line": 83,
+    "file": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 123,
+        "column_number": -1,
+        "description": "call to void RpcServiceDiscovery.initGameConnectedServer()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 56,
+        "column_number": -1,
+        "description": "call to void RpcConnectManager.initManager()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/client/RpcConnectManager.java",
+        "line_number": 33,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`"
+      }
+    ],
+    "key": "RpcServiceDiscovery.java|init|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "03eb43259b998e5fb5e5f8789557a70a",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.init` indirectly reads without synchronization from `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.sdWorldServers`. Potentially races with write in method `RpcServiceDiscovery.startup()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 122,
+    "column": -1,
+    "procedure": "void RpcServiceDiscovery.init()",
+    "procedure_id": "com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.init():void.3514b78eb6326174c45cc5bca64889f0",
+    "procedure_start_line": 83,
+    "file": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 122,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 122,
+        "column_number": -1,
+        "description": "call to void RpcServiceDiscovery.initWorldConnectedServer()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 52,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.sdWorldServers`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 72,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 72,
+        "column_number": -1,
+        "description": "call to void RpcServiceDiscovery.init()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 117,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.sdWorldServers`"
+      }
+    ],
+    "key": "RpcServiceDiscovery.java|init|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "4d68676a12ee4e6923093d901e971091",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initDbConnectServer` reads without synchronization from `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.sdDbServers`. Potentially races with write in method `RpcServiceDiscovery.init()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 62,
+    "column": -1,
+    "procedure": "void RpcServiceDiscovery.initDbConnectServer()",
+    "procedure_id": "com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initDbConnectServer():void.67ae69e668ada1210a0d1551dc4bb235",
+    "procedure_start_line": 60,
+    "file": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 62,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 62,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.sdDbServers`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 119,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 119,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.sdDbServers`"
+      }
+    ],
+    "key": "RpcServiceDiscovery.java|initDbConnectServer|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "2a323395228c59e0568e567ba7854542",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initDbConnectServer` indirectly reads with synchronization from `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.dbRpcConnnectManngeer.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`. Potentially races with unsynchronized write in method `RpcServiceDiscovery.init()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 62,
+    "column": -1,
+    "procedure": "void RpcServiceDiscovery.initDbConnectServer()",
+    "procedure_id": "com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initDbConnectServer():void.67ae69e668ada1210a0d1551dc4bb235",
+    "procedure_start_line": 60,
+    "file": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 62,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 62,
+        "column_number": -1,
+        "description": "call to void RpcConnectManager.initServers(List)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/client/RpcConnectManager.java",
+        "line_number": 41,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 124,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 124,
+        "column_number": -1,
+        "description": "call to void RpcServiceDiscovery.initDbConnectServer()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 61,
+        "column_number": -1,
+        "description": "call to void RpcConnectManager.initManager()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/client/RpcConnectManager.java",
+        "line_number": 33,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`"
+      }
+    ],
+    "key": "RpcServiceDiscovery.java|initDbConnectServer|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "12f1cc8f9fdcf1c6e89e5e30609eb099",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initDbConnectServer` indirectly writes to field `this.com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.dbRpcConnnectManngeer.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 61,
+    "column": -1,
+    "procedure": "void RpcServiceDiscovery.initDbConnectServer()",
+    "procedure_id": "com.wolf.shoot.service.rpc.server.RpcServiceDiscovery.initDbConnectServer():void.67ae69e668ada1210a0d1551dc4bb235",
+    "procedure_start_line": 60,
+    "file": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 61,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 61,
+        "column_number": -1,
+        "description": "call to void RpcConnectManager.initManager()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/client/RpcConnectManager.java",
+        "line_number": 33,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 124,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 124,
+        "column_number": -1,
+        "description": "call to void RpcServiceDiscovery.initDbConnectServer()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/server/RpcServiceDiscovery.java",
+        "line_number": 61,
+        "column_number": -1,
+        "description": "call to void RpcConnectManager.initManager()"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/com/wolf/shoot/service/rpc/client/RpcConnectManager.java",
+        "line_number": 33,
+        "column_number": -1,
+        "description": "access to `this.com.wolf.shoot.service.rpc.client.RpcConnectManager.threadPoolExecutor`"
+      }
+    ],
+    "key": "RpcServiceDiscovery.java|initDbConnectServer|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "4a414e57cd6872e6ef49513373320fa3",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

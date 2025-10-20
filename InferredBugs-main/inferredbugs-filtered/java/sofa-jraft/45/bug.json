@@ -1,0 +1,198 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.invokeWithDone` reads without synchronization from `this.com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.rpcClient`. Potentially races with write in method `AbstractBoltClientService.shutdown()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 238,
+    "column": -1,
+    "procedure": "Future AbstractBoltClientService.invokeWithDone(Endpoint,Message,InvokeContext,RpcResponseClosure,int,Executor)",
+    "procedure_id": "com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.invokeWithDone(com.alipay.sofa.jraft.util.E.743b6ce31a10b1b3e951a8d2c10d4830",
+    "procedure_start_line": 174,
+    "file": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+        "line_number": 238,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+        "line_number": 238,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.rpcClient`"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+        "line_number": 120,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+        "line_number": 120,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.rpcClient`"
+      }
+    ],
+    "key": "AbstractBoltClientService.java|invokeWithDone|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "615d68d2c1e2b012b3dad5855c18657f",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.disconnect` reads without synchronization from `this.com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.rpcClient`. Potentially races with write in method `AbstractBoltClientService.shutdown()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 152,
+    "column": -1,
+    "procedure": "boolean AbstractBoltClientService.disconnect(Endpoint)",
+    "procedure_id": "com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.disconnect(com.alipay.sofa.jraft.util.Endpo.7a531518ee50bcbe16b74e0c9568df35",
+    "procedure_start_line": 150,
+    "file": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+        "line_number": 152,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+        "line_number": 152,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.rpcClient`"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+        "line_number": 120,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+        "line_number": 120,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.rpcClient`"
+      }
+    ],
+    "key": "AbstractBoltClientService.java|disconnect|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "9dcd94eb7f042c266bec7f28bc4ffc4e",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.connect` reads without synchronization from `this.com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.rpcClient`. Potentially races with write in method `AbstractBoltClientService.shutdown()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 127,
+    "column": -1,
+    "procedure": "boolean AbstractBoltClientService.connect(Endpoint)",
+    "procedure_id": "com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.connect(com.alipay.sofa.jraft.util.Endpoint.fca7ed64d9306b96a818ab5dc4db9ca7",
+    "procedure_start_line": 126,
+    "file": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+        "line_number": 127,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+        "line_number": 127,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.rpcClient`"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+        "line_number": 120,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+        "line_number": 120,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.rpcClient`"
+      }
+    ],
+    "key": "AbstractBoltClientService.java|connect|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "a168158a89f6722ef6614126963dac17",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.isConnected` reads without synchronization from `this.com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.rpcClient`. Potentially races with write in method `AbstractBoltClientService.shutdown()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 76,
+    "column": -1,
+    "procedure": "boolean AbstractBoltClientService.isConnected(Endpoint)",
+    "procedure_id": "com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.isConnected(com.alipay.sofa.jraft.util.Endp.ed519bb62f09d85510d0a1b2be9c754f",
+    "procedure_start_line": 75,
+    "file": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+        "line_number": 76,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+        "line_number": 76,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.rpcClient`"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+        "line_number": 120,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/rpc/impl/AbstractBoltClientService.java",
+        "line_number": 120,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.rpc.impl.AbstractBoltClientService.rpcClient`"
+      }
+    ],
+    "key": "AbstractBoltClientService.java|isConnected|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "6d021383ca6d3955f97f8d21be99631e",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

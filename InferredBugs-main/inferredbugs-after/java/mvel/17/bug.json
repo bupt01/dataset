@@ -1,0 +1,366 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.mvel.TemplateInterpreter.execute` reads without synchronization from `this.org.mvel.TemplateInterpreter.stack`. Potentially races with write in method `TemplateInterpreter.execute(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 480,
+    "column": -1,
+    "procedure": "Object TemplateInterpreter.execute(Object,Map,TemplateRegistry)",
+    "procedure_id": "org.mvel.TemplateInterpreter.execute(java.lang.Object,java.util.Map,org.mvel.TemplateRegistry):java..1141972e8c077bf084811e3faa3e1296",
+    "procedure_start_line": 345,
+    "file": "src/main/java/org/mvel/TemplateInterpreter.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 480,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 480,
+        "column_number": -1,
+        "description": "access to `this.org.mvel.TemplateInterpreter.stack`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 392,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 392,
+        "column_number": -1,
+        "description": "call to void TemplateInterpreter.initStack()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 532,
+        "column_number": -1,
+        "description": "access to `this.org.mvel.TemplateInterpreter.stack`"
+      }
+    ],
+    "key": "TemplateInterpreter.java|execute|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "dec1ac21e6af7feb127c62b5761c86c0",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.mvel.TemplateInterpreter.execute` reads without synchronization from `alias.[_]`. Potentially races with write in method `TemplateInterpreter.parse(...)`.\n Reporting because this access may occur on a background thread.\n\nNote that the prefix path alias has been contaminated during the execution, so the reported race on alias.[_] might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 470,
+    "column": -1,
+    "procedure": "Object TemplateInterpreter.execute(Object,Map,TemplateRegistry)",
+    "procedure_id": "org.mvel.TemplateInterpreter.execute(java.lang.Object,java.util.Map,org.mvel.TemplateRegistry):java..1141972e8c077bf084811e3faa3e1296",
+    "procedure_start_line": 345,
+    "file": "src/main/java/org/mvel/TemplateInterpreter.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 470,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 470,
+        "column_number": -1,
+        "description": "access to `alias.[_]`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 331,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 331,
+        "column_number": -1,
+        "description": "call to Object TemplateInterpreter.parse(String,Object,Map,TemplateRegistry)"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 338,
+        "column_number": -1,
+        "description": "call to Object TemplateInterpreter.execute(Object,Map,TemplateRegistry)"
+      },
+      {
+        "level": 2,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 450,
+        "column_number": -1,
+        "description": "access to `alias.[_]`"
+      }
+    ],
+    "key": "TemplateInterpreter.java|execute|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "7454fd34625c09de25d94f85fd3d2783",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.mvel.TemplateInterpreter.execute` writes to field `alias.[_]` outside of synchronization.\n Reporting because this access may occur on a background thread.\n\nNote that the prefix path alias has been contaminated during the execution, so the reported race on alias.[_] might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 450,
+    "column": -1,
+    "procedure": "Object TemplateInterpreter.execute(Object,Map,TemplateRegistry)",
+    "procedure_id": "org.mvel.TemplateInterpreter.execute(java.lang.Object,java.util.Map,org.mvel.TemplateRegistry):java..1141972e8c077bf084811e3faa3e1296",
+    "procedure_start_line": 345,
+    "file": "src/main/java/org/mvel/TemplateInterpreter.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 450,
+        "column_number": -1,
+        "description": "access to `alias.[_]`"
+      }
+    ],
+    "key": "TemplateInterpreter.java|execute|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "3157e8c95afe096fd1371b91623834e9",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.mvel.TemplateInterpreter.execute` reads without synchronization from `this.org.mvel.TemplateInterpreter.expression`. Potentially races with write in method `TemplateInterpreter.setExpression(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 401,
+    "column": -1,
+    "procedure": "Object TemplateInterpreter.execute(Object,Map,TemplateRegistry)",
+    "procedure_id": "org.mvel.TemplateInterpreter.execute(java.lang.Object,java.util.Map,org.mvel.TemplateRegistry):java..1141972e8c077bf084811e3faa3e1296",
+    "procedure_start_line": 345,
+    "file": "src/main/java/org/mvel/TemplateInterpreter.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 401,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 401,
+        "column_number": -1,
+        "description": "access to `this.org.mvel.TemplateInterpreter.expression`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 594,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 594,
+        "column_number": -1,
+        "description": "access to `this.org.mvel.TemplateInterpreter.expression`"
+      }
+    ],
+    "key": "TemplateInterpreter.java|execute|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "af36992bf21a36d84d57d4c9395b5fa6",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.mvel.TemplateInterpreter.execute` writes to field `this.org.mvel.TemplateInterpreter.node` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 396,
+    "column": -1,
+    "procedure": "Object TemplateInterpreter.execute(Object,Map,TemplateRegistry)",
+    "procedure_id": "org.mvel.TemplateInterpreter.execute(java.lang.Object,java.util.Map,org.mvel.TemplateRegistry):java..1141972e8c077bf084811e3faa3e1296",
+    "procedure_start_line": 345,
+    "file": "src/main/java/org/mvel/TemplateInterpreter.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 396,
+        "column_number": -1,
+        "description": "access to `this.org.mvel.TemplateInterpreter.node`"
+      }
+    ],
+    "key": "TemplateInterpreter.java|execute|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "0fc1ab54dea3cd0c1ba69cf795ae356b",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.mvel.TemplateInterpreter.execute` indirectly reads without synchronization from `this.org.mvel.TemplateInterpreter.node`. Potentially races with write in method `TemplateInterpreter.forwardAndPush()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 393,
+    "column": -1,
+    "procedure": "Object TemplateInterpreter.execute(Object,Map,TemplateRegistry)",
+    "procedure_id": "org.mvel.TemplateInterpreter.execute(java.lang.Object,java.util.Map,org.mvel.TemplateRegistry):java..1141972e8c077bf084811e3faa3e1296",
+    "procedure_start_line": 345,
+    "file": "src/main/java/org/mvel/TemplateInterpreter.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 393,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 393,
+        "column_number": -1,
+        "description": "call to void TemplateInterpreter.pushAndForward()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 559,
+        "column_number": -1,
+        "description": "access to `this.org.mvel.TemplateInterpreter.node`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 553,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 553,
+        "column_number": -1,
+        "description": "access to `this.org.mvel.TemplateInterpreter.node`"
+      }
+    ],
+    "key": "TemplateInterpreter.java|execute|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "dfd19b13b3c80d2aa21851939370bc71",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.mvel.TemplateInterpreter.execute` indirectly writes to field `this.org.mvel.TemplateInterpreter.stack` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 392,
+    "column": -1,
+    "procedure": "Object TemplateInterpreter.execute(Object,Map,TemplateRegistry)",
+    "procedure_id": "org.mvel.TemplateInterpreter.execute(java.lang.Object,java.util.Map,org.mvel.TemplateRegistry):java..1141972e8c077bf084811e3faa3e1296",
+    "procedure_start_line": 345,
+    "file": "src/main/java/org/mvel/TemplateInterpreter.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 392,
+        "column_number": -1,
+        "description": "call to void TemplateInterpreter.initStack()"
+      },
+      {
+        "level": 1,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 532,
+        "column_number": -1,
+        "description": "access to `this.org.mvel.TemplateInterpreter.stack`"
+      }
+    ],
+    "key": "TemplateInterpreter.java|execute|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "0bb2991b7f1b90806395f212bdb8eb1b",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.mvel.TemplateInterpreter.execute` reads without synchronization from `mvel.TemplateInterpreter.org.mvel.TemplateInterpreter.cacheAggressively`. Potentially races with write in method `TemplateInterpreter.setCacheAggressively(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 356,
+    "column": -1,
+    "procedure": "Object TemplateInterpreter.execute(Object,Map,TemplateRegistry)",
+    "procedure_id": "org.mvel.TemplateInterpreter.execute(java.lang.Object,java.util.Map,org.mvel.TemplateRegistry):java..1141972e8c077bf084811e3faa3e1296",
+    "procedure_start_line": 345,
+    "file": "src/main/java/org/mvel/TemplateInterpreter.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 356,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 356,
+        "column_number": -1,
+        "description": "access to `mvel.TemplateInterpreter.org.mvel.TemplateInterpreter.cacheAggressively`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 639,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/mvel/TemplateInterpreter.java",
+        "line_number": 639,
+        "column_number": -1,
+        "description": "access to `mvel.TemplateInterpreter.org.mvel.TemplateInterpreter.cacheAggressively`"
+      }
+    ],
+    "key": "TemplateInterpreter.java|execute|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "1ca16c2197001bc18fcade9bbcc1d413",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

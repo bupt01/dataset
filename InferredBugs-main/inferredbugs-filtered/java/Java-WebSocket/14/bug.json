@@ -1,0 +1,478 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.java_websocket.WebSocketServer.onWriteDemand` reads without synchronization from `this.org.java_websocket.WebSocketServer.selector`. Potentially races with write in method `WebSocketServer.run()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 295,
+    "column": -1,
+    "procedure": "void WebSocketServer.onWriteDemand(WebSocket)",
+    "procedure_id": "org.java_websocket.WebSocketServer.onWriteDemand(org.java_websocket.WebSocket):void.d59ef6569d6033e152c52f0d491489f0",
+    "procedure_start_line": 294,
+    "file": "src/org/java_websocket/WebSocketServer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 295,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 295,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.selector`"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 169,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 169,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.selector`"
+      }
+    ],
+    "key": "WebSocketServer.java|onWriteDemand|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "694d5208cde4fc3503ac2b96170e286d",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.java_websocket.WebSocketServer.run` reads without synchronization from `this.org.java_websocket.WebSocketServer.selector`. Potentially races with write in method `WebSocketServer.run()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 211,
+    "column": -1,
+    "procedure": "void WebSocketServer.run()",
+    "procedure_id": "org.java_websocket.WebSocketServer.run():void.cf601a20036ce74466c778316fcd84cc",
+    "procedure_start_line": 160,
+    "file": "src/org/java_websocket/WebSocketServer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 211,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 211,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.selector`"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 169,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 169,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.selector`"
+      }
+    ],
+    "key": "WebSocketServer.java|run|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "4eb18d1f9e0fce54a194b6e409a62653",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.java_websocket.WebSocketServer.run` indirectly writes to field `conn.org.java_websocket.WebSocket.closeHandshakeSent` outside of synchronization.\n Reporting because this access may occur on a background thread.\n\nNote that the prefix path conn has been contaminated during the execution, so the reported race on conn.org.java_websocket.WebSocket.closeHandshakeSent might be a false positive.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 203,
+    "column": -1,
+    "procedure": "void WebSocketServer.run()",
+    "procedure_id": "org.java_websocket.WebSocketServer.run():void.cf601a20036ce74466c778316fcd84cc",
+    "procedure_start_line": 160,
+    "file": "src/org/java_websocket/WebSocketServer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 203,
+        "column_number": -1,
+        "description": "call to void WebSocket.handleRead()"
+      },
+      {
+        "level": 1,
+        "filename": "src/org/java_websocket/WebSocket.java",
+        "line_number": 248,
+        "column_number": -1,
+        "description": "call to void WebSocket.close(int,String)"
+      },
+      {
+        "level": 2,
+        "filename": "src/org/java_websocket/WebSocket.java",
+        "line_number": 369,
+        "column_number": -1,
+        "description": "call to void WebSocket.closeDirect(int,String)"
+      },
+      {
+        "level": 3,
+        "filename": "src/org/java_websocket/WebSocket.java",
+        "line_number": 380,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocket.closeHandshakeSent`"
+      }
+    ],
+    "key": "WebSocketServer.java|run|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "3e8e155c21568f9399617093c3d7af93",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.java_websocket.WebSocketServer.run` reads without synchronization from `this.org.java_websocket.WebSocketServer.server`. Potentially races with write in method `WebSocketServer.run()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 193,
+    "column": -1,
+    "procedure": "void WebSocketServer.run()",
+    "procedure_id": "org.java_websocket.WebSocketServer.run():void.cf601a20036ce74466c778316fcd84cc",
+    "procedure_start_line": 160,
+    "file": "src/org/java_websocket/WebSocketServer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 193,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 193,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.server`"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 165,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 165,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.server`"
+      }
+    ],
+    "key": "WebSocketServer.java|run|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "7df21079fca161506c2d0603d7831459",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.java_websocket.WebSocketServer.run` reads without synchronization from `this.org.java_websocket.WebSocketServer.thread`. Potentially races with write in method `WebSocketServer.run()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 176,
+    "column": -1,
+    "procedure": "void WebSocketServer.run()",
+    "procedure_id": "org.java_websocket.WebSocketServer.run():void.cf601a20036ce74466c778316fcd84cc",
+    "procedure_start_line": 160,
+    "file": "src/org/java_websocket/WebSocketServer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 176,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 176,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.thread`"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 163,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 163,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.thread`"
+      }
+    ],
+    "key": "WebSocketServer.java|run|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "b3628c0e8e4d90fe45fa98b2dffe8f0b",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.java_websocket.WebSocketServer.run` writes to field `this.org.java_websocket.WebSocketServer.selector` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 169,
+    "column": -1,
+    "procedure": "void WebSocketServer.run()",
+    "procedure_id": "org.java_websocket.WebSocketServer.run():void.cf601a20036ce74466c778316fcd84cc",
+    "procedure_start_line": 160,
+    "file": "src/org/java_websocket/WebSocketServer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 169,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.selector`"
+      }
+    ],
+    "key": "WebSocketServer.java|run|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "a41783659e911354b2a62ded1c1fe7d1",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.java_websocket.WebSocketServer.run` reads without synchronization from `this.org.java_websocket.WebSocketServer.address`. Potentially races with write in method `WebSocketServer.setAddress(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 167,
+    "column": -1,
+    "procedure": "void WebSocketServer.run()",
+    "procedure_id": "org.java_websocket.WebSocketServer.run():void.cf601a20036ce74466c778316fcd84cc",
+    "procedure_start_line": 160,
+    "file": "src/org/java_websocket/WebSocketServer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 167,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.address`"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 139,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 139,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.address`"
+      }
+    ],
+    "key": "WebSocketServer.java|run|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "d9e8a0839bdfbb9cf1c8b2e5a7c44a90",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.java_websocket.WebSocketServer.run` writes to field `this.org.java_websocket.WebSocketServer.server` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 165,
+    "column": -1,
+    "procedure": "void WebSocketServer.run()",
+    "procedure_id": "org.java_websocket.WebSocketServer.run():void.cf601a20036ce74466c778316fcd84cc",
+    "procedure_start_line": 160,
+    "file": "src/org/java_websocket/WebSocketServer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 165,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.server`"
+      }
+    ],
+    "key": "WebSocketServer.java|run|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "977205471d68db3ea5a9415de2c266ed",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.java_websocket.WebSocketServer.run` writes to field `this.org.java_websocket.WebSocketServer.thread` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 163,
+    "column": -1,
+    "procedure": "void WebSocketServer.run()",
+    "procedure_id": "org.java_websocket.WebSocketServer.run():void.cf601a20036ce74466c778316fcd84cc",
+    "procedure_start_line": 160,
+    "file": "src/org/java_websocket/WebSocketServer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 163,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.thread`"
+      }
+    ],
+    "key": "WebSocketServer.java|run|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "57e0a9bf5fc8428bf5da10eeb14d33ef",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.java_websocket.WebSocketServer.stop` reads without synchronization from `this.org.java_websocket.WebSocketServer.thread`. Potentially races with write in method `WebSocketServer.run()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 116,
+    "column": -1,
+    "procedure": "void WebSocketServer.stop()",
+    "procedure_id": "org.java_websocket.WebSocketServer.stop():void.374717adf1bc9ad57b1fbf34ddf295f6",
+    "procedure_start_line": 110,
+    "file": "src/org/java_websocket/WebSocketServer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 116,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 116,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.thread`"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 163,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 163,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.thread`"
+      }
+    ],
+    "key": "WebSocketServer.java|stop|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "276a6a3fea43119125c543ae45719ef4",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.java_websocket.WebSocketServer.start` reads without synchronization from `this.org.java_websocket.WebSocketServer.thread`. Potentially races with write in method `WebSocketServer.run()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 97,
+    "column": -1,
+    "procedure": "void WebSocketServer.start()",
+    "procedure_id": "org.java_websocket.WebSocketServer.start():void.6aff194462583471639dfab28e1e2655",
+    "procedure_start_line": 96,
+    "file": "src/org/java_websocket/WebSocketServer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 97,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 97,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.thread`"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 163,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/org/java_websocket/WebSocketServer.java",
+        "line_number": 163,
+        "column_number": -1,
+        "description": "access to `this.org.java_websocket.WebSocketServer.thread`"
+      }
+    ],
+    "key": "WebSocketServer.java|start|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "a273bf674069d7350f3d9bf12fdacdfa",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

@@ -1,0 +1,786 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang` indirectly reads without synchronization from `io.RefreshingOAuth2CredentialsInterceptorTest.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.executorService`. Potentially races with write in method `RefreshingOAuth2CredentialsInterceptorTest.setup()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 254,
+    "column": -1,
+    "procedure": "void RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang()",
+    "procedure_id": "com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang().451abf0723812ab6e1b099c9789a65f4",
+    "procedure_start_line": 195,
+    "file": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 254,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 254,
+        "column_number": -1,
+        "description": "call to void RefreshingOAuth2CredentialsInterceptorTest.syncCall(Object,Callable)"
+      },
+      {
+        "level": 1,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 260,
+        "column_number": -1,
+        "description": "access to `io.RefreshingOAuth2CredentialsInterceptorTest.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.executorService`"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 57,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 57,
+        "column_number": -1,
+        "description": "access to `io.RefreshingOAuth2CredentialsInterceptorTest.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.executorService`"
+      }
+    ],
+    "key": "RefreshingOAuth2CredentialsInterceptorTest.java|testRefreshDoesntHang|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "519adafb5c1247361cc401eab2ac779b",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang` reads with synchronization from `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`. Potentially races with unsynchronized write in method `RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 245,
+    "column": -1,
+    "procedure": "void RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang()",
+    "procedure_id": "com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang().451abf0723812ab6e1b099c9789a65f4",
+    "procedure_start_line": 195,
+    "file": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 245,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 245,
+        "column_number": -1,
+        "description": "access to `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 229,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 229,
+        "column_number": -1,
+        "description": "access to `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`"
+      }
+    ],
+    "key": "RefreshingOAuth2CredentialsInterceptorTest.java|testRefreshDoesntHang|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "64e831684923fd6d4a1a034405d38382",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang` indirectly reads without synchronization from `io.RefreshingOAuth2CredentialsInterceptor.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptor.clock`. Potentially races with write in method `RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 240,
+    "column": -1,
+    "procedure": "void RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang()",
+    "procedure_id": "com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang().451abf0723812ab6e1b099c9789a65f4",
+    "procedure_start_line": 195,
+    "file": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 240,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 240,
+        "column_number": -1,
+        "description": "call to RefreshingOAuth2CredentialsInterceptor$CacheState RefreshingOAuth2CredentialsInterceptor$HeaderCacheElement.getCacheState()"
+      },
+      {
+        "level": 1,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/main/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptor.java",
+        "line_number": 129,
+        "column_number": -1,
+        "description": "access to `io.RefreshingOAuth2CredentialsInterceptor.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptor.clock`"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 200,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 200,
+        "column_number": -1,
+        "description": "call to void RefreshingOAuth2CredentialsInterceptorTest.setTimeInMillieconds(long)"
+      },
+      {
+        "level": 1,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 77,
+        "column_number": -1,
+        "description": "access to `io.RefreshingOAuth2CredentialsInterceptor.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptor.clock`"
+      }
+    ],
+    "key": "RefreshingOAuth2CredentialsInterceptorTest.java|testRefreshDoesntHang|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "536d3171f711e98144dfe38f879a9140",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang` writes to field `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 229,
+    "column": -1,
+    "procedure": "void RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang()",
+    "procedure_id": "com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang().451abf0723812ab6e1b099c9789a65f4",
+    "procedure_start_line": 195,
+    "file": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 229,
+        "column_number": -1,
+        "description": "access to `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`"
+      }
+    ],
+    "key": "RefreshingOAuth2CredentialsInterceptorTest.java|testRefreshDoesntHang|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "09a6a917d663a3b07733659326a3a754",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang` indirectly writes to field `io.RefreshingOAuth2CredentialsInterceptor.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptor.clock` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 200,
+    "column": -1,
+    "procedure": "void RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang()",
+    "procedure_id": "com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang().451abf0723812ab6e1b099c9789a65f4",
+    "procedure_start_line": 195,
+    "file": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 200,
+        "column_number": -1,
+        "description": "call to void RefreshingOAuth2CredentialsInterceptorTest.setTimeInMillieconds(long)"
+      },
+      {
+        "level": 1,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 77,
+        "column_number": -1,
+        "description": "access to `io.RefreshingOAuth2CredentialsInterceptor.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptor.clock`"
+      }
+    ],
+    "key": "RefreshingOAuth2CredentialsInterceptorTest.java|testRefreshDoesntHang|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "e6c7afc6124a0144052e3afd7dc518ff",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterStale` indirectly reads with synchronization from `io.RefreshingOAuth2CredentialsInterceptor.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptor.clock`. Potentially races with unsynchronized write in method `RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 178,
+    "column": -1,
+    "procedure": "void RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterStale()",
+    "procedure_id": "com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterStale().97f1ed609bd5ce5e47922d7223876a4f",
+    "procedure_start_line": 143,
+    "file": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 178,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 178,
+        "column_number": -1,
+        "description": "call to RefreshingOAuth2CredentialsInterceptor$HeaderCacheElement RefreshingOAuth2CredentialsInterceptor.getHeaderSafe()"
+      },
+      {
+        "level": 1,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/main/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptor.java",
+        "line_number": 246,
+        "column_number": -1,
+        "description": "call to RefreshingOAuth2CredentialsInterceptor$HeaderCacheElement RefreshingOAuth2CredentialsInterceptor.getHeader()"
+      },
+      {
+        "level": 2,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/main/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptor.java",
+        "line_number": 265,
+        "column_number": -1,
+        "description": "call to RefreshingOAuth2CredentialsInterceptor$CacheState RefreshingOAuth2CredentialsInterceptor$HeaderCacheElement.getCacheState()"
+      },
+      {
+        "level": 3,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/main/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptor.java",
+        "line_number": 129,
+        "column_number": -1,
+        "description": "access to `io.RefreshingOAuth2CredentialsInterceptor.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptor.clock`"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 200,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 200,
+        "column_number": -1,
+        "description": "call to void RefreshingOAuth2CredentialsInterceptorTest.setTimeInMillieconds(long)"
+      },
+      {
+        "level": 1,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 77,
+        "column_number": -1,
+        "description": "access to `io.RefreshingOAuth2CredentialsInterceptor.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptor.clock`"
+      }
+    ],
+    "key": "RefreshingOAuth2CredentialsInterceptorTest.java|testRefreshAfterStale|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "884786184377290b5d787675f90a8158",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterStale` reads with synchronization from `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`. Potentially races with unsynchronized write in method `RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 174,
+    "column": -1,
+    "procedure": "void RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterStale()",
+    "procedure_id": "com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterStale().97f1ed609bd5ce5e47922d7223876a4f",
+    "procedure_start_line": 143,
+    "file": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 174,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 174,
+        "column_number": -1,
+        "description": "access to `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 229,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 229,
+        "column_number": -1,
+        "description": "access to `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`"
+      }
+    ],
+    "key": "RefreshingOAuth2CredentialsInterceptorTest.java|testRefreshAfterStale|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "5978d3e2a73513925534915161d4dc7e",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterStale` indirectly writes to field `io.RefreshingOAuth2CredentialsInterceptor.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptor.clock` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 163,
+    "column": -1,
+    "procedure": "void RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterStale()",
+    "procedure_id": "com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterStale().97f1ed609bd5ce5e47922d7223876a4f",
+    "procedure_start_line": 143,
+    "file": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 163,
+        "column_number": -1,
+        "description": "call to void RefreshingOAuth2CredentialsInterceptorTest.setTimeInMillieconds(long)"
+      },
+      {
+        "level": 1,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 77,
+        "column_number": -1,
+        "description": "access to `io.RefreshingOAuth2CredentialsInterceptor.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptor.clock`"
+      }
+    ],
+    "key": "RefreshingOAuth2CredentialsInterceptorTest.java|testRefreshAfterStale|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "8c49418fb385eee3b12eb78dc2152a54",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterStale` reads without synchronization from `io.RefreshingOAuth2CredentialsInterceptorTest.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.executorService`. Potentially races with write in method `RefreshingOAuth2CredentialsInterceptorTest.setup()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 144,
+    "column": -1,
+    "procedure": "void RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterStale()",
+    "procedure_id": "com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterStale().97f1ed609bd5ce5e47922d7223876a4f",
+    "procedure_start_line": 143,
+    "file": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 144,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 144,
+        "column_number": -1,
+        "description": "access to `io.RefreshingOAuth2CredentialsInterceptorTest.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.executorService`"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 57,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 57,
+        "column_number": -1,
+        "description": "access to `io.RefreshingOAuth2CredentialsInterceptorTest.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.executorService`"
+      }
+    ],
+    "key": "RefreshingOAuth2CredentialsInterceptorTest.java|testRefreshAfterStale|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "1645888ec9750e0bd348388ba8391114",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterFailure` reads without synchronization from `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`. Potentially races with write in method `RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 135,
+    "column": -1,
+    "procedure": "void RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterFailure()",
+    "procedure_id": "com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterFailure.8dce2846107f06d5c5088fad9469a3b3",
+    "procedure_start_line": 117,
+    "file": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 135,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 135,
+        "column_number": -1,
+        "description": "access to `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 229,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 229,
+        "column_number": -1,
+        "description": "access to `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`"
+      }
+    ],
+    "key": "RefreshingOAuth2CredentialsInterceptorTest.java|testRefreshAfterFailure|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "dbd91e6409a7c50892962412c6cdec6a",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterFailure` indirectly reads with synchronization from `io.RefreshingOAuth2CredentialsInterceptor.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptor.clock`. Potentially races with unsynchronized write in method `RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 135,
+    "column": -1,
+    "procedure": "void RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterFailure()",
+    "procedure_id": "com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterFailure.8dce2846107f06d5c5088fad9469a3b3",
+    "procedure_start_line": 117,
+    "file": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 135,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 135,
+        "column_number": -1,
+        "description": "call to RefreshingOAuth2CredentialsInterceptor$HeaderCacheElement RefreshingOAuth2CredentialsInterceptor.getHeaderSafe()"
+      },
+      {
+        "level": 1,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/main/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptor.java",
+        "line_number": 246,
+        "column_number": -1,
+        "description": "call to RefreshingOAuth2CredentialsInterceptor$HeaderCacheElement RefreshingOAuth2CredentialsInterceptor.getHeader()"
+      },
+      {
+        "level": 2,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/main/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptor.java",
+        "line_number": 265,
+        "column_number": -1,
+        "description": "call to RefreshingOAuth2CredentialsInterceptor$CacheState RefreshingOAuth2CredentialsInterceptor$HeaderCacheElement.getCacheState()"
+      },
+      {
+        "level": 3,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/main/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptor.java",
+        "line_number": 129,
+        "column_number": -1,
+        "description": "access to `io.RefreshingOAuth2CredentialsInterceptor.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptor.clock`"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 200,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 200,
+        "column_number": -1,
+        "description": "call to void RefreshingOAuth2CredentialsInterceptorTest.setTimeInMillieconds(long)"
+      },
+      {
+        "level": 1,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 77,
+        "column_number": -1,
+        "description": "access to `io.RefreshingOAuth2CredentialsInterceptor.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptor.clock`"
+      }
+    ],
+    "key": "RefreshingOAuth2CredentialsInterceptorTest.java|testRefreshAfterFailure|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "c0af5825bd280034bf47b14e2a03cd5a",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterFailure` writes to field `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 118,
+    "column": -1,
+    "procedure": "void RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterFailure()",
+    "procedure_id": "com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testRefreshAfterFailure.8dce2846107f06d5c5088fad9469a3b3",
+    "procedure_start_line": 117,
+    "file": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 118,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 118,
+        "column_number": -1,
+        "description": "access to `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 229,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 229,
+        "column_number": -1,
+        "description": "access to `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`"
+      }
+    ],
+    "key": "RefreshingOAuth2CredentialsInterceptorTest.java|testRefreshAfterFailure|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "698774d788f069643ff4a3aaf0308111",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testSyncRefresh` reads without synchronization from `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`. Potentially races with write in method `RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 88,
+    "column": -1,
+    "procedure": "void RefreshingOAuth2CredentialsInterceptorTest.testSyncRefresh()",
+    "procedure_id": "com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testSyncRefresh():void.877712d25d5de28799229480912c4cab",
+    "procedure_start_line": 86,
+    "file": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 88,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 88,
+        "column_number": -1,
+        "description": "access to `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 229,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 229,
+        "column_number": -1,
+        "description": "access to `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`"
+      }
+    ],
+    "key": "RefreshingOAuth2CredentialsInterceptorTest.java|testSyncRefresh|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "2e20628a60e29a0d4cd8430a16b8d779",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testSyncRefresh` indirectly reads without synchronization from `io.RefreshingOAuth2CredentialsInterceptor.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptor.clock`. Potentially races with write in method `RefreshingOAuth2CredentialsInterceptorTest.testRefreshDoesntHang()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 88,
+    "column": -1,
+    "procedure": "void RefreshingOAuth2CredentialsInterceptorTest.testSyncRefresh()",
+    "procedure_id": "com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testSyncRefresh():void.877712d25d5de28799229480912c4cab",
+    "procedure_start_line": 86,
+    "file": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 88,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 88,
+        "column_number": -1,
+        "description": "call to RefreshingOAuth2CredentialsInterceptor$CacheState RefreshingOAuth2CredentialsInterceptor$HeaderCacheElement.getCacheState()"
+      },
+      {
+        "level": 1,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/main/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptor.java",
+        "line_number": 129,
+        "column_number": -1,
+        "description": "access to `io.RefreshingOAuth2CredentialsInterceptor.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptor.clock`"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 200,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 200,
+        "column_number": -1,
+        "description": "call to void RefreshingOAuth2CredentialsInterceptorTest.setTimeInMillieconds(long)"
+      },
+      {
+        "level": 1,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 77,
+        "column_number": -1,
+        "description": "access to `io.RefreshingOAuth2CredentialsInterceptor.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptor.clock`"
+      }
+    ],
+    "key": "RefreshingOAuth2CredentialsInterceptorTest.java|testSyncRefresh|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "12d4170afeef99848ad785caf1d8e4eb",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testSyncRefresh` indirectly writes to field `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest` outside of synchronization.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 87,
+    "column": -1,
+    "procedure": "void RefreshingOAuth2CredentialsInterceptorTest.testSyncRefresh()",
+    "procedure_id": "com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.testSyncRefresh():void.877712d25d5de28799229480912c4cab",
+    "procedure_start_line": 86,
+    "file": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 87,
+        "column_number": -1,
+        "description": "<Write on unknown thread>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 87,
+        "column_number": -1,
+        "description": "call to void RefreshingOAuth2CredentialsInterceptorTest.initialize(long)"
+      },
+      {
+        "level": 1,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 289,
+        "column_number": -1,
+        "description": "access to `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 229,
+        "column_number": -1,
+        "description": "<Write on background thread>"
+      },
+      {
+        "level": 0,
+        "filename": "bigtable-client-core-parent/bigtable-client-core/src/test/java/com/google/cloud/bigtable/grpc/io/RefreshingOAuth2CredentialsInterceptorTest.java",
+        "line_number": 229,
+        "column_number": -1,
+        "description": "access to `this.com.google.cloud.bigtable.grpc.io.RefreshingOAuth2CredentialsInterceptorTest.underTest`"
+      }
+    ],
+    "key": "RefreshingOAuth2CredentialsInterceptorTest.java|testSyncRefresh|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "b30daf9223e876f9a6830303778d64cf",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

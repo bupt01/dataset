@@ -1,0 +1,177 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.copySnapshot` reads without synchronization from `this.org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.live.[_]`. Potentially races with write in method `SnapshotableShortArray.set(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 88,
+    "column": -1,
+    "procedure": "void SnapshotableShortArray.copySnapshot()",
+    "procedure_id": "org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.copySnapshot():void.f5fdead4f6565807b0f9eecbdd8081e7",
+    "procedure_start_line": 79,
+    "file": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+        "line_number": 88,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+        "line_number": 88,
+        "column_number": -1,
+        "description": "access to `this.org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.live.[_]`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+        "line_number": 66,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+        "line_number": 66,
+        "column_number": -1,
+        "description": "access to `this.org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.live.[_]`"
+      }
+    ],
+    "key": "SnapshotableShortArray.java|copySnapshot|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "8d78ae8dd97ef9119f0ee7781bee17f7",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.copySnapshot` reads without synchronization from `this.org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.dirtyArray.[_]`. Potentially races with write in method `SnapshotableShortArray.set(...)`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 83,
+    "column": -1,
+    "procedure": "void SnapshotableShortArray.copySnapshot()",
+    "procedure_id": "org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.copySnapshot():void.f5fdead4f6565807b0f9eecbdd8081e7",
+    "procedure_start_line": 79,
+    "file": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+        "line_number": 83,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+        "line_number": 83,
+        "column_number": -1,
+        "description": "access to `this.org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.dirtyArray.[_]`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+        "line_number": 70,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+        "line_number": 70,
+        "column_number": -1,
+        "description": "access to `this.org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.dirtyArray.[_]`"
+      }
+    ],
+    "key": "SnapshotableShortArray.java|copySnapshot|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "62fe08054123d1af454452f84379d1cd",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.set` reads without synchronization from `this.org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.snapshot.[_]`. Potentially races with write in method `SnapshotableShortArray.copySnapshot()`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 72,
+    "column": -1,
+    "procedure": "short SnapshotableShortArray.set(int,short)",
+    "procedure_id": "org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.set(int,short):short.a8e85ea3a0c05d71bbe8abd356f4cc49",
+    "procedure_start_line": 64,
+    "file": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+        "line_number": 72,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+        "line_number": 72,
+        "column_number": -1,
+        "description": "access to `this.org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.snapshot.[_]`"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+        "line_number": 88,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+        "line_number": 88,
+        "column_number": -1,
+        "description": "access to `this.org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.snapshot.[_]`"
+      }
+    ],
+    "key": "SnapshotableShortArray.java|set|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "901b37496f641546a55799a26bfb79b7",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.set` writes to field `this.org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.dirtyArray.[_]` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 70,
+    "column": -1,
+    "procedure": "short SnapshotableShortArray.set(int,short)",
+    "procedure_id": "org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.set(int,short):short.a8e85ea3a0c05d71bbe8abd356f4cc49",
+    "procedure_start_line": 64,
+    "file": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "src/main/java/org/getspout/server/util/thread/snapshotable/SnapshotableShortArray.java",
+        "line_number": 70,
+        "column_number": -1,
+        "description": "access to `this.org.getspout.server.util.thread.snapshotable.SnapshotableShortArray.dirtyArray.[_]`"
+      }
+    ],
+    "key": "SnapshotableShortArray.java|set|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "6d5fd052026c440ca378348a04d29ecb",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

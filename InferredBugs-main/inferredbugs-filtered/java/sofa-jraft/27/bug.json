@@ -1,0 +1,317 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.alipay.sofa.jraft.core.NodeImpl.shutdown` reads with synchronization from `this.com.alipay.sofa.jraft.core.NodeImpl.snapshotTimer`. Potentially races with unsynchronized write in method `NodeImpl.init(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 2361,
+    "column": -1,
+    "procedure": "void NodeImpl.shutdown(Closure)",
+    "procedure_id": "com.alipay.sofa.jraft.core.NodeImpl.shutdown(com.alipay.sofa.jraft.Closure):void.a5f33d4af16042ae72f80f411c7e72c5",
+    "procedure_start_line": 2337,
+    "file": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 2361,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 2361,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.core.NodeImpl.snapshotTimer`"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 739,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 739,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.core.NodeImpl.snapshotTimer`"
+      }
+    ],
+    "key": "NodeImpl.java|shutdown|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "8d9149b701a32ce9b80aba6b6c510dbd",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.alipay.sofa.jraft.core.NodeImpl.shutdown` reads with synchronization from `this.com.alipay.sofa.jraft.core.NodeImpl.stepDownTimer`. Potentially races with unsynchronized write in method `NodeImpl.init(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 2358,
+    "column": -1,
+    "procedure": "void NodeImpl.shutdown(Closure)",
+    "procedure_id": "com.alipay.sofa.jraft.core.NodeImpl.shutdown(com.alipay.sofa.jraft.Closure):void.a5f33d4af16042ae72f80f411c7e72c5",
+    "procedure_start_line": 2337,
+    "file": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 2358,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 2358,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.core.NodeImpl.stepDownTimer`"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 732,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 732,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.core.NodeImpl.stepDownTimer`"
+      }
+    ],
+    "key": "NodeImpl.java|shutdown|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "0734992037022a8d7cec4e69f609436f",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.alipay.sofa.jraft.core.NodeImpl.shutdown` reads with synchronization from `this.com.alipay.sofa.jraft.core.NodeImpl.voteTimer`. Potentially races with unsynchronized write in method `NodeImpl.init(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 2355,
+    "column": -1,
+    "procedure": "void NodeImpl.shutdown(Closure)",
+    "procedure_id": "com.alipay.sofa.jraft.core.NodeImpl.shutdown(com.alipay.sofa.jraft.Closure):void.a5f33d4af16042ae72f80f411c7e72c5",
+    "procedure_start_line": 2337,
+    "file": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 2355,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 2355,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.core.NodeImpl.voteTimer`"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 708,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 708,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.core.NodeImpl.voteTimer`"
+      }
+    ],
+    "key": "NodeImpl.java|shutdown|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "5a48d9a6ff572591455977bdf986407d",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.alipay.sofa.jraft.core.NodeImpl.shutdown` reads with synchronization from `this.com.alipay.sofa.jraft.core.NodeImpl.electionTimer`. Potentially races with unsynchronized write in method `NodeImpl.init(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 2352,
+    "column": -1,
+    "procedure": "void NodeImpl.shutdown(Closure)",
+    "procedure_id": "com.alipay.sofa.jraft.core.NodeImpl.shutdown(com.alipay.sofa.jraft.Closure):void.a5f33d4af16042ae72f80f411c7e72c5",
+    "procedure_start_line": 2337,
+    "file": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 2352,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 2352,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.core.NodeImpl.electionTimer`"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 720,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 720,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.core.NodeImpl.electionTimer`"
+      }
+    ],
+    "key": "NodeImpl.java|shutdown|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "23c528e539cd5a9a96cd1400a291e5ad",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `com.alipay.sofa.jraft.core.NodeImpl.shutdown` indirectly reads with synchronization from `n$20.com.alipay.sofa.jraft.entity.PeerId.endpoint.com.alipay.sofa.jraft.util.Endpoint.str`. Potentially races with unsynchronized write in method `NodeImpl.init(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 2346,
+    "column": -1,
+    "procedure": "void NodeImpl.shutdown(Closure)",
+    "procedure_id": "com.alipay.sofa.jraft.core.NodeImpl.shutdown(com.alipay.sofa.jraft.Closure):void.a5f33d4af16042ae72f80f411c7e72c5",
+    "procedure_start_line": 2337,
+    "file": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 2346,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 2346,
+        "column_number": -1,
+        "description": "call to void NodeImpl.stepDown(long,boolean,Status)"
+      },
+      {
+        "level": 1,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 1041,
+        "column_number": -1,
+        "description": "call to boolean Replicator.sendTimeoutNowAndStop(ThreadId,int)"
+      },
+      {
+        "level": 2,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/Replicator.java",
+        "line_number": 1709,
+        "column_number": -1,
+        "description": "call to void Replicator.sendTimeoutNow(boolean,boolean,int)"
+      },
+      {
+        "level": 3,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/Replicator.java",
+        "line_number": 1567,
+        "column_number": -1,
+        "description": "call to String PeerId.toString()"
+      },
+      {
+        "level": 4,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/entity/PeerId.java",
+        "line_number": 137,
+        "column_number": -1,
+        "description": "call to String Endpoint.toString()"
+      },
+      {
+        "level": 5,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/util/Endpoint.java",
+        "line_number": 61,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.util.Endpoint.str`"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 853,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 853,
+        "column_number": -1,
+        "description": "call to void NodeImpl.stepDown(long,boolean,Status)"
+      },
+      {
+        "level": 1,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/NodeImpl.java",
+        "line_number": 1041,
+        "column_number": -1,
+        "description": "call to boolean Replicator.sendTimeoutNowAndStop(ThreadId,int)"
+      },
+      {
+        "level": 2,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/Replicator.java",
+        "line_number": 1709,
+        "column_number": -1,
+        "description": "call to void Replicator.sendTimeoutNow(boolean,boolean,int)"
+      },
+      {
+        "level": 3,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/core/Replicator.java",
+        "line_number": 1567,
+        "column_number": -1,
+        "description": "call to String PeerId.toString()"
+      },
+      {
+        "level": 4,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/entity/PeerId.java",
+        "line_number": 137,
+        "column_number": -1,
+        "description": "call to String Endpoint.toString()"
+      },
+      {
+        "level": 5,
+        "filename": "jraft-core/src/main/java/com/alipay/sofa/jraft/util/Endpoint.java",
+        "line_number": 62,
+        "column_number": -1,
+        "description": "access to `this.com.alipay.sofa.jraft.util.Endpoint.str`"
+      }
+    ],
+    "key": "NodeImpl.java|shutdown|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "41b9c42d8d58b63e843d6b5f9a616ddd",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]

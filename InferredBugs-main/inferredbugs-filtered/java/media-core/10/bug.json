@@ -1,0 +1,737 @@
+[
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` indirectly writes to field `this.org.mobicents.media.server.impl.rtp.JitterBuffer.rtpClock.org.mobicents.media.server.impl.rtp.RtpClock.drift` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 226,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 226,
+        "column_number": -1,
+        "description": "call to void RtpClock.synchronize(long)"
+      },
+      {
+        "level": 1,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/RtpClock.java",
+        "line_number": 91,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.RtpClock.drift`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "2a1a61eb4677b852af8a34a028113902",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` reads without synchronization from `this.org.mobicents.media.server.impl.rtp.JitterBuffer.isn`. Potentially races with write in method `JitterBuffer.write(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 225,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 225,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 225,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.isn`"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 227,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 227,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.isn`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "c14111673f07b84aca9f842cffaebdaf",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` writes to field `this.org.mobicents.media.server.impl.rtp.JitterBuffer.format` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 220,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 220,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.format`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "cc40b0fb4015ffe286ab8169559283fb",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` reads without synchronization from `this.org.mobicents.media.server.impl.rtp.JitterBuffer.listener`. Potentially races with write in method `JitterBuffer.setListener(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 322,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 322,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 322,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.listener`"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 204,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 204,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.listener`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "b69035b6e5223ce26b9da9b2e65e0911",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` reads without synchronization from `this.org.mobicents.media.server.impl.rtp.JitterBuffer.useBuffer`. Potentially races with write in method `JitterBuffer.setBufferInUse(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 320,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 320,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 320,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.useBuffer`"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 195,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 195,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.useBuffer`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "6c7f9ca6298f4d1c985431b3a721474d",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` reads with synchronization from `this.org.mobicents.media.server.impl.rtp.JitterBuffer.dropCount`. Potentially races with unsynchronized write in method `JitterBuffer.write(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 313,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 313,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 313,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.dropCount`"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 241,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 241,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.dropCount`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "62f24245c7ea87b435aa6df8c65b4000",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` reads without synchronization from `this.org.mobicents.media.server.impl.rtp.JitterBuffer.format`. Potentially races with write in method `JitterBuffer.write(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 263,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 263,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 263,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.format`"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 220,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 220,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.format`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "2eb460dcf99848d7a5c3c0c5ed420b75",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` indirectly reads without synchronization from `this.org.mobicents.media.server.impl.rtp.JitterBuffer.rtpClock.org.mobicents.media.server.impl.rtp.RtpClock.clockRate`. Potentially races with write in method `JitterBuffer.write(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 257,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 257,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 257,
+        "column_number": -1,
+        "description": "call to long RtpClock.convertToAbsoluteTime(long)"
+      },
+      {
+        "level": 1,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/RtpClock.java",
+        "line_number": 128,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.RtpClock.clockRate`"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 234,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 234,
+        "column_number": -1,
+        "description": "call to void RtpClock.setClockRate(int)"
+      },
+      {
+        "level": 1,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/RtpClock.java",
+        "line_number": 72,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.RtpClock.clockRate`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "6b491f17b09bf145ab72f51d96d7125c",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` indirectly writes to field `x.org.mobicents.media.server.concurrent.ConcurrentCyclicFIFO$Node.item` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 252,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 252,
+        "column_number": -1,
+        "description": "call to Frame Memory.allocate(int)"
+      },
+      {
+        "level": 1,
+        "filename": "spi/src/main/java/org/mobicents/media/server/spi/memory/Memory.java",
+        "line_number": 46,
+        "column_number": -1,
+        "description": "call to Frame Partition.allocate()"
+      },
+      {
+        "level": 2,
+        "filename": "spi/src/main/java/org/mobicents/media/server/spi/memory/Partition.java",
+        "line_number": 42,
+        "column_number": -1,
+        "description": "call to Object ConcurrentCyclicFIFO.poll()"
+      },
+      {
+        "level": 3,
+        "filename": "concurrent/src/main/java/org/mobicents/media/server/concurrent/ConcurrentCyclicFIFO.java",
+        "line_number": 192,
+        "column_number": -1,
+        "description": "access to `x.org.mobicents.media.server.concurrent.ConcurrentCyclicFIFO$Node.item`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "f7ef57a5d35b22a7af718f13a482a0c2",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` writes to field `this.org.mobicents.media.server.impl.rtp.JitterBuffer.arrivalDeadLine` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 246,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 246,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.arrivalDeadLine`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "170df1915d5c756644ca65b6e57173ac",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` reads without synchronization from `this.org.mobicents.media.server.impl.rtp.JitterBuffer.droppedInRaw`. Potentially races with write in method `JitterBuffer.write(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 245,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 245,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 245,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.droppedInRaw`"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 269,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 269,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.droppedInRaw`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "999413ef365f34c2d6dc68ab252dccbf",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` writes to field `this.org.mobicents.media.server.impl.rtp.JitterBuffer.droppedInRaw` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 244,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 244,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.droppedInRaw`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "1913bd60b755d0cb1dcb40ba87f01144",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` writes to field `this.org.mobicents.media.server.impl.rtp.JitterBuffer.dropCount` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 241,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 241,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.dropCount`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "8e57a1f56f26b3b53bcdc8963af1f5a9",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Read/Write race. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` reads without synchronization from `this.org.mobicents.media.server.impl.rtp.JitterBuffer.arrivalDeadLine`. Potentially races with write in method `JitterBuffer.write(...)`.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 240,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 240,
+        "column_number": -1,
+        "description": "<Read trace>"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 240,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.arrivalDeadLine`"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 246,
+        "column_number": -1,
+        "description": "<Write trace>"
+      },
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 246,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.arrivalDeadLine`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "91fab2536910266b05deea6f258800d3",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` indirectly writes to field `this.org.mobicents.media.server.impl.rtp.JitterBuffer.rtpClock.org.mobicents.media.server.impl.rtp.RtpClock.scale` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 234,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 234,
+        "column_number": -1,
+        "description": "call to void RtpClock.setClockRate(int)"
+      },
+      {
+        "level": 1,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/RtpClock.java",
+        "line_number": 73,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.RtpClock.scale`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "883fcfbdaf53db51b014ddabc78545b6",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` indirectly writes to field `this.org.mobicents.media.server.impl.rtp.JitterBuffer.currentJitter` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 230,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 230,
+        "column_number": -1,
+        "description": "call to void JitterBuffer.estimateJitter(RtpPacket)"
+      },
+      {
+        "level": 1,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 143,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.currentJitter`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "4122e48d983b33ae50e9f958271921ae",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` indirectly writes to field `this.org.mobicents.media.server.impl.rtp.JitterBuffer.currentTransit` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 228,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 228,
+        "column_number": -1,
+        "description": "call to void JitterBuffer.initJitter(RtpPacket)"
+      },
+      {
+        "level": 1,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 125,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.currentTransit`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "02f0e919a5252e17388021803ef03ddf",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  },
+  {
+    "bug_class": "PROVER",
+    "kind": "ERROR",
+    "bug_type": "THREAD_SAFETY_VIOLATION",
+    "qualifier": "Unprotected write. Non-private method `org.mobicents.media.server.impl.rtp.JitterBuffer.write` writes to field `this.org.mobicents.media.server.impl.rtp.JitterBuffer.isn` outside of synchronization.\n Reporting because this access may occur on a background thread.",
+    "severity": "HIGH",
+    "visibility": "user",
+    "line": 227,
+    "column": -1,
+    "procedure": "void JitterBuffer.write(RtpPacket,RTPFormat)",
+    "procedure_id": "org.mobicents.media.server.impl.rtp.JitterBuffer.write(org.mobicents.media.server.impl.rtp.RtpPacket.6c3d4cbcf94252696caa4a5dcec4e6ba",
+    "procedure_start_line": 212,
+    "file": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+    "bug_trace": [
+      {
+        "level": 0,
+        "filename": "io/rtp/src/main/java/org/mobicents/media/server/impl/rtp/JitterBuffer.java",
+        "line_number": 227,
+        "column_number": -1,
+        "description": "access to `this.org.mobicents.media.server.impl.rtp.JitterBuffer.isn`"
+      }
+    ],
+    "key": "JitterBuffer.java|write|THREAD_SAFETY_VIOLATION",
+    "node_key": "9c5d6d9028928346cc4fb44cced5dea1",
+    "hash": "c699fc59b9a01046296e251bc1e3f941",
+    "bug_type_hum": "Thread Safety Violation",
+    "censored_reason": ""
+  }
+]
