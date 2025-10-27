@@ -1,0 +1,93 @@
+[
+  {
+    "bug_type":"THREAD_SAFETY_VIOLATION_2",
+    "qualifier":"Read/Write race. Non-private method `BuggyProgram$User.run()` reads without synchronization from `this.this$0.randomNumber`. Potentially races with write in method `BuggyProgram$User.generate()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity":"WARNING",
+    "line":313,
+    "column":-1,
+    "procedure":"buggyprogram.BuggyProgram$User.run():void",
+    "procedure_start_line":0,
+    "file":"BuggyProgram.java",
+    "bug_trace":[
+      {
+        "level":0,
+        "filename":"BuggyProgram.java",
+        "line_number":313,
+        "column_number":-1,
+        "description":"<Read trace>"
+      },
+      {
+        "level":0,
+        "filename":"BuggyProgram.java",
+        "line_number":313,
+        "column_number":-1,
+        "description":"access to `this.this$0.randomNumber`"
+      },
+      {
+        "level":0,
+        "filename":"BuggyProgram.java",
+        "line_number":338,
+        "column_number":-1,
+        "description":"<Write trace>"
+      },
+      {"level":0,
+        "filename":"BuggyProgram.java",
+        "line_number":338,
+        "column_number":-1,
+        "description":"access to `this.this$0.randomNumber`"
+      }
+    ],
+    "key":"BuggyProgram.java|run|THREAD_SAFETY_VIOLATION_2",
+    "hash":"db590e3268c3b2185385f61569b294c8",
+    "bug_type_hum":"Thread Safety Violation 2",
+    "access":"hJWmvgAAADUAAAAIAAAAHgAAABqgsAEBOQD/kjFCdWdneVByb2dyYW0uamF2YaCwAQFSAP+SMUJ1Z2d5UHJvZ3JhbS5qYXZhQA==",
+    "snapshot1":"afdfd5dd782168ab019eba2d9ed189ac",
+    "snapshot2":"378168a27ed0ac13cc3b2b9b86d2de45"
+  },
+  {
+    "bug_type":"THREAD_SAFETY_VIOLATION_2",
+    "qualifier":"Read/Write race. Non-private method `BuggyProgram$User.run()` reads without synchronization from `buggyprogram.BuggyProgram.history.[_]`. Potentially races with write in method `BuggyProgram$User.record()`.\n Reporting because another access to the same memory occurs on a background thread, although this access may not.",
+    "severity":"WARNING",
+    "line":313,
+    "column":-1,
+    "procedure":"buggyprogram.BuggyProgram$User.run():void",
+    "procedure_start_line":0,
+    "file":"BuggyProgram.java",
+    "bug_trace":
+    [
+      {
+        "level":0,
+        "filename":"BuggyProgram.java",
+        "line_number":313,
+        "column_number":-1,
+        "description":"<Read trace>"
+      },
+      {
+        "level":0,
+        "filename":"BuggyProgram.java",
+        "line_number":313,
+        "column_number":-1,
+        "description":"access to `buggyprogram.BuggyProgram.history.[_]`"
+      },
+      {
+        "level":0,
+        "filename":"BuggyProgram.java",
+        "line_number":370,
+        "column_number":-1,
+        "description":"<Write trace>"
+      },
+      {"level":0,
+        "filename":"BuggyProgram.java",
+        "line_number":370,
+        "column_number":-1,
+        "description":"access to `buggyprogram.BuggyProgram.history.[_]`"
+      }
+    ],
+    "key":"BuggyProgram.java|run|THREAD_SAFETY_VIOLATION_2",
+    "hash":"a641c5d7a92e1e8d0f69a152d66a86b5",
+    "bug_type_hum":"Thread Safety Violation 2",
+    "access":"hJWmvgAAADUAAAAIAAAAHgAAABqgsAEBOQD/kjFCdWdneVByb2dyYW0uamF2YaCwAQFyAP+SMUJ1Z2d5UHJvZ3JhbS5qYXZhQA==",
+    "snapshot1":"f9f43ce6cd76be21948d315c910bbd20",
+    "snapshot2":"a353af5989c34ed0b5b42ad39763e931"
+  }
+]
