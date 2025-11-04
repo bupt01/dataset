@@ -1,52 +1,52 @@
-# import json
-# import os
-#
-# root_dir = r'E:\PycharmProjects\pythonProject2\InferredBugs-main\inferredbugs\java'
-# i=0
-# # 遍历所有项目文件夹
-# for project_name in os.listdir(root_dir):
-#     project_path = os.path.join(root_dir, project_name)
-#     if not os.path.isdir(project_path):
-#         continue
-#
-#     seen_bug_content = {}  # 用于存储 (before + after) 内容 -> bug_folder
-#
-#     # 遍历项目中的所有 bug 子文件夹
-#     for bug_folder in os.listdir(project_path):
-#         bug_path = os.path.join(project_path, bug_folder)
-#         if not os.path.isdir(bug_path):
-#             continue
-#
-#         file_before_path = os.path.join(bug_path, 'file_before.txt')
-#         file_after_path = os.path.join(bug_path, 'file_after.txt')
-#         commit_info_path=os.path.join(bug_path,'commit_info.json')
-#
-#         if not os.path.isfile(file_before_path) or not os.path.isfile(file_after_path):
-#             continue
-#
-#         try:
-#             with open(file_before_path, 'r', encoding='utf-8') as f1:
-#                 before_content = f1.read().strip()
-#             with open(file_after_path, 'r', encoding='utf-8') as f2:
-#                 after_content = f2.read().strip()
-#             with open(commit_info_path, 'r', encoding='utf-8') as f1:
-#                 commit_info = json.load(f1)
-#                 commit_info = json.dumps(commit_info, sort_keys=True)
-#
-#         except Exception as e:
-#             print(f"[读取失败] {bug_path}，错误：{e}")
-#             continue
-#
-#         combined_content = before_content + '\n====AFTER====\n' + after_content+'\n====COMMIT====\n'+commit_info
-#
-#         if combined_content in seen_bug_content:
-#             existing_folder = seen_bug_content[combined_content]
-#             i=i+1
-#             print(f"[重复] 项目 {project_name} 中，'{bug_folder}' 与 '{existing_folder}' 的 file_before.txt 和 file_after.txt 内容相同")
-#         else:
-#             seen_bug_content[combined_content] = bug_folder
-# print(i)
-#
+import json
+import os
+
+root_dir = r'E:\PycharmProjects\dataset\InferredBugs-main\inferredbugs\java'
+i=0
+# 遍历所有项目文件夹
+for project_name in os.listdir(root_dir):
+    project_path = os.path.join(root_dir, project_name)
+    if not os.path.isdir(project_path):
+        continue
+
+    seen_bug_content = {}  # 用于存储 (before + after) 内容 -> bug_folder
+
+    # 遍历项目中的所有 bug 子文件夹
+    for bug_folder in os.listdir(project_path):
+        bug_path = os.path.join(project_path, bug_folder)
+        if not os.path.isdir(bug_path):
+            continue
+
+        file_before_path = os.path.join(bug_path, 'file_before.txt')
+        file_after_path = os.path.join(bug_path, 'file_after.txt')
+        commit_info_path=os.path.join(bug_path,'commit_info.json')
+
+        if not os.path.isfile(file_before_path) or not os.path.isfile(file_after_path):
+            continue
+
+        try:
+            with open(file_before_path, 'r', encoding='utf-8') as f1:
+                before_content = f1.read().strip()
+            with open(file_after_path, 'r', encoding='utf-8') as f2:
+                after_content = f2.read().strip()
+            with open(commit_info_path, 'r', encoding='utf-8') as f1:
+                commit_info = json.load(f1)
+                commit_info = json.dumps(commit_info, sort_keys=True)
+
+        except Exception as e:
+            print(f"[读取失败] {bug_path}，错误：{e}")
+            continue
+
+        combined_content = before_content + '\n====AFTER====\n' + after_content+'\n====COMMIT====\n'+commit_info
+
+        if combined_content in seen_bug_content:
+            existing_folder = seen_bug_content[combined_content]
+            i=i+1
+            print(f"[重复] 项目 {project_name} 中，'{bug_folder}' 与 '{existing_folder}' 的 file_before.txt 和 file_after.txt 内容相同")
+        else:
+            seen_bug_content[combined_content] = bug_folder
+print(i)
+
 # import os
 # import json
 # import shutil
@@ -247,52 +247,52 @@
 
 import os
 import json
-
-root_dir = r'E:\PycharmProjects\pythonProject2\InferredBugs-main\inferredbugs-filtered\java'
-i=0
-for project_name in os.listdir(root_dir):
-    project_path = os.path.join(root_dir, project_name)
-    if not os.path.isdir(project_path):
-        continue
-
-    for bug_folder in os.listdir(project_path):
-        i=i+1
-        bug_path = os.path.join(project_path, bug_folder)
-        bug_json_path = os.path.join(bug_path, 'bug.json')
-
-        if not os.path.isfile(bug_json_path):
-            continue
-
-        try:
-            with open(bug_json_path, 'r', encoding='utf-8') as f:
-                bug_list = json.load(f)
-        except Exception as e:
-            print(f"读取 JSON 出错：{bug_json_path}，错误信息：{e}")
-            continue
-
-        new_bug_list = []
-
-        for bug in bug_list:
-            if not isinstance(bug, dict):
-                continue
-            bug_trace = bug.get("bug_trace", [])
-            if not isinstance(bug_trace, list) or len(bug_trace) == 0:
-                continue
-
-            filenames = [item.get("filename") for item in bug_trace if isinstance(item, dict) and "filename" in item]
-            if len(filenames) == 0:
-                continue
-
-            if all(fname == filenames[0] for fname in filenames):
-                new_bug_list.append(bug)  # 只有合法的才保留
-
-        # 如果有修改，覆盖写回文件
-        if len(new_bug_list) < len(bug_list):
-            pass
-            # try:
-            #     with open(bug_json_path, 'w', encoding='utf-8') as f:
-            #         json.dump(new_bug_list, f, indent=2, ensure_ascii=False)
-            #     print(f"已删除非法 bug，更新文件：{bug_json_path}")
-            # except Exception as e:
-            #     print(f"写入 JSON 出错：{bug_json_path}，错误信息：{e}")
-print(i)
+#
+# root_dir = r'E:\PycharmProjects\pythonProject2\InferredBugs-main\inferredbugs-filtered\java'
+# i=0
+# for project_name in os.listdir(root_dir):
+#     project_path = os.path.join(root_dir, project_name)
+#     if not os.path.isdir(project_path):
+#         continue
+#
+#     for bug_folder in os.listdir(project_path):
+#         i=i+1
+#         bug_path = os.path.join(project_path, bug_folder)
+#         bug_json_path = os.path.join(bug_path, 'bug.json')
+#
+#         if not os.path.isfile(bug_json_path):
+#             continue
+#
+#         try:
+#             with open(bug_json_path, 'r', encoding='utf-8') as f:
+#                 bug_list = json.load(f)
+#         except Exception as e:
+#             print(f"读取 JSON 出错：{bug_json_path}，错误信息：{e}")
+#             continue
+#
+#         new_bug_list = []
+#
+#         for bug in bug_list:
+#             if not isinstance(bug, dict):
+#                 continue
+#             bug_trace = bug.get("bug_trace", [])
+#             if not isinstance(bug_trace, list) or len(bug_trace) == 0:
+#                 continue
+#
+#             filenames = [item.get("filename") for item in bug_trace if isinstance(item, dict) and "filename" in item]
+#             if len(filenames) == 0:
+#                 continue
+#
+#             if all(fname == filenames[0] for fname in filenames):
+#                 new_bug_list.append(bug)  # 只有合法的才保留
+#
+#         # 如果有修改，覆盖写回文件
+#         if len(new_bug_list) < len(bug_list):
+#             pass
+#             # try:
+#             #     with open(bug_json_path, 'w', encoding='utf-8') as f:
+#             #         json.dump(new_bug_list, f, indent=2, ensure_ascii=False)
+#             #     print(f"已删除非法 bug，更新文件：{bug_json_path}")
+#             # except Exception as e:
+#             #     print(f"写入 JSON 出错：{bug_json_path}，错误信息：{e}")
+# print(i)
